@@ -498,15 +498,16 @@
   .ftl-pill.named:hover { background: var(--accent-glow); border-color: var(--accent); }
 
   /* ── RESOURCE RULES ── */
-  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 24px; }
-  .rule-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 3px; padding: 12px; position: relative; }
+  .rule-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 3px; padding: 24px; position: relative; width: 100%; }
   .rule-card.filtered { border-color: var(--accent); }
-  .rule-name { font-family: var(--head); font-size: var(--fs-md); font-weight: 600; letter-spacing: 1px; color: var(--gold); margin-bottom: 8px; }
-  .rule-source { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: var(--fs-md); }
+  .rule-name { font-family: var(--head); font-size: var(--fs-2xl); font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 16px; text-transform: uppercase; }
+  .rule-sources-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  .rule-source { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: var(--fs-base); }
   .rule-source:last-child { border-bottom: none; }
-  .rule-source-name { color: var(--text2); font-family: var(--mono); font-size: var(--fs-sm); }
-  .rule-source-rate { color: var(--green); font-family: var(--mono); font-size: var(--fs-sm); }
-  .rule-card-footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+  .rule-source:hover { background: var(--bg3); }
+  .rule-source-name { color: var(--text2); font-family: var(--mono); font-size: var(--fs-md); letter-spacing: 1px; }
+  .rule-source-rate { color: var(--green); font-family: var(--mono); font-size: var(--fs-md); font-weight: 600; letter-spacing: 1px; }
+  .rule-card-footer { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
   .rule-filter-btn {
     font-family: var(--mono); font-size: var(--fs-sm);
     color: var(--text3); border: 1px solid var(--border2);
@@ -698,6 +699,8 @@ function resetApp() {
   activeView = null;
   sectorOpen = {};
   resourceFilter = null;
+  document.getElementById('map-info-region').textContent  = '—';
+  document.getElementById('map-info-quadrant').textContent = '—';
   document.getElementById('topbar-map-info').style.display = 'none';
   fileInput.value = '';
 
@@ -722,7 +725,14 @@ function updateTopbarStat() {
 }
 
 function updateMapInfo() {
-  if (!atlasData || !atlasData.map_info) return;
+  // Always reset first so stale values from a previous file don't persist
+  document.getElementById('map-info-region').textContent  = '—';
+  document.getElementById('map-info-quadrant').textContent = '—';
+
+  if (!atlasData || !atlasData.map_info) {
+    document.getElementById('topbar-map-info').style.display = 'none';
+    return;
+  }
   const info = atlasData.map_info;
   const el = document.getElementById('topbar-map-info');
   if (info.region)   document.getElementById('map-info-region').textContent   = info.region;
@@ -1093,36 +1103,25 @@ function renderDetail() {
 
 function renderRulesDetail(panel) {
   const rules = atlasData.universe_rules;
-  if (!rules) { panel.innerHTML = `<div class="detail-empty"><div class="detail-empty-text">No resource data found</div></div>`; return; }
+  if (!rules) { panel.innerHTML = '<div class="detail-empty"><div class="detail-empty-text">No resource data found</div></div>'; return; }
 
-  let html = `<div class="sys-header">
-    <div>
-      <div class="sys-title-code">// DATA INDEX //</div>
-      <div class="sys-title">Resource Index</div>
-    </div>
-  </div>
-  <div class="section-head">Yield rates by source node</div>
-  <div class="rules-grid">`;
+  const res = activeSystemCode;
+  const sources = res ? rules[res] : null;
+  if (!res || !sources) {
+    panel.innerHTML = '<div class="detail-empty"><div class="detail-empty-icon">\u25c8</div><div class="detail-empty-text">Select a resource from the index</div></div>';
+    return;
+  }
 
-  Object.entries(rules).forEach(([res, sources]) => {
-    const isFiltered = resourceFilter === res;
-    const highlight = isFiltered ? 'border-color: var(--accent);' : '';
-    html += `<div class="rule-card ${isFiltered ? 'filtered' : ''}" style="${highlight}">
-      <div class="rule-name">${res}</div>
-      ${Object.entries(sources).map(([src,rate]) =>
-        `<div class="rule-source"><span class="rule-source-name">${src}</span><span class="rule-source-rate">${rate}</span></div>`
-      ).join('')}
-      <div class="rule-card-footer">
-        <button class="rule-filter-btn ${isFiltered ? 'active' : ''}" onclick="setResourceFilter('${res}')" title="${isFiltered ? 'Clear filter' : 'Find planets with this resource'}">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          ${isFiltered ? 'Clear filter' : 'Find planets'}
-        </button>
-      </div>
-    </div>`;
-  });
+  const isFiltered = resourceFilter === res;
 
-  html += `</div>`;
-  panel.innerHTML = html;
+  const sourceRows = Object.entries(sources).map(function(entry) {
+    return '<div class="rule-source"><span class="rule-source-name">' + entry[0] + '</span><span class="rule-source-rate">' + entry[1] + '</span></div>';
+  }).join('');
+
+  const filterLabel = isFiltered ? 'Clear filter' : 'Find planets';
+  const filterActive = isFiltered ? 'active' : '';
+
+  panel.innerHTML = '<div class="sys-header"><div><div class="sys-title-code">// RESOURCE INDEX //</div><div class="sys-title">' + res + '</div></div><div class="sys-header-right"><div class="sys-sector-tag">Resource Data</div><div class="sys-ftl-count">' + Object.keys(sources).length + ' SOURCE NODE' + (Object.keys(sources).length !== 1 ? 'S' : '') + '</div></div></div><div class="section-head">Yield rates by source node</div><div class="rule-card' + (isFiltered ? ' filtered' : '') + '"><div class="rule-name">' + res + '</div>' + sourceRows + '<div class="rule-card-footer"><button class="rule-filter-btn ' + filterActive + '" onclick="setResourceFilter(\'' + res + '\')" title="' + filterLabel + '"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ' + filterLabel + '</button></div></div>';
 }
 
 // ── TOOLTIP POSITIONING ──
