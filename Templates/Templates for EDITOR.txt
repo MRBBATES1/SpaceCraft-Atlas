@@ -1,0 +1,54 @@
+Templates for EDITOR
+
+Sector
+======
+
+Name: {Sector Name}
+
+Solar System
+============
+
+Name: {System Name}
+Sector: {Sector}
+Registration Code: {Registration Code}
+Planets:
+{PlanetName} I
+{PlanetName} II
+..
+Other POI:
+None
+FTL Jump Points:
+{System Name} ({Registration Code}}
+
+
+Space Station:
+=====================
+
+Name: {Station Name}
+System: {System Name}
+Owner: {Faction}
+Exploration Level: {Level}
+Floors: {Facility}, {Facility}, {Facility}
+
+
+Planets
+========
+
+Name: {Planet Name}
+Sector: {Sector}
+Solar System: {System Name}
+Designation: {Type}
+Conditions: {Weather}
+Resources:
+{Resource Name}
+Deposits:
+{Deposits}
+Bases:
+{Bases}
+
+UNIVERSAL RULES
+===============
+
+{Resource Name}:
+   {Source} {Yield}
+   {Source} {Yield}

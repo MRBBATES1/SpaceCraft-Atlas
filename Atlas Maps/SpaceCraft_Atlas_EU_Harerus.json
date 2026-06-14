@@ -1,0 +1,1049 @@
+{
+  "map_info": {
+    "region": "Europe",
+    "quadrant": "Harerus"
+  },
+  "universe_rules": {
+    "Iron Ore": {
+      "Iron Deposit": "60.0/h",
+      "Siderite": "3.5",
+      "Ferric Stone": "2.5",
+      "Ferrous Outcrop": "<1"
+    },
+    "Copper Ore": {
+      "Copper Deposit": "55.0/h",
+      "Brassy Outcrop": "3.0",
+      "Cupric Stone": "2.0",
+      "Chalcopyrite": "1.2"
+    },
+    "Iron Nuggets": {
+      "Ferrous Outcrop": "2.2"
+    },
+    "Copper Nuggets": {
+      "Chalcocite": "12.41",
+      "Brassy Outcrop": "4.5"
+    },
+    "a-Carbon": {
+      "Coal Clump": "3.6",
+      "Siderite": "1.6"
+    },
+    "Silicate": {
+      "Sandstone Mound": "3.4"
+    },
+    "Calcite": {
+      "Siderite": "<1"
+    },
+    "Quartz": {
+      "Gray Quartz": "1.0"
+    },
+    "Pyrite": {
+      "Chalcopyrite": "1.2"
+    }
+  },
+  "sectors": [
+    {
+      "name": "Pioneer",
+      "systems": [
+        {
+          "name": "Solar Alpha",
+          "code": "HX-700R",
+          "planets": [
+            {
+              "name": "Solar Alpha I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferric Stone",
+                "Cupric Stone"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Solar Alpha II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferric Stone",
+                "Cupric Stone",
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                "Gray Quartz"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [
+            {
+              "name": "Babylon Station",
+              "owner": "The Company",
+              "exploration_level": 0,
+              "floors": [
+                "Shipyard",
+                "Debt Quarter"
+              ]
+            }
+          ],
+          "ftl": [
+            "IN-3080",
+            "GR-867M",
+            "CJ-638Z",
+            "PC-699H",
+            "Delphuni (DG-132G)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Threshold",
+      "systems": [
+        {
+          "name": "Janus",
+          "code": "YI-960A",
+          "planets": [
+            {
+              "name": "Janus I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Siderite",
+                "Sandstone Mound",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Janus II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Ferrous Outcrop",
+                "Siderite",
+                "Ferric Stone"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Janus IV",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Coal Clump",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Janus V",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Siderite",
+                "Sandstone Mound",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Janus III",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Coal Clump",
+                "Siderite",
+                "Brassy Outcrop",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [
+            {
+              "name": "Raqmu Station",
+              "owner": "The Company",
+              "exploration_level": 1,
+              "floors": [
+                "Shipyard",
+                "Mining Bureau"
+              ]
+            }
+          ],
+          "ftl": [
+            "Vishoni (HN-133K)",
+            "RM-533U",
+            "CR-371Y",
+            "MS-838N",
+            "Hydo (EN-956Q)",
+            "Syllion (RP-907S)"
+          ]
+        },
+        {
+          "name": "Delphuni",
+          "code": "DG-132G",
+          "planets": [
+            {
+              "name": "Delphuni I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Coal Clump",
+                "Siderite"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Delphuni II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Delphuni III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Delphuni IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Delphuni V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "IN-3080",
+            "Sisheda (RY-963R)",
+            "GR-867M",
+            "Solar Alpha (HX-700R)",
+            "CJ-638Z",
+            "PC-699H"
+          ]
+        },
+        {
+          "name": "Hydo",
+          "code": "EN-956Q",
+          "planets": [
+            {
+              "name": "Hydo I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Siderite",
+                "Sandstone Mound",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": [
+                "Local Intelligence Center"
+              ]
+            },
+            {
+              "name": "Hydo II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Hydo III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Janus (YI-960A)",
+            "Vishoni (HN-133K)",
+            "Relor Cephyx (VS-556I)",
+            "MS-838N",
+            "Sallion (OR-335C)"
+          ]
+        },
+        {
+          "name": "Sisheda",
+          "code": "RY-963R",
+          "planets": [
+            {
+              "name": "Sisheda III",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Brassy Outcrop",
+                "Ferric Stone",
+                "Ferrous Outcrop"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
+              "bases": [
+                "The Company's CPAF"
+              ]
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Delphuni (DG-132G)",
+            "Syllion (RP-907S)",
+            "CR-371Y",
+            "GR-867M",
+            "IN-3080"
+          ]
+        },
+        {
+          "name": "Syllion",
+          "code": "RP-907S",
+          "planets": [
+            {
+              "name": "Syllion I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Syllion II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Sisheda (RY-963R)",
+            "Janus (YI-960A)"
+          ]
+        },
+        {
+          "name": "Relor Cephyx",
+          "code": "VS-556I",
+          "planets": [
+            {
+              "name": "Relor Cephyx I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Ferrous Outcrop",
+                "Gray Quartz"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Relor Cephyx II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Chalcopyrite",
+                "Chalcocite",
+                "Siderite"
+              ],
+              "deposits": [
+                "Iron Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Hydo (EN-956Q)",
+            "MS-838N",
+            "XG-146V",
+            "Sallion (OR-335C)",
+            "Octaco Lytion (TQ-284T)",
+            "Phura (VC-7270)"
+          ]
+        },
+        {
+          "name": "Vishoni",
+          "code": "HN-133K",
+          "planets": [
+            {
+              "name": "Vishoni I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Cupric Stone",
+                "Chalcopyrite",
+                "Chalcocite"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Vishoni II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Siderite",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Graphite"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Hydo (EN-956Q)",
+            "Janus (YI-960A)",
+            "RM-533U",
+            "SV-623Z",
+            "Sallion (OR-335C)",
+            "Dracion Sigma (TP-897J)",
+            "LO-66OK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cairn",
+      "systems": [
+        {
+          "name": "Sallion",
+          "code": "OR-335C",
+          "planets": [
+            {
+              "name": "Sallion I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sallion II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sallion III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Vishoni (HN-133K)",
+            "Hydo (EN-956Q)",
+            "Relor Cephyx (VS-556I)",
+            "Dracion Sigma (TP-897J)",
+            "XW-535D",
+            "CK-584I",
+            "Octaco Lytion (TQ-284T)"
+          ]
+        },
+        {
+          "name": "Octaco Lytion",
+          "code": "TQ-284T",
+          "planets": [
+            {
+              "name": "Octaco Lytion I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Octaco Lytion II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Octaco Lytion III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Octaco Lytion IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Octaco Lytion V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Sallion (OR-335C)",
+            "Relor Cephyx (VS-556I)",
+            "CK-584I",
+            "Phoshex (RF-915V)",
+            "Phura (VC-7270)",
+            "CT-403R"
+          ]
+        },
+        {
+          "name": "Phoshex",
+          "code": "RF-915V",
+          "planets": [
+            {
+              "name": "Phoshex I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phoshex II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phoshex III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Octaco Lytion (TQ-284T)",
+            "CK-584I",
+            "Phura (VC-7270)",
+            "Soceda (EK-751A)",
+            "Hypatia (ZJ-353S)",
+            "CT-403R"
+          ]
+        },
+        {
+          "name": "Phura",
+          "code": "VC-7270",
+          "planets": [
+            {
+              "name": "Phura I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phura II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phura III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phura IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "GS-177W",
+            "Phoshex (RF-915V)",
+            "HN-982Q",
+            "NV-701U",
+            "Soceda (EK-751A)",
+            "Relor Cephyx (VS-556I)",
+            "Octaco Lytion (TQ-284T)"
+          ]
+        },
+        {
+          "name": "Soceda",
+          "code": "EK-751A",
+          "planets": [
+            {
+              "name": "Soceda I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Soceda II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Soceda III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Soceda IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Hypatia (ZJ-353S)",
+            "Phura (VC-7270)",
+            "Phoshex (RF-915V)",
+            "NV-701U",
+            "ZM-548G",
+            "WE-648N"
+          ]
+        },
+        {
+          "name": "Hypatia",
+          "code": "ZJ-353S",
+          "planets": [
+            {
+              "name": "Hypatia I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Hypatia II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Hypatia III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Hypatia IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Hypatia V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [
+            {
+              "name": "Syracuse Station",
+              "owner": "The Company",
+              "exploration_level": 1,
+              "floors": [
+                "Laboratory",
+                "Shipyard",
+                "Mining Bureau"
+              ]
+            }
+          ],
+          "ftl": [
+            "Phoshex (RF-915V)",
+            "Soceda (EK-751A)",
+            "CT-403R",
+            "XN-481M",
+            "WE-648N"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Terminus",
+      "systems": [
+        {
+          "name": "Dracion Sigma",
+          "code": "TP-897J",
+          "planets": [
+            {
+              "name": "Dracion Sigma I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Dracion Sigma II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Dracion Sigma III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Vishoni (HN-133K)",
+            "Sallion (OR-335C)",
+            "XW-535D",
+            "Silleia (NP-667V)",
+            "LO-66OK",
+            "Maphax (JJ-129Q)"
+          ]
+        },
+        {
+          "name": "Silleia",
+          "code": "NP-667V",
+          "planets": [
+            {
+              "name": "Silleia I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Silleia II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Silleia III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Dracion Sigma (TP-897J)",
+            "LO-66OK",
+            "Tucyx Alpha (QP-441R)",
+            "Maphax (JJ-129Q)"
+          ]
+        },
+        {
+          "name": "Tucyx Alpha",
+          "code": "QP-441R",
+          "planets": [
+            {
+              "name": "Tucyx Alpha I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tucyx Alpha II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tucyx Alpha III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tucyx Alpha IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Silleia (NP-667V)",
+            "WM-180H",
+            "PI-445C",
+            "KD-339Y",
+            "SO-870S",
+            "Sawma (XK-405A)",
+            "Maphax (JJ-129Q)"
+          ]
+        },
+        {
+          "name": "Sawma",
+          "code": "XK-405A",
+          "planets": [
+            {
+              "name": "Sawma I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sawma II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sawma III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sawma IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sawma V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [
+            {
+              "name": "Helicon Station",
+              "owner": "The Company",
+              "exploration_level": 1,
+              "floors": [
+                "Shipyard",
+                "Mining Bureau",
+                "Trade Nexus"
+              ]
+            }
+          ],
+          "ftl": [
+            "Silleia (NP-667V)",
+            "Tucyx Alpha (QP-441R)",
+            "LO-66OK",
+            "WM-180H",
+            "PI-445C",
+            "KD-339Y",
+            "SO-870S",
+            "Maphax (JJ-129Q)"
+          ]
+        },
+        {
+          "name": "Maphax",
+          "code": "JJ-129Q",
+          "planets": [
+            {
+              "name": "Maphax I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Maphax II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Maphax III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Maphax IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Maphax V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Silleia (NP-667V)",
+            "Tucyx Alpha (QP-441R)",
+            "Dracion Sigma (TP-897J)",
+            "Sawma (XK-405A)",
+            "Savana (SW-315U)",
+            "ZM-162W",
+            "XW-535D"
+          ]
+        },
+        {
+          "name": "Savana",
+          "code": "SW-315U",
+          "planets": [
+            {
+              "name": "Savana I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Savana II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Savana III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Maphax (JJ-129Q)",
+            "Sawma (XK-405A)",
+            "ZM-162W",
+            "UD-6960",
+            "YB-320B"
+          ]
+        }
+      ]
+    }
+  ]
+}

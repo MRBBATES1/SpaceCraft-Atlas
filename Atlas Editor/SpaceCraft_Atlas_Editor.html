@@ -1,0 +1,581 @@
+<style>
+:root{
+  --sc-bg:#111d27;--sc-bg2:#172130;--sc-bg3:#1c2a3a;
+  --sc-border:#243344;--sc-border2:#2e4258;
+  --sc-accent:#4ab8cc;--sc-accent2:#1a5f6e;--sc-glow:rgba(74,184,204,0.10);
+  --sc-gold:#e8b84b;--sc-green:#3dba6e;--sc-green-bg:rgba(61,186,110,0.1);
+  --sc-orange:#e07b3a;
+  --sc-text:#c8d8e0;--sc-text2:#5a8090;--sc-text3:#2e4a58;
+  --sc-mono:'Courier New',Courier,monospace;
+  --sc-head:'Trebuchet MS','Segoe UI',Arial,sans-serif;
+}
+#sce{background:var(--sc-bg);color:var(--sc-text);font-family:var(--sc-head);border-radius:6px;border:1px solid var(--sc-border);overflow:hidden;}
+.sc-top{background:var(--sc-bg2);border-bottom:1px solid var(--sc-border);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sc-logo{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--sc-accent);text-transform:uppercase;}
+.sc-divv{width:1px;height:16px;background:var(--sc-border2);flex-shrink:0;}
+.sc-sub{font-family:var(--sc-mono);font-size:10px;color:var(--sc-text2);letter-spacing:1px;}
+.sc-status{font-family:var(--sc-mono);font-size:10px;letter-spacing:1px;margin-left:auto;}
+.sc-status.loaded{color:var(--sc-green);}
+.sc-status.unloaded{color:var(--sc-text3);}
+
+.drop-zone{
+  margin:20px 16px 16px;
+  border:1px dashed var(--sc-border2);
+  border-radius:4px;
+  padding:28px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .2s;
+  background:var(--sc-bg2);
+}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--sc-accent);background:var(--sc-glow);}
+.drop-zone input{display:none;}
+.dz-icon{font-size:28px;color:var(--sc-text3);margin-bottom:8px;}
+.dz-title{font-family:var(--sc-head);font-size:14px;font-weight:600;color:var(--sc-text2);letter-spacing:1px;margin-bottom:4px;}
+.dz-hint{font-family:var(--sc-mono);font-size:11px;color:var(--sc-text3);}
+.dz-hint span{color:var(--sc-accent2);}
+
+.sc-body{padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+.sc-tabs{display:flex;gap:4px;flex-wrap:wrap;}
+.sc-tab{font-family:var(--sc-mono);font-size:11px;padding:5px 12px;border:1px solid var(--sc-border2);border-radius:2px;background:transparent;color:var(--sc-text3);cursor:not-allowed;letter-spacing:.5px;transition:all .15s;pointer-events:none;opacity:0.45;}
+.sc-tab.active{color:var(--sc-accent);border-color:var(--sc-accent2);background:var(--sc-glow);opacity:1;}
+.sc-tab.enabled{color:var(--sc-text2);cursor:pointer;pointer-events:all;opacity:1;}
+.sc-tab.enabled:hover{color:var(--sc-accent);border-color:var(--sc-accent2);background:var(--sc-glow);}
+.lbl{font-family:var(--sc-mono);font-size:10px;letter-spacing:1.5px;color:var(--sc-text3);text-transform:uppercase;margin-bottom:4px;}
+textarea.sc-ta{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;color:var(--sc-text);font-family:var(--sc-mono);font-size:12px;padding:9px 11px;resize:vertical;outline:none;line-height:1.6;box-sizing:border-box;transition:all .15s;}
+textarea.sc-ta:focus{border-color:var(--sc-accent2);}
+textarea.sc-ta:disabled{color:var(--sc-text3);opacity:0.45;cursor:not-allowed;}
+.sc-hint{font-size:11px;color:var(--sc-text2);font-family:var(--sc-mono);line-height:1.6;background:var(--sc-bg2);border:1px solid var(--sc-border);border-radius:3px;padding:8px 12px;}
+.sc-hint b{color:var(--sc-accent);font-weight:normal;}
+.sc-btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+button.btn-p,button.btn-s,button.btn-apply,button.btn-dl{font-family:var(--sc-mono);font-size:11px;letter-spacing:.8px;padding:6px 14px;border-radius:2px;cursor:pointer;text-transform:uppercase;transition:all .15s;}
+button.btn-p{border:1px solid var(--sc-accent);background:var(--sc-accent2);color:var(--sc-accent);}
+button.btn-p:hover:not(:disabled){background:rgba(74,184,204,0.22);}
+button.btn-s{border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);}
+button.btn-s:hover:not(:disabled){border-color:var(--sc-accent2);color:var(--sc-accent);background:var(--sc-glow);}
+button.btn-apply{border:1px solid var(--sc-gold);background:rgba(232,184,75,0.08);color:var(--sc-gold);}
+button.btn-apply:hover:not(:disabled){background:rgba(232,184,75,0.18);}
+button.btn-dl{border:1px solid var(--sc-green);background:var(--sc-green-bg);color:var(--sc-green);}
+button.btn-dl:hover:not(:disabled){background:rgba(61,186,110,0.2);}
+button:disabled{opacity:0.35;cursor:not-allowed;}
+.sc-out-wrap{position:relative;}
+textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-border);border-radius:3px;color:#3dba6e;font-family:var(--sc-mono);font-size:11px;padding:9px 11px;resize:vertical;outline:none;line-height:1.6;min-height:110px;box-sizing:border-box;}
+.sc-copy{position:absolute;top:7px;right:7px;font-family:var(--sc-mono);font-size:10px;letter-spacing:.8px;padding:3px 8px;border-radius:2px;border:1px solid var(--sc-border2);background:var(--sc-bg2);color:var(--sc-text2);cursor:pointer;text-transform:uppercase;transition:all .15s;}
+.sc-copy:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
+.sc-msg{font-family:var(--sc-mono);font-size:11px;padding:5px 10px;border-radius:2px;border-left:2px solid;}
+.ok{color:var(--sc-green);border-color:var(--sc-green);background:var(--sc-green-bg);}
+.warn{color:var(--sc-gold);border-color:var(--sc-gold);background:rgba(232,184,75,0.08);}
+.err{color:var(--sc-orange);border-color:var(--sc-orange);background:rgba(224,123,58,0.08);}
+.sc-instr{font-size:11px;color:var(--sc-text2);font-family:var(--sc-mono);line-height:1.6;background:rgba(74,184,204,0.05);border:1px solid var(--sc-accent2);border-radius:3px;padding:8px 12px;}
+.sc-sep{border:none;border-top:1px solid var(--sc-border);margin:2px 0;}
+.file-loaded-bar{display:flex;align-items:center;gap:10px;padding:7px 12px;background:var(--sc-green-bg);border:1px solid rgba(61,186,110,0.3);border-radius:3px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-green);}
+.file-loaded-bar button{font-family:var(--sc-mono);font-size:10px;padding:2px 8px;border:1px solid rgba(61,186,110,0.4);background:transparent;color:var(--sc-green);border-radius:2px;cursor:pointer;margin-left:auto;letter-spacing:.5px;text-transform:uppercase;}
+.file-loaded-bar button:hover{background:rgba(61,186,110,0.15);}
+.editor-locked{opacity:0.4;pointer-events:none;user-select:none;}
+
+/* Session footer bar */
+.sc-footer{display:none;background:var(--sc-bg2);border-top:1px solid var(--sc-border);padding:10px 16px;gap:10px;align-items:center;flex-wrap:wrap;}
+.sc-footer.visible{display:flex;}
+.sc-changes-count{font-family:var(--sc-mono);font-size:11px;color:var(--sc-gold);letter-spacing:.5px;}
+.sc-changes-count span{color:var(--sc-text2);}
+
+/* Change log */
+.sc-log{background:var(--sc-bg3);border:1px solid var(--sc-border);border-radius:3px;padding:8px 12px;font-family:var(--sc-mono);font-size:11px;max-height:120px;overflow-y:auto;}
+.sc-log-entry{display:flex;gap:8px;align-items:baseline;padding:2px 0;border-bottom:1px solid var(--sc-border);color:var(--sc-text2);}
+.sc-log-entry:last-child{border-bottom:none;}
+.sc-log-entry .log-num{color:var(--sc-text3);flex-shrink:0;min-width:18px;}
+.sc-log-entry .log-type{color:var(--sc-accent2);flex-shrink:0;min-width:52px;}
+.sc-log-entry .log-summary{color:var(--sc-text);}
+.log-undo-btn{font-family:var(--sc-mono);font-size:10px;padding:1px 6px;border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text3);border-radius:2px;cursor:pointer;margin-left:auto;flex-shrink:0;text-transform:uppercase;letter-spacing:.4px;}
+.log-undo-btn:hover{border-color:var(--sc-gold);color:var(--sc-gold);}
+.log-undo-btn:disabled{opacity:0.3;cursor:not-allowed;}
+
+/* Inline apply confirm flash */
+@keyframes flash-ok {from{background:rgba(61,186,110,0.25);}to{background:transparent;}}
+.flash-applied{animation:flash-ok .6s ease-out;}
+</style>
+
+<div id="sce">
+  <div class="sc-top">
+    <div class="sc-logo">SpaceCraft Atlas</div>
+    <div class="sc-divv"></div>
+    <div class="sc-sub">// JSON Editor //</div>
+    <div class="sc-status unloaded" id="top-status">○ No file loaded</div>
+  </div>
+
+  <div id="drop-zone" class="drop-zone">
+    <input type="file" accept=".json" id="file-input">
+    <div class="dz-icon">⬡</div>
+    <div class="dz-title">Load Atlas JSON</div>
+    <div class="dz-hint">Drop your <span>.json file</span> here, or click to browse</div>
+  </div>
+
+  <div id="editor-wrap" class="editor-locked">
+    <div style="padding:0 16px 4px;">
+      <div id="file-bar" class="file-loaded-bar" style="display:none;">
+        <span id="file-name-display"></span>
+        <button id="change-file-btn">Change file</button>
+      </div>
+    </div>
+
+    <div class="sc-body">
+      <div>
+        <div class="lbl">Template type</div>
+        <div class="sc-tabs" id="tabs">
+          <button class="sc-tab active" data-t="sector">New Sector</button>
+          <button class="sc-tab" data-t="system">New System</button>
+          <button class="sc-tab" data-t="planet">New / Update Planet</button>
+          <button class="sc-tab" data-t="station">Space Station</button>
+          <button class="sc-tab" data-t="rule">Universe Rule</button>
+        </div>
+      </div>
+
+      <div id="hint-area"></div>
+
+      <div>
+        <div class="lbl">Paste your filled-in template</div>
+        <textarea class="sc-ta" id="tpl" rows="12" placeholder="Paste here…" disabled></textarea>
+      </div>
+
+      <div class="sc-btn-row">
+        <button class="btn-p" id="parse-btn" disabled>1. Parse → Preview JSON</button>
+        <button class="btn-s" id="clear-btn" disabled>Clear</button>
+      </div>
+
+      <div id="msg-area"></div>
+
+      <div id="out-area" style="display:none;">
+        <div class="lbl">Generated JSON — review before applying</div>
+        <div class="sc-out-wrap">
+          <textarea class="sc-out" id="json-out" rows="10"></textarea>
+          <button class="sc-copy" id="copy-btn">Copy</button>
+        </div>
+        <div class="lbl" style="margin-top:10px;">Where it will go</div>
+        <div class="sc-instr" id="instr-area"></div>
+        <hr class="sc-sep" style="margin-top:12px;">
+        <div class="sc-btn-row" style="margin-top:10px;">
+          <button class="btn-apply" id="apply-btn">2. Apply to Atlas</button>
+          <span style="font-family:var(--sc-mono);font-size:11px;color:var(--sc-text2);">Happy with it? Applies to memory — add more or download when done.</span>
+        </div>
+      </div>
+
+      <!-- Session change log — shown after first apply -->
+      <div id="log-section" style="display:none;">
+        <hr class="sc-sep">
+        <div class="lbl" style="margin-top:8px;">Session changes <span id="log-count" style="color:var(--sc-gold);"></span></div>
+        <div class="sc-log" id="change-log"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent footer: always visible once file loaded -->
+  <div class="sc-footer" id="sc-footer">
+    <div class="sc-changes-count" id="footer-count"><span>No unsaved changes</span></div>
+    <div style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+      <button class="btn-dl" id="dl-btn" disabled>Download JSON</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let atlas = null;
+let lastAtlas = null;
+let pendingPayload = null;
+let mode = 'sector';
+let loadedFileName = 'SpaceCraft_Atlas.json';
+let sessionChanges = []; // {summary, type, snapshot_before}
+
+const HINTS = {
+  sector:`<b>Sector template:</b><br>Name: {Sector Name}`,
+  system:`<b>System template:</b><br>Name: {System Name}<br>Sector: {Sector Name}<br>Registration Code: {Code}<br>Planets:<br>&nbsp;&nbsp;{Planet Name} I<br>Other POI: None<br>FTL Jump Points:<br>&nbsp;&nbsp;System Name (CODE) <b>or</b> CODE`,
+  planet:`<b>Planet template:</b><br>Name: {Planet Name}<br>Sector: {Sector Name}<br>Solar System: {System Name}<br>Designation: {Type}<br>Conditions: {Weather}<br>Resources:<br>&nbsp;&nbsp;{Resource Name} (one per line)<br>Deposits:<br>&nbsp;&nbsp;{Deposit Name} (one per line)<br>Bases:<br>&nbsp;&nbsp;{Base Name} (one per line)`,
+  station:`<b>Space Station template:</b><br>Name: {Station Name}<br>System: {System Name}<br>Owner: {Faction}<br>Exploration Level: {Level}<br>Floors: {Facility},{Facility}`,
+  rule:`<b>Universe Rule — paste exactly like this:</b><br>random:<br>&nbsp;&nbsp;box 1.2<br><br>First line = rule name + colon. Each indented line = <b>key value</b> split on last space. Key preserves trailing space (e.g. <b>"box "</b>).`
+};
+
+const TYPE_LABELS = {sector:'SECTOR',system:'SYSTEM',planet:'PLANET',station:'STATION',rule:'RULE'};
+
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault(); dropZone.classList.remove('drag-over');
+  const f = e.dataTransfer.files[0];
+  if (f) loadFile(f);
+});
+fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+document.getElementById('change-file-btn').addEventListener('click', () => {
+  fileInput.value = '';
+  fileInput.click();
+});
+
+function loadFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (!parsed.sectors || !parsed.universe_rules) throw new Error('Does not look like an Atlas JSON file — missing "sectors" or "universe_rules".');
+      atlas = parsed;
+      lastAtlas = null;
+      pendingPayload = null;
+      sessionChanges = [];
+      loadedFileName = file.name;
+      onAtlasLoaded();
+    } catch(err) {
+      showDropError(err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showDropError(msg) {
+  dropZone.style.borderColor = 'var(--sc-orange)';
+  dropZone.querySelector('.dz-hint').innerHTML = `<span style="color:var(--sc-orange);">${msg}</span>`;
+  setTimeout(() => {
+    dropZone.style.borderColor = '';
+    dropZone.querySelector('.dz-hint').innerHTML = 'Drop your <span>.json file</span> here, or click to browse';
+  }, 3000);
+}
+
+function onAtlasLoaded() {
+  dropZone.style.display = 'none';
+  const wrap = document.getElementById('editor-wrap');
+  wrap.classList.remove('editor-locked');
+  document.getElementById('file-bar').style.display = 'flex';
+  document.getElementById('file-name-display').textContent = '✓ ' + loadedFileName;
+  document.getElementById('tpl').disabled = false;
+  document.getElementById('parse-btn').disabled = false;
+  document.getElementById('clear-btn').disabled = false;
+  document.querySelectorAll('.sc-tab').forEach(t => t.classList.add('enabled'));
+  document.getElementById('hint-area').innerHTML = `<div class="sc-hint">${HINTS[mode]}</div>`;
+  document.getElementById('sc-footer').classList.add('visible');
+  updateStatus();
+  updateFooter();
+  clearAll();
+}
+
+document.querySelectorAll('.sc-tab').forEach(t => t.addEventListener('click', () => {
+  if (!atlas) return;
+  document.querySelectorAll('.sc-tab').forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  mode = t.dataset.t;
+  document.getElementById('hint-area').innerHTML = `<div class="sc-hint">${HINTS[mode]}</div>`;
+  clearAll();
+}));
+
+document.getElementById('parse-btn').addEventListener('click', () => {
+  if (!atlas) return;
+  const raw = document.getElementById('tpl').value.trim();
+  if (!raw) { showMsg('Paste your filled-in template first.','warn'); return; }
+  pendingPayload = null;
+  document.getElementById('out-area').style.display = 'none';
+  try {
+    if (mode==='sector') parseSector(raw);
+    else if (mode==='system') parseSystem(raw);
+    else if (mode==='planet') parsePlanet(raw);
+    else if (mode==='station') parseStation(raw);
+    else if (mode==='rule') parseRule(raw);
+  } catch(e) { showMsg('Parse error: '+e.message,'err'); }
+});
+
+document.getElementById('clear-btn').addEventListener('click', clearAll);
+
+document.getElementById('copy-btn').addEventListener('click', () => {
+  document.getElementById('json-out').select();
+  document.execCommand('copy');
+  const b = document.getElementById('copy-btn');
+  b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1500);
+});
+
+document.getElementById('apply-btn').addEventListener('click', () => {
+  if (!pendingPayload) { showMsg('Nothing to apply.','warn'); return; }
+  try {
+    const snapshotBefore = JSON.parse(JSON.stringify(atlas));
+    const result = pendingPayload.apply(atlas);
+    atlas = result.atlas;
+    lastAtlas = snapshotBefore;
+
+    // Record change in session log
+    sessionChanges.push({
+      summary: result.summary,
+      type: mode,
+      snapshot: snapshotBefore
+    });
+
+    updateStatus();
+    updateFooter();
+    updateChangeLog();
+
+    // Flash confirm then reset input for next entry
+    showMsg('✓ ' + result.summary + ' — add another or download when done.','ok');
+    document.getElementById('tpl').value = '';
+    document.getElementById('out-area').style.display = 'none';
+    pendingPayload = null;
+
+    // Briefly flash the log section to draw attention
+    const logSec = document.getElementById('log-section');
+    logSec.classList.remove('flash-applied');
+    void logSec.offsetWidth;
+    logSec.classList.add('flash-applied');
+
+  } catch(e) { showMsg('Apply failed: '+e.message,'err'); }
+});
+
+document.getElementById('dl-btn').addEventListener('click', () => {
+  if (!atlas) return;
+  const blob = new Blob([JSON.stringify(atlas, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download=loadedFileName;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showMsg(`Downloaded "${loadedFileName}" with ${sessionChanges.length} change(s) applied.`,'ok');
+});
+
+function undoChange(idx) {
+  // Only allow undoing the last change
+  if (idx !== sessionChanges.length - 1) return;
+  const change = sessionChanges[idx];
+  atlas = JSON.parse(JSON.stringify(change.snapshot));
+  sessionChanges.splice(idx, 1);
+  lastAtlas = sessionChanges.length > 0 ? sessionChanges[sessionChanges.length-1].snapshot : null;
+  updateStatus();
+  updateFooter();
+  updateChangeLog();
+  showMsg('Last change undone — Atlas restored.','warn');
+}
+
+function updateChangeLog() {
+  const logSec = document.getElementById('log-section');
+  const logEl = document.getElementById('change-log');
+  const countEl = document.getElementById('log-count');
+
+  if (sessionChanges.length === 0) {
+    logSec.style.display = 'none';
+    return;
+  }
+
+  logSec.style.display = 'block';
+  countEl.textContent = `(${sessionChanges.length})`;
+
+  logEl.innerHTML = sessionChanges.map((c,i) => {
+    const isLast = i === sessionChanges.length - 1;
+    return `<div class="sc-log-entry">
+      <span class="log-num">${i+1}.</span>
+      <span class="log-type">${TYPE_LABELS[c.type]||c.type}</span>
+      <span class="log-summary">${c.summary}</span>
+      <button class="log-undo-btn" ${isLast?'':'disabled'} onclick="undoChange(${i})">Undo</button>
+    </div>`;
+  }).join('');
+
+  // Scroll to bottom of log
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function updateFooter() {
+  const count = sessionChanges.length;
+  const footerCount = document.getElementById('footer-count');
+  const dlBtn = document.getElementById('dl-btn');
+
+  if (count === 0) {
+    footerCount.innerHTML = '<span>No unsaved changes</span>';
+    dlBtn.disabled = true;
+  } else {
+    footerCount.innerHTML = `<b style="color:var(--sc-gold);">⬡ ${count} unsaved change${count===1?'':'s'}</b>`;
+    dlBtn.disabled = false;
+  }
+}
+
+function updateStatus() {
+  if (!atlas) {
+    document.getElementById('top-status').textContent = '○ No file loaded';
+    document.getElementById('top-status').className = 'sc-status unloaded';
+    return;
+  }
+  const sCount = atlas.sectors.length;
+  const syCount = atlas.sectors.reduce((a,s)=>a+s.systems.length,0);
+  document.getElementById('top-status').textContent = `● ${sCount} sectors · ${syCount} systems`;
+  document.getElementById('top-status').className = 'sc-status loaded';
+}
+
+function getLine(lines,key){const l=lines.find(x=>x.toLowerCase().startsWith(key.toLowerCase()+':'));return l?l.slice(key.length+1).trim():'';}
+function getBlock(lines,startKey,nextKeys){const si=lines.findIndex(x=>x.trim().toLowerCase()===startKey.toLowerCase()+':');if(si===-1)return[];const res=[];for(let i=si+1;i<lines.length;i++){const t=lines[i].trim();if(!t)continue;if(nextKeys.some(k=>t.toLowerCase().startsWith(k.toLowerCase()+':')))break;res.push(t);}return res;}
+function isNone(arr){return arr.length===0||(arr.length===1&&arr[0].toLowerCase()==='none');}
+
+function parseSector(raw){
+  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
+  const name=getLine(lines,'Name');
+  if(!name)throw new Error('Could not find "Name:" line.');
+  if(atlas.sectors.find(s=>s.name.toLowerCase()===name.toLowerCase()))throw new Error(`Sector "${name}" already exists.`);
+  const obj={name,systems:[]};
+  pendingPayload={obj,apply(a){const c=JSON.parse(JSON.stringify(a));c.sectors.push(JSON.parse(JSON.stringify(obj)));return{atlas:c,summary:`Sector "${name}" added`};}};
+  showOutput(JSON.stringify(obj,null,2),`Will be added to the top-level <b>"sectors"</b> array.`);
+  showMsg('Sector parsed. Review above then click Apply.','ok');
+}
+
+function parseSystem(raw){
+  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
+  const name=getLine(lines,'Name'),code=getLine(lines,'Registration Code'),sector=getLine(lines,'Sector');
+  if(!name||!code)throw new Error('Could not find Name or Registration Code.');
+  const planetBlock=getBlock(lines,'Planets',['Space Stations','Other POI','FTL Jump Points']);
+  const planets=planetBlock.filter(l=>l.toLowerCase()!=='none').map(l=>({name:l,type:'Unknown',conditions:'Unknown',resources:[],deposits:[],bases:[]}));
+  const ftlBlock=getBlock(lines,'FTL Jump Points',[]);
+  // Build a lookup map: system name (lowercase) → registration code, from the current atlas
+  const sysCodeMap={};
+  atlas.sectors.forEach(sec=>sec.systems.forEach(sys=>{if(sys.code)sysCodeMap[sys.name.toLowerCase()]=sys.code;}));
+  // Resolve FTL entries — append (CODE) if found in atlas, leave unknown ones as-is
+  let ftlResolved=0,ftlUnknown=[];
+  const ftl=isNone(ftlBlock)?[]:ftlBlock.filter(l=>l.toLowerCase()!=='none').map(raw=>{
+    // Strip any existing (CODE) suffix so we work with just the system name
+    const stripped=raw.replace(/\s*\([^)]+\)\s*$/, '').trim();
+    const found=sysCodeMap[stripped.toLowerCase()];
+    if(found){ftlResolved++;return `${stripped} (${found})`;}
+    ftlUnknown.push(stripped);
+    return raw.trim();
+  });
+  const obj={name,code,planets,stations:[],ftl};
+  const targetSector=atlas.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase());
+  if(!targetSector)throw new Error(`Sector "${sector}" not found. Add it first.`);
+  if(targetSector.systems.find(s=>s.name.toLowerCase()===name.toLowerCase()))throw new Error(`System "${name}" already exists in sector "${sector}".`);
+  const ftlNote=ftl.length===0?'':(ftlResolved===ftl.length?' (all resolved)':ftlUnknown.length>0?` (${ftlResolved} resolved, ${ftlUnknown.length} unknown: ${ftlUnknown.join(', ')})`:'');
+  const instrFtl=ftlUnknown.length>0?`<br><span style="color:var(--sc-gold);">⚠ FTL unknown (kept as-is): ${ftlUnknown.map(s=>`<b>${s}</b>`).join(', ')}</span>`:'';
+  // Preview: scan existing FTL lists for bare code entries matching the new system's code
+  const backUpdatePreviews=[];
+  atlas.sectors.forEach(sec=>sec.systems.forEach(sys=>{
+    if(sys.ftl){sys.ftl.forEach(entry=>{
+      const trimmed=entry.trim();
+      // Match bare code (e.g. "AB-1223D") or code-only with parens (e.g. "(AB-1223D)")
+      if(trimmed.toLowerCase()===code.toLowerCase()||trimmed===`(${code})`){
+        backUpdatePreviews.push(sys.name);
+      }
+    });}
+  }));
+  const instrBack=backUpdatePreviews.length>0
+    ?`<br><span style="color:var(--sc-accent);">&#8629; Will also update bare code <b>${code}</b> in FTL lists of: <b>${backUpdatePreviews.join(', ')}</b></span>`
+    :'';
+  pendingPayload={obj,apply(a){
+    const c=JSON.parse(JSON.stringify(a));
+    c.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase()).systems.push(JSON.parse(JSON.stringify(obj)));
+    // Back-update existing systems: replace bare code entries with "Name (CODE)"
+    let backCount=0;
+    c.sectors.forEach(sec=>sec.systems.forEach(sys=>{
+      if(sys.ftl){sys.ftl=sys.ftl.map(entry=>{
+        const trimmed=entry.trim();
+        if(trimmed.toLowerCase()===code.toLowerCase()||trimmed===`(${code})`){backCount++;return `${name} (${code})`;}
+        return entry;
+      });}
+    }));
+    const backNote=backCount>0?`, back-updated ${backCount} FTL reference(s)`:'';
+    return{atlas:c,summary:`System "${name}" added to "${sector}" (${planets.length} planet(s), ${ftl.length} FTL link(s)${ftlNote}${backNote})`};
+  }};
+  showOutput(JSON.stringify(obj,null,2),`Will be added to sector <b>"${sector}"</b> → <b>"systems"</b> array.<br>Planets set to Unknown — use the Planet tab to fill in their details.${instrFtl}${instrBack}`);
+  showMsg(`System parsed — ${planets.length} planet(s), ${ftl.length} FTL link(s)${ftlNote}. Review then Apply.`,ftlUnknown.length>0?'warn':'ok');
+}
+
+function parseStation(raw){
+  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
+  const name=getLine(lines,'Name'),system=getLine(lines,'System'),owner=getLine(lines,'Owner');
+  const levelRaw=getLine(lines,'Exploration Level');
+  const floorsRaw=getLine(lines,'Floors');
+  if(!name)throw new Error('Could not find "Name:" line.');
+  if(!system)throw new Error('Could not find "System:" line.');
+  const exploration_level=parseInt(levelRaw)||0;
+  const floors=floorsRaw?floorsRaw.split(',').map(s=>s.trim()).filter(Boolean):[];
+  const obj={name,owner:owner||'',exploration_level,floors};
+  // Find the system across all sectors
+  let foundSys=null,foundSecName='';
+  for(const sec of atlas.sectors){const s=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(s){foundSys=s;foundSecName=sec.name;break;}}
+  if(!foundSys)throw new Error(`System "${system}" not found in atlas. Add it first.`);
+  // Ensure stations array exists
+  if(!Array.isArray(foundSys.stations))foundSys.stations=[];
+  const existingIdx=foundSys.stations.findIndex(st=>st.name.toLowerCase()===name.toLowerCase());
+  const action=existingIdx>=0?'replace':'add';
+  const instr=action==='replace'
+    ?`Station <b>"${name}"</b> already exists in <b>"${system}"</b> (${foundSecName}) — it will be <b style="color:var(--sc-gold)">replaced</b> with the updated data.`
+    :`Will be added to system <b>"${system}"</b> in sector <b>"${foundSecName}"</b> → <b>"stations"</b> array.`;
+  pendingPayload={obj,apply(a){
+    const c=JSON.parse(JSON.stringify(a));
+    let sys=null;
+    for(const sec of c.sectors){sys=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(sys)break;}
+    if(!Array.isArray(sys.stations))sys.stations=[];
+    const idx=sys.stations.findIndex(st=>st.name.toLowerCase()===name.toLowerCase());
+    if(idx>=0)sys.stations[idx]=JSON.parse(JSON.stringify(obj));
+    else sys.stations.push(JSON.parse(JSON.stringify(obj)));
+    return{atlas:c,summary:`Station "${name}" ${action==='replace'?'updated':'added'} in "${system}" (${floors.length} floor(s))`};
+  }};
+  showOutput(JSON.stringify(obj,null,2),instr);
+  showMsg(`Station parsed (${action==='replace'?'will update existing entry':'new entry'}). Review then Apply.`,action==='replace'?'warn':'ok');
+}
+
+function parsePlanet(raw){
+  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
+  const name=getLine(lines,'Name'),sector=getLine(lines,'Sector'),system=getLine(lines,'Solar System');
+  const type=getLine(lines,'Designation')||'Unknown',conditions=getLine(lines,'Conditions')||'Unknown';
+  const resBlock=getBlock(lines,'Resources',['Deposits','Bases']);
+  const depBlock=getBlock(lines,'Deposits',['Bases']);
+  const baseBlock=getBlock(lines,'Bases',[]);
+  const resources=isNone(resBlock)?[]:resBlock.filter(l=>l.toLowerCase()!=='none');
+  const deposits=isNone(depBlock)?[]:depBlock.filter(l=>l.toLowerCase()!=='none');
+  const bases=isNone(baseBlock)?[]:baseBlock.filter(l=>l.toLowerCase()!=='none');
+  if(!name)throw new Error('Could not find "Name:" line.');
+  if(!system)throw new Error('Could not find "Solar System:" line.');
+  const obj={name,type,conditions,resources,deposits,bases};
+  // Try exact sector match first; if none found, search all sectors (handles mismatches like "Threshold Sector" vs "Threshold")
+  let searchSectors=atlas.sectors;
+  if(sector){
+    const exactMatch=atlas.sectors.filter(s=>s.name.toLowerCase()===sector.toLowerCase());
+    if(exactMatch.length>0) searchSectors=exactMatch;
+    // else: sector name didn't match exactly — fall back to all sectors and find by system name
+  }
+  let foundSys=null, foundSecName='';
+  for(const sec of searchSectors){const s=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(s){foundSys=s;foundSecName=sec.name;break;}}
+  if(!foundSys){
+    const hint=sector&&atlas.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase())?`in sector "${sector}"`:`in atlas (sector "${sector}" not found by that name — check spelling)`;
+    throw new Error(`System "${system}" not found ${hint}.`);
+  }
+  const existingIdx=foundSys.planets.findIndex(p=>p.name.toLowerCase()===name.toLowerCase());
+  const action=existingIdx>=0?'replace':'add';
+  const instr=action==='replace'?`Planet <b>"${name}"</b> already exists in <b>"${system}"</b> (${foundSecName}) — it will be <b style="color:var(--sc-gold)">replaced</b> with the updated data.`:`Will be added to system <b>"${system}"</b> in sector <b>"${foundSecName}"</b> → <b>"planets"</b> array.`;
+  pendingPayload={obj,apply(a){const c=JSON.parse(JSON.stringify(a));let sys=null;for(const sec of c.sectors){sys=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(sys)break;}const idx=sys.planets.findIndex(p=>p.name.toLowerCase()===name.toLowerCase());if(idx>=0)sys.planets[idx]=JSON.parse(JSON.stringify(obj));else sys.planets.push(JSON.parse(JSON.stringify(obj)));return{atlas:c,summary:`Planet "${name}" ${action==='replace'?'updated':'added'} in "${system}" (${resources.length} resource(s), ${deposits.length} deposit(s))`};}};
+  showOutput(JSON.stringify(obj,null,2),instr);
+  showMsg(`Planet parsed (${action==='replace'?'will update existing entry':'new entry'}). Review then Apply.`,action==='replace'?'warn':'ok');
+}
+
+function parseRule(raw){
+  // Work on raw lines preserving indentation to distinguish resource name (no indent) from sources (indented)
+  const lines=raw.split('\n').filter(l=>l.trim().length>0);
+  if(!lines.length)throw new Error('Empty input.');
+  // First non-empty line must be the resource name ending with ':'
+  const firstLine=lines[0].trim();
+  if(!firstLine.endsWith(':'))throw new Error('First line should be "Resource Name:" e.g. "random:"');
+  const resourceName=firstLine.slice(0,-1);
+  const sources={};
+  for(let i=1;i<lines.length;i++){
+    const raw_line=lines[i];
+    const trimmed=raw_line.trim();
+    if(!trimmed||trimmed.toLowerCase()==='none')continue;
+    // Split on last space to separate key from value
+    const sp=trimmed.lastIndexOf(' ');
+    if(sp===-1){sources[trimmed]='';continue;}
+    // Preserve the key exactly as it appears (including any trailing space before the value)
+    const key=trimmed.slice(0,sp+1); // keep trailing space: "box " not "box"
+    const val=trimmed.slice(sp+1).trim();
+    sources[key]=val;
+  }
+  const wrapper={};wrapper[resourceName]=sources;
+  const existing=atlas.universe_rules[resourceName];
+  const action=existing?'merge':'add';
+  const instr=action==='merge'?`Rule <b>"${resourceName}"</b> already exists — new sources will be <b style="color:var(--sc-gold)">merged</b> into it.`:`Will be added as a new rule in <b>"universe_rules"</b>.`;
+  pendingPayload={obj:wrapper,apply(a){const c=JSON.parse(JSON.stringify(a));if(c.universe_rules[resourceName])Object.assign(c.universe_rules[resourceName],sources);else c.universe_rules[resourceName]=JSON.parse(JSON.stringify(sources));return{atlas:c,summary:`Rule "${resourceName}" ${action==='merge'?'merged':'added'} (${Object.keys(sources).length} source(s))`};}};
+  showOutput(JSON.stringify(wrapper,null,2),instr);
+  showMsg(`Rule parsed (${action==='merge'?'will merge into existing rule':'new rule'}). Review then Apply.`,action==='merge'?'warn':'ok');
+}
+
+function showOutput(json,instr){document.getElementById('json-out').value=json;document.getElementById('instr-area').innerHTML=instr;document.getElementById('out-area').style.display='block';}
+function showMsg(text,type){document.getElementById('msg-area').innerHTML=`<div class="sc-msg ${type}">${text}</div>`;}
+function clearAll(){document.getElementById('tpl').value='';document.getElementById('msg-area').innerHTML='';document.getElementById('out-area').style.display='none';pendingPayload=null;}
+</script>

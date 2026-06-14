@@ -1,0 +1,43 @@
+{
+  "map_info": {
+    "region": "",
+    "quadrant": ""
+  },
+  "universe_rules": {
+    "Resource Name": {
+      "Source Name": "yield"
+    }
+  },
+  "sectors": [
+    {
+      "name": "Sector Name",
+      "systems": [
+        {
+          "name": "System Name",
+          "code": "XX-000A",
+          "planets": [
+            {
+              "name": "System Name I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [
+            {
+              "name": "Station Name",
+              "owner": "Faction",
+              "exploration_level": 0,
+              "floors": []
+            }
+          ],
+          "ftl": [
+            "System Name (XX-000A)"
+          ]
+        }
+      ]
+    }
+  ]
+}
