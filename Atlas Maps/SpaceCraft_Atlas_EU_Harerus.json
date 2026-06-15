@@ -966,9 +966,18 @@
             },
             {
               "name": "Sawma IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Clay Shell",
+                "Chalcocite",
+                "White Feldspar Mound",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },

@@ -4,11 +4,13 @@
   --sc-border:#243344;--sc-border2:#2e4258;
   --sc-accent:#4ab8cc;--sc-accent2:#1a5f6e;--sc-glow:rgba(74,184,204,0.10);
   --sc-gold:#e8b84b;--sc-green:#3dba6e;--sc-green-bg:rgba(61,186,110,0.1);
-  --sc-orange:#e07b3a;
+  --sc-orange:#e07b3a;--sc-red:#cc4a4a;
   --sc-text:#c8d8e0;--sc-text2:#5a8090;--sc-text3:#2e4a58;
   --sc-mono:'Courier New',Courier,monospace;
   --sc-head:'Trebuchet MS','Segoe UI',Arial,sans-serif;
 }
+
+/* ── Shell ── */
 #sce{background:var(--sc-bg);color:var(--sc-text);font-family:var(--sc-head);border-radius:6px;border:1px solid var(--sc-border);overflow:hidden;}
 .sc-top{background:var(--sc-bg2);border-bottom:1px solid var(--sc-border);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .sc-logo{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--sc-accent);text-transform:uppercase;}
@@ -18,16 +20,8 @@
 .sc-status.loaded{color:var(--sc-green);}
 .sc-status.unloaded{color:var(--sc-text3);}
 
-.drop-zone{
-  margin:20px 16px 16px;
-  border:1px dashed var(--sc-border2);
-  border-radius:4px;
-  padding:28px 20px;
-  text-align:center;
-  cursor:pointer;
-  transition:all .2s;
-  background:var(--sc-bg2);
-}
+/* ── Drop zone ── */
+.drop-zone{margin:20px 16px 16px;border:1px dashed var(--sc-border2);border-radius:4px;padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--sc-bg2);}
 .drop-zone:hover,.drop-zone.drag-over{border-color:var(--sc-accent);background:var(--sc-glow);}
 .drop-zone input{display:none;}
 .dz-icon{font-size:28px;color:var(--sc-text3);margin-bottom:8px;}
@@ -35,51 +29,87 @@
 .dz-hint{font-family:var(--sc-mono);font-size:11px;color:var(--sc-text3);}
 .dz-hint span{color:var(--sc-accent2);}
 
-.sc-body{padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+/* ── Editor shell ── */
+.editor-locked{opacity:0.4;pointer-events:none;user-select:none;}
+.file-loaded-bar{display:flex;align-items:center;gap:10px;padding:7px 12px;background:var(--sc-green-bg);border:1px solid rgba(61,186,110,0.3);border-radius:3px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-green);}
+.file-loaded-bar button{font-family:var(--sc-mono);font-size:10px;padding:2px 8px;border:1px solid rgba(61,186,110,0.4);background:transparent;color:var(--sc-green);border-radius:2px;cursor:pointer;margin-left:auto;letter-spacing:.5px;text-transform:uppercase;}
+.file-loaded-bar button:hover{background:rgba(61,186,110,0.15);}
+
+/* ── Tabs ── */
+.sc-body{padding:14px 16px;display:flex;flex-direction:column;gap:14px;}
 .sc-tabs{display:flex;gap:4px;flex-wrap:wrap;}
 .sc-tab{font-family:var(--sc-mono);font-size:11px;padding:5px 12px;border:1px solid var(--sc-border2);border-radius:2px;background:transparent;color:var(--sc-text3);cursor:not-allowed;letter-spacing:.5px;transition:all .15s;pointer-events:none;opacity:0.45;}
 .sc-tab.active{color:var(--sc-accent);border-color:var(--sc-accent2);background:var(--sc-glow);opacity:1;}
 .sc-tab.enabled{color:var(--sc-text2);cursor:pointer;pointer-events:all;opacity:1;}
 .sc-tab.enabled:hover{color:var(--sc-accent);border-color:var(--sc-accent2);background:var(--sc-glow);}
+
+/* ── Form elements ── */
 .lbl{font-family:var(--sc-mono);font-size:10px;letter-spacing:1.5px;color:var(--sc-text3);text-transform:uppercase;margin-bottom:4px;}
-textarea.sc-ta{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;color:var(--sc-text);font-family:var(--sc-mono);font-size:12px;padding:9px 11px;resize:vertical;outline:none;line-height:1.6;box-sizing:border-box;transition:all .15s;}
-textarea.sc-ta:focus{border-color:var(--sc-accent2);}
-textarea.sc-ta:disabled{color:var(--sc-text3);opacity:0.45;cursor:not-allowed;}
-.sc-hint{font-size:11px;color:var(--sc-text2);font-family:var(--sc-mono);line-height:1.6;background:var(--sc-bg2);border:1px solid var(--sc-border);border-radius:3px;padding:8px 12px;}
-.sc-hint b{color:var(--sc-accent);font-weight:normal;}
+.sc-field{display:flex;flex-direction:column;gap:4px;}
+.sc-row{display:grid;gap:10px;}
+.sc-row.col2{grid-template-columns:1fr 1fr;}
+.sc-row.col3{grid-template-columns:1fr 1fr 1fr;}
+
+select.sc-sel,input.sc-inp,textarea.sc-ta{
+  width:100%;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;
+  color:var(--sc-text);font-family:var(--sc-mono);font-size:12px;padding:7px 10px;
+  outline:none;box-sizing:border-box;transition:border-color .15s;
+}
+select.sc-sel{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a8090'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;}
+select.sc-sel:focus,input.sc-inp:focus,textarea.sc-ta:focus{border-color:var(--sc-accent2);}
+select.sc-sel:disabled,input.sc-inp:disabled,textarea.sc-ta:disabled{opacity:0.4;cursor:not-allowed;}
+textarea.sc-ta{resize:vertical;line-height:1.6;}
+input.sc-inp::placeholder,textarea.sc-ta::placeholder{color:var(--sc-text3);}
+
+/* ── Buttons ── */
 .sc-btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-button.btn-p,button.btn-s,button.btn-apply,button.btn-dl{font-family:var(--sc-mono);font-size:11px;letter-spacing:.8px;padding:6px 14px;border-radius:2px;cursor:pointer;text-transform:uppercase;transition:all .15s;}
-button.btn-p{border:1px solid var(--sc-accent);background:var(--sc-accent2);color:var(--sc-accent);}
-button.btn-p:hover:not(:disabled){background:rgba(74,184,204,0.22);}
+button.btn-save,button.btn-del,button.btn-s,button.btn-dl,button.btn-new{font-family:var(--sc-mono);font-size:11px;letter-spacing:.8px;padding:6px 14px;border-radius:2px;cursor:pointer;text-transform:uppercase;transition:all .15s;}
+button.btn-save{border:1px solid var(--sc-gold);background:rgba(232,184,75,0.08);color:var(--sc-gold);}
+button.btn-save:hover:not(:disabled){background:rgba(232,184,75,0.2);}
+button.btn-del{border:1px solid var(--sc-red);background:rgba(204,74,74,0.07);color:var(--sc-red);}
+button.btn-del:hover:not(:disabled){background:rgba(204,74,74,0.18);}
 button.btn-s{border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);}
 button.btn-s:hover:not(:disabled){border-color:var(--sc-accent2);color:var(--sc-accent);background:var(--sc-glow);}
-button.btn-apply{border:1px solid var(--sc-gold);background:rgba(232,184,75,0.08);color:var(--sc-gold);}
-button.btn-apply:hover:not(:disabled){background:rgba(232,184,75,0.18);}
+button.btn-new{border:1px solid var(--sc-accent2);background:transparent;color:var(--sc-accent2);}
+button.btn-new:hover:not(:disabled){border-color:var(--sc-accent);color:var(--sc-accent);background:var(--sc-glow);}
 button.btn-dl{border:1px solid var(--sc-green);background:var(--sc-green-bg);color:var(--sc-green);}
 button.btn-dl:hover:not(:disabled){background:rgba(61,186,110,0.2);}
 button:disabled{opacity:0.35;cursor:not-allowed;}
-.sc-out-wrap{position:relative;}
-textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-border);border-radius:3px;color:#3dba6e;font-family:var(--sc-mono);font-size:11px;padding:9px 11px;resize:vertical;outline:none;line-height:1.6;min-height:110px;box-sizing:border-box;}
-.sc-copy{position:absolute;top:7px;right:7px;font-family:var(--sc-mono);font-size:10px;letter-spacing:.8px;padding:3px 8px;border-radius:2px;border:1px solid var(--sc-border2);background:var(--sc-bg2);color:var(--sc-text2);cursor:pointer;text-transform:uppercase;transition:all .15s;}
-.sc-copy:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
+
+/* ── Messages ── */
 .sc-msg{font-family:var(--sc-mono);font-size:11px;padding:5px 10px;border-radius:2px;border-left:2px solid;}
 .ok{color:var(--sc-green);border-color:var(--sc-green);background:var(--sc-green-bg);}
 .warn{color:var(--sc-gold);border-color:var(--sc-gold);background:rgba(232,184,75,0.08);}
 .err{color:var(--sc-orange);border-color:var(--sc-orange);background:rgba(224,123,58,0.08);}
-.sc-instr{font-size:11px;color:var(--sc-text2);font-family:var(--sc-mono);line-height:1.6;background:rgba(74,184,204,0.05);border:1px solid var(--sc-accent2);border-radius:3px;padding:8px 12px;}
+
+/* ── Confirm delete banner ── */
+.del-confirm{display:none;align-items:center;gap:10px;padding:7px 12px;background:rgba(204,74,74,0.1);border:1px solid rgba(204,74,74,0.35);border-radius:3px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-red);}
+.del-confirm.visible{display:flex;}
+.del-confirm button{font-family:var(--sc-mono);font-size:10px;padding:2px 8px;border-radius:2px;cursor:pointer;text-transform:uppercase;}
+.del-yes{border:1px solid var(--sc-red);background:rgba(204,74,74,0.15);color:var(--sc-red);}
+.del-yes:hover{background:rgba(204,74,74,0.3);}
+.del-no{border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);}
+.del-no:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
+
+/* ── Tag list (resources, deposits, bases, floors) ── */
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;padding:6px 8px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;}
+.tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:2px;background:var(--sc-bg2);border:1px solid var(--sc-border2);font-family:var(--sc-mono);font-size:11px;color:var(--sc-text);}
+.tag-x{cursor:pointer;color:var(--sc-text3);font-size:13px;line-height:1;padding:0 1px;}
+.tag-x:hover{color:var(--sc-red);}
+.tag-add-row{display:flex;gap:6px;align-items:center;margin-top:4px;}
+.tag-add-row input{flex:1;}
+.tag-add-btn{font-family:var(--sc-mono);font-size:10px;padding:4px 10px;border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);border-radius:2px;cursor:pointer;white-space:nowrap;text-transform:uppercase;}
+.tag-add-btn:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
+
+/* ── FTL list ── */
+.ftl-list{display:flex;flex-direction:column;gap:4px;padding:6px 8px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;min-height:28px;}
+.ftl-item{display:flex;align-items:center;gap:6px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-text);}
+.ftl-item span{flex:1;}
+.ftl-item-x{cursor:pointer;color:var(--sc-text3);font-size:13px;line-height:1;}
+.ftl-item-x:hover{color:var(--sc-red);}
+
+/* ── Session log ── */
 .sc-sep{border:none;border-top:1px solid var(--sc-border);margin:2px 0;}
-.file-loaded-bar{display:flex;align-items:center;gap:10px;padding:7px 12px;background:var(--sc-green-bg);border:1px solid rgba(61,186,110,0.3);border-radius:3px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-green);}
-.file-loaded-bar button{font-family:var(--sc-mono);font-size:10px;padding:2px 8px;border:1px solid rgba(61,186,110,0.4);background:transparent;color:var(--sc-green);border-radius:2px;cursor:pointer;margin-left:auto;letter-spacing:.5px;text-transform:uppercase;}
-.file-loaded-bar button:hover{background:rgba(61,186,110,0.15);}
-.editor-locked{opacity:0.4;pointer-events:none;user-select:none;}
-
-/* Session footer bar */
-.sc-footer{display:none;background:var(--sc-bg2);border-top:1px solid var(--sc-border);padding:10px 16px;gap:10px;align-items:center;flex-wrap:wrap;}
-.sc-footer.visible{display:flex;}
-.sc-changes-count{font-family:var(--sc-mono);font-size:11px;color:var(--sc-gold);letter-spacing:.5px;}
-.sc-changes-count span{color:var(--sc-text2);}
-
-/* Change log */
 .sc-log{background:var(--sc-bg3);border:1px solid var(--sc-border);border-radius:3px;padding:8px 12px;font-family:var(--sc-mono);font-size:11px;max-height:120px;overflow-y:auto;}
 .sc-log-entry{display:flex;gap:8px;align-items:baseline;padding:2px 0;border-bottom:1px solid var(--sc-border);color:var(--sc-text2);}
 .sc-log-entry:last-child{border-bottom:none;}
@@ -90,9 +120,18 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
 .log-undo-btn:hover{border-color:var(--sc-gold);color:var(--sc-gold);}
 .log-undo-btn:disabled{opacity:0.3;cursor:not-allowed;}
 
-/* Inline apply confirm flash */
-@keyframes flash-ok {from{background:rgba(61,186,110,0.25);}to{background:transparent;}}
-.flash-applied{animation:flash-ok .6s ease-out;}
+/* ── Footer ── */
+.sc-footer{display:none;background:var(--sc-bg2);border-top:1px solid var(--sc-border);padding:10px 16px;gap:10px;align-items:center;flex-wrap:wrap;}
+.sc-footer.visible{display:flex;}
+.sc-changes-count{font-family:var(--sc-mono);font-size:11px;color:var(--sc-gold);letter-spacing:.5px;}
+.sc-changes-count span{color:var(--sc-text2);}
+
+/* ── Mode selector badge ── */
+.mode-badge{font-family:var(--sc-mono);font-size:10px;padding:2px 8px;border-radius:10px;border:1px solid var(--sc-accent2);color:var(--sc-accent2);letter-spacing:.5px;}
+.mode-badge.new-mode{border-color:var(--sc-green);color:var(--sc-green);}
+
+@keyframes flash-ok{from{background:rgba(61,186,110,0.25);}to{background:transparent;}}
+.flash-applied{animation:flash-ok .7s ease-out;}
 </style>
 
 <div id="sce">
@@ -103,6 +142,7 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
     <div class="sc-status unloaded" id="top-status">○ No file loaded</div>
   </div>
 
+  <!-- Drop zone -->
   <div id="drop-zone" class="drop-zone">
     <input type="file" accept=".json" id="file-input">
     <div class="dz-icon">⬡</div>
@@ -110,8 +150,9 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
     <div class="dz-hint">Drop your <span>.json file</span> here, or click to browse</div>
   </div>
 
+  <!-- Editor -->
   <div id="editor-wrap" class="editor-locked">
-    <div style="padding:0 16px 4px;">
+    <div style="padding:8px 16px 0;">
       <div id="file-bar" class="file-loaded-bar" style="display:none;">
         <span id="file-name-display"></span>
         <button id="change-file-btn">Change file</button>
@@ -119,47 +160,25 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
     </div>
 
     <div class="sc-body">
+      <!-- Tabs -->
       <div>
-        <div class="lbl">Template type</div>
+        <div class="lbl">Category</div>
         <div class="sc-tabs" id="tabs">
-          <button class="sc-tab active" data-t="sector">New Sector</button>
-          <button class="sc-tab" data-t="system">New System</button>
-          <button class="sc-tab" data-t="planet">New / Update Planet</button>
-          <button class="sc-tab" data-t="station">Space Station</button>
-          <button class="sc-tab" data-t="rule">Universe Rule</button>
+          <button class="sc-tab active" data-t="sector">Sectors</button>
+          <button class="sc-tab" data-t="system">Systems</button>
+          <button class="sc-tab" data-t="planet">Planets</button>
+          <button class="sc-tab" data-t="station">Space Stations</button>
+          <button class="sc-tab" data-t="rule">Resources</button>
         </div>
       </div>
 
-      <div id="hint-area"></div>
+      <!-- Dynamic form area -->
+      <div id="form-area"></div>
 
-      <div>
-        <div class="lbl">Paste your filled-in template</div>
-        <textarea class="sc-ta" id="tpl" rows="12" placeholder="Paste here…" disabled></textarea>
-      </div>
-
-      <div class="sc-btn-row">
-        <button class="btn-p" id="parse-btn" disabled>1. Parse → Preview JSON</button>
-        <button class="btn-s" id="clear-btn" disabled>Clear</button>
-      </div>
-
+      <!-- Message -->
       <div id="msg-area"></div>
 
-      <div id="out-area" style="display:none;">
-        <div class="lbl">Generated JSON — review before applying</div>
-        <div class="sc-out-wrap">
-          <textarea class="sc-out" id="json-out" rows="10"></textarea>
-          <button class="sc-copy" id="copy-btn">Copy</button>
-        </div>
-        <div class="lbl" style="margin-top:10px;">Where it will go</div>
-        <div class="sc-instr" id="instr-area"></div>
-        <hr class="sc-sep" style="margin-top:12px;">
-        <div class="sc-btn-row" style="margin-top:10px;">
-          <button class="btn-apply" id="apply-btn">2. Apply to Atlas</button>
-          <span style="font-family:var(--sc-mono);font-size:11px;color:var(--sc-text2);">Happy with it? Applies to memory — add more or download when done.</span>
-        </div>
-      </div>
-
-      <!-- Session change log — shown after first apply -->
+      <!-- Session log -->
       <div id="log-section" style="display:none;">
         <hr class="sc-sep">
         <div class="lbl" style="margin-top:8px;">Session changes <span id="log-count" style="color:var(--sc-gold);"></span></div>
@@ -168,7 +187,7 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
     </div>
   </div>
 
-  <!-- Persistent footer: always visible once file loaded -->
+  <!-- Footer -->
   <div class="sc-footer" id="sc-footer">
     <div class="sc-changes-count" id="footer-count"><span>No unsaved changes</span></div>
     <div style="margin-left:auto;display:flex;gap:8px;align-items:center;">
@@ -178,23 +197,15 @@ textarea.sc-out{width:100%;background:var(--sc-bg3);border:1px solid var(--sc-bo
 </div>
 
 <script>
+// ─── State ───────────────────────────────────────────────────────────────────
 let atlas = null;
-let lastAtlas = null;
-let pendingPayload = null;
-let mode = 'sector';
 let loadedFileName = 'SpaceCraft_Atlas.json';
-let sessionChanges = []; // {summary, type, snapshot_before}
-
-const HINTS = {
-  sector:`<b>Sector template:</b><br>Name: {Sector Name}`,
-  system:`<b>System template:</b><br>Name: {System Name}<br>Sector: {Sector Name}<br>Registration Code: {Code}<br>Planets:<br>&nbsp;&nbsp;{Planet Name} I<br>Other POI: None<br>FTL Jump Points:<br>&nbsp;&nbsp;System Name (CODE) <b>or</b> CODE`,
-  planet:`<b>Planet template:</b><br>Name: {Planet Name}<br>Sector: {Sector Name}<br>Solar System: {System Name}<br>Designation: {Type}<br>Conditions: {Weather}<br>Resources:<br>&nbsp;&nbsp;{Resource Name} (one per line)<br>Deposits:<br>&nbsp;&nbsp;{Deposit Name} (one per line)<br>Bases:<br>&nbsp;&nbsp;{Base Name} (one per line)`,
-  station:`<b>Space Station template:</b><br>Name: {Station Name}<br>System: {System Name}<br>Owner: {Faction}<br>Exploration Level: {Level}<br>Floors: {Facility},{Facility}`,
-  rule:`<b>Universe Rule — paste exactly like this:</b><br>random:<br>&nbsp;&nbsp;box 1.2<br><br>First line = rule name + colon. Each indented line = <b>key value</b> split on last space. Key preserves trailing space (e.g. <b>"box "</b>).`
-};
+let sessionChanges = [];
+let mode = 'sector';
 
 const TYPE_LABELS = {sector:'SECTOR',system:'SYSTEM',planet:'PLANET',station:'STATION',rule:'RULE'};
 
+// ─── File loading ─────────────────────────────────────────────────────────────
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('file-input');
 
@@ -203,31 +214,22 @@ dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classL
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 dropZone.addEventListener('drop', e => {
   e.preventDefault(); dropZone.classList.remove('drag-over');
-  const f = e.dataTransfer.files[0];
-  if (f) loadFile(f);
+  const f = e.dataTransfer.files[0]; if (f) loadFile(f);
 });
 fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); });
-
-document.getElementById('change-file-btn').addEventListener('click', () => {
-  fileInput.value = '';
-  fileInput.click();
-});
+document.getElementById('change-file-btn').addEventListener('click', () => { fileInput.value=''; fileInput.click(); });
 
 function loadFile(file) {
   const reader = new FileReader();
   reader.onload = e => {
     try {
       const parsed = JSON.parse(e.target.result);
-      if (!parsed.sectors || !parsed.universe_rules) throw new Error('Does not look like an Atlas JSON file — missing "sectors" or "universe_rules".');
+      if (!parsed.sectors || !parsed.universe_rules) throw new Error('Missing "sectors" or "universe_rules" — is this an Atlas file?');
       atlas = parsed;
-      lastAtlas = null;
-      pendingPayload = null;
-      sessionChanges = [];
       loadedFileName = file.name;
+      sessionChanges = [];
       onAtlasLoaded();
-    } catch(err) {
-      showDropError(err.message);
-    }
+    } catch(err) { showDropError(err.message); }
   };
   reader.readAsText(file);
 }
@@ -243,339 +245,856 @@ function showDropError(msg) {
 
 function onAtlasLoaded() {
   dropZone.style.display = 'none';
-  const wrap = document.getElementById('editor-wrap');
-  wrap.classList.remove('editor-locked');
+  document.getElementById('editor-wrap').classList.remove('editor-locked');
   document.getElementById('file-bar').style.display = 'flex';
   document.getElementById('file-name-display').textContent = '✓ ' + loadedFileName;
-  document.getElementById('tpl').disabled = false;
-  document.getElementById('parse-btn').disabled = false;
-  document.getElementById('clear-btn').disabled = false;
-  document.querySelectorAll('.sc-tab').forEach(t => t.classList.add('enabled'));
-  document.getElementById('hint-area').innerHTML = `<div class="sc-hint">${HINTS[mode]}</div>`;
   document.getElementById('sc-footer').classList.add('visible');
+  document.querySelectorAll('.sc-tab').forEach(t => t.classList.add('enabled'));
   updateStatus();
   updateFooter();
-  clearAll();
+  renderForm();
 }
 
+// ─── Tabs ─────────────────────────────────────────────────────────────────────
 document.querySelectorAll('.sc-tab').forEach(t => t.addEventListener('click', () => {
   if (!atlas) return;
   document.querySelectorAll('.sc-tab').forEach(x => x.classList.remove('active'));
   t.classList.add('active');
   mode = t.dataset.t;
-  document.getElementById('hint-area').innerHTML = `<div class="sc-hint">${HINTS[mode]}</div>`;
-  clearAll();
+  clearMsg();
+  renderForm();
 }));
 
-document.getElementById('parse-btn').addEventListener('click', () => {
+// ─── Form renderer ────────────────────────────────────────────────────────────
+function renderForm() {
   if (!atlas) return;
-  const raw = document.getElementById('tpl').value.trim();
-  if (!raw) { showMsg('Paste your filled-in template first.','warn'); return; }
-  pendingPayload = null;
-  document.getElementById('out-area').style.display = 'none';
-  try {
-    if (mode==='sector') parseSector(raw);
-    else if (mode==='system') parseSystem(raw);
-    else if (mode==='planet') parsePlanet(raw);
-    else if (mode==='station') parseStation(raw);
-    else if (mode==='rule') parseRule(raw);
-  } catch(e) { showMsg('Parse error: '+e.message,'err'); }
-});
+  const area = document.getElementById('form-area');
+  clearMsg();
+  if (mode === 'sector')  area.innerHTML = buildSectorForm();
+  if (mode === 'system')  area.innerHTML = buildSystemForm();
+  if (mode === 'planet')  area.innerHTML = buildPlanetForm();
+  if (mode === 'station') area.innerHTML = buildStationForm();
+  if (mode === 'rule')    area.innerHTML = buildRuleForm();
+  bindFormEvents();
+}
 
-document.getElementById('clear-btn').addEventListener('click', clearAll);
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function opt(val, label, sel) {
+  return `<option value="${esc(val)}"${sel?' selected':''}>${esc(label||val)}</option>`;
+}
+function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function v(id){ return document.getElementById(id)?.value?.trim()||''; }
+function sel(id){ return document.getElementById(id)?.value||''; }
+function allSectors(){ return atlas.sectors.map(s=>s.name); }
+function allSystems(){ return atlas.sectors.flatMap(s=>s.systems.map(sy=>({name:sy.name,sector:s.name,code:sy.code}))); }
+function tagsHtml(id, items){
+  const tags = items.map((t,i)=>`<span class="tag">${esc(t)}<span class="tag-x" data-list="${id}" data-i="${i}">×</span></span>`).join('');
+  return `<div class="tag-list" id="tags-${id}">${tags}</div>
+<div class="tag-add-row">
+  <input class="sc-inp" id="tag-inp-${id}" placeholder="Add item…" style="padding:4px 8px;font-size:11px;">
+  <button class="tag-add-btn" onclick="addTag('${id}')">+ Add</button>
+</div>`;
+}
 
-document.getElementById('copy-btn').addEventListener('click', () => {
-  document.getElementById('json-out').select();
-  document.execCommand('copy');
-  const b = document.getElementById('copy-btn');
-  b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',1500);
-});
+// ─── Tag state ────────────────────────────────────────────────────────────────
+// Each tag list is stored by a string key; rebuilt on form render
+const tagState = {};
+function initTags(id, arr){ tagState[id] = [...(arr||[])]; renderTags(id); }
+function renderTags(id){
+  const el = document.getElementById('tags-'+id); if(!el) return;
+  el.innerHTML = tagState[id].map((t,i)=>`<span class="tag">${esc(t)}<span class="tag-x" onclick="removeTag('${id}',${i})">×</span></span>`).join('');
+}
+function addTag(id){
+  const inp = document.getElementById('tag-inp-'+id); if(!inp) return;
+  const val = inp.value.trim(); if(!val) return;
+  tagState[id].push(val); inp.value=''; renderTags(id);
+}
+function removeTag(id,i){ tagState[id].splice(i,1); renderTags(id); }
 
-document.getElementById('apply-btn').addEventListener('click', () => {
-  if (!pendingPayload) { showMsg('Nothing to apply.','warn'); return; }
-  try {
-    const snapshotBefore = JSON.parse(JSON.stringify(atlas));
-    const result = pendingPayload.apply(atlas);
-    atlas = result.atlas;
-    lastAtlas = snapshotBefore;
+// ─── FTL state ────────────────────────────────────────────────────────────────
+let ftlItems = [];
+function initFtl(arr){ ftlItems = [...(arr||[])]; renderFtl(); }
+function renderFtl(){
+  const el = document.getElementById('ftl-list'); if(!el) return;
+  if(ftlItems.length===0){el.innerHTML='<span style="color:var(--sc-text3);font-family:var(--sc-mono);font-size:11px;">No FTL links</span>';return;}
+  el.innerHTML = ftlItems.map((t,i)=>`<div class="ftl-item"><span>${esc(t)}</span><span class="ftl-item-x" onclick="removeFtl(${i})">×</span></div>`).join('');
+}
+function addFtl(){
+  const inp = document.getElementById('ftl-inp'); if(!inp) return;
+  const val = inp.value.trim(); if(!val) return;
+  // Auto-resolve: match against system name OR registration code
+  const valLow = val.toLowerCase();
+  const sysMatch = allSystems().find(s=>
+    s.name.toLowerCase()===valLow ||
+    (s.code && s.code.toLowerCase()===valLow)
+  );
+  const entry = sysMatch && sysMatch.code ? `${sysMatch.name} (${sysMatch.code})` : val;
+  ftlItems.push(entry); inp.value=''; renderFtl();
+}
+function removeFtl(i){ ftlItems.splice(i,1); renderFtl(); }
 
-    // Record change in session log
-    sessionChanges.push({
-      summary: result.summary,
-      type: mode,
-      snapshot: snapshotBefore
+// ─── SECTOR FORM ──────────────────────────────────────────────────────────────
+function buildSectorForm(){
+  const sectors = allSectors();
+  const opts = `<option value="__new__">— New sector —</option>` + sectors.map(n=>opt(n,n)).join('');
+  return `
+<div class="sc-field">
+  <div class="lbl">Sector</div>
+  <select class="sc-sel" id="sel-sector">${opts}</select>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Name <span id="sector-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+  <input class="sc-inp" id="inp-sector-name" placeholder="Sector name…">
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-sector-save">Save Sector</button>
+  <div class="del-confirm" id="del-confirm-sector">
+    <span>Delete this sector and all its systems?</span>
+    <button class="del-yes" id="del-yes-sector">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('sector')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-sector-del" style="display:none;">Delete Sector</button>
+</div>`;
+}
+
+function bindSectorForm(){
+  const selEl = document.getElementById('sel-sector');
+  const nameEl = document.getElementById('inp-sector-name');
+  const badge = document.getElementById('sector-mode-badge');
+  const delBtn = document.getElementById('btn-sector-del');
+
+  function load(){
+    const v = selEl.value;
+    if(v==='__new__'){
+      nameEl.value=''; badge.textContent='NEW'; badge.className='mode-badge new-mode';
+      delBtn.style.display='none'; hideDelConfirm('sector');
+    } else {
+      nameEl.value=v; badge.textContent='EDITING'; badge.className='mode-badge';
+      delBtn.style.display='';
+    }
+  }
+  selEl.addEventListener('change', load);
+  load();
+
+  document.getElementById('btn-sector-save').addEventListener('click', ()=>{
+    const name = nameEl.value.trim();
+    if(!name){ showMsg('Sector name is required.','err'); return; }
+    const isNew = sel('sel-sector')==='__new__';
+    const originalName = isNew ? null : sel('sel-sector');
+    if(isNew && atlas.sectors.find(s=>s.name.toLowerCase()===name.toLowerCase())){
+      showMsg(`Sector "${name}" already exists.`,'err'); return;
+    }
+    commitChange(a=>{
+      const c = clone(a);
+      if(isNew){
+        c.sectors.push({name,systems:[]});
+        return {atlas:c, summary:`Sector "${name}" added`, type:'sector'};
+      } else {
+        const sec = c.sectors.find(s=>s.name===originalName);
+        const renamed = name!==originalName;
+        sec.name = name;
+        return {atlas:c, summary: renamed ? `Sector renamed "${originalName}" → "${name}"` : `Sector "${name}" saved`, type:'sector'};
+      }
+    });
+  });
+
+  document.getElementById('btn-sector-del').addEventListener('click', ()=>showDelConfirm('sector'));
+  document.getElementById('del-yes-sector').addEventListener('click', ()=>{
+    const name = sel('sel-sector');
+    commitChange(a=>{
+      const c = clone(a);
+      c.sectors = c.sectors.filter(s=>s.name!==name);
+      return {atlas:c, summary:`Sector "${name}" deleted`, type:'sector'};
+    });
+    hideDelConfirm('sector');
+  });
+}
+
+// ─── SYSTEM FORM ──────────────────────────────────────────────────────────────
+function buildSystemForm(){
+  const sectors = allSectors();
+  const secOpts = sectors.map(n=>opt(n,n)).join('');
+  return `
+<div class="sc-row col2">
+  <div class="sc-field">
+    <div class="lbl">Sector</div>
+    <select class="sc-sel" id="sel-sys-sector"><option value="">— Select sector —</option>${secOpts}</select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">System <span id="sys-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+    <select class="sc-sel" id="sel-system" disabled><option value="__new__">— New system —</option></select>
+  </div>
+</div>
+<div class="sc-row col2" style="margin-top:4px;">
+  <div class="sc-field">
+    <div class="lbl">System Name</div>
+    <input class="sc-inp" id="inp-sys-name" placeholder="System name…">
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Registration Code</div>
+    <input class="sc-inp" id="inp-sys-code" placeholder="e.g. AB-1234X">
+  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">FTL Jump Points</div>
+  <div class="ftl-list" id="ftl-list"></div>
+  <div class="tag-add-row">
+    <input class="sc-inp" id="ftl-inp" placeholder="System name or code — auto-resolves if known…" style="padding:4px 8px;font-size:11px;">
+    <button class="tag-add-btn" onclick="addFtl()">+ Add</button>
+  </div>
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-sys-save">Save System</button>
+  <div class="del-confirm" id="del-confirm-system">
+    <span>Delete this system and all its planets/stations?</span>
+    <button class="del-yes" id="del-yes-system">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('system')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-sys-del" style="display:none;">Delete System</button>
+</div>`;
+}
+
+function bindSystemForm(){
+  const secSel = document.getElementById('sel-sys-sector');
+  const sysSel = document.getElementById('sel-system');
+  const badge = document.getElementById('sys-mode-badge');
+  const delBtn = document.getElementById('btn-sys-del');
+
+  initFtl([]);
+
+  secSel.addEventListener('change', ()=>{
+    const secName = secSel.value;
+    sysSel.disabled = !secName;
+    sysSel.innerHTML = '<option value="__new__">— New system —</option>';
+    if(secName){
+      const sec = atlas.sectors.find(s=>s.name===secName);
+      if(sec) sec.systems.forEach(sy=>sysSel.innerHTML+=opt(sy.name,sy.name));
+    }
+    loadSystem();
+  });
+
+  sysSel.addEventListener('change', loadSystem);
+
+  function loadSystem(){
+    const secName = secSel.value;
+    const sysName = sysSel.value;
+    if(!secName||sysName==='__new__'){
+      document.getElementById('inp-sys-name').value='';
+      document.getElementById('inp-sys-code').value='';
+      initFtl([]);
+      badge.textContent='NEW'; badge.className='mode-badge new-mode';
+      delBtn.style.display='none'; hideDelConfirm('system');
+      return;
+    }
+    const sec = atlas.sectors.find(s=>s.name===secName);
+    const sys = sec?.systems.find(s=>s.name===sysName);
+    if(!sys) return;
+    document.getElementById('inp-sys-name').value=sys.name;
+    document.getElementById('inp-sys-code').value=sys.code||'';
+    initFtl(sys.ftl||[]);
+    badge.textContent='EDITING'; badge.className='mode-badge';
+    delBtn.style.display='';
+  }
+
+  document.getElementById('btn-sys-save').addEventListener('click', ()=>{
+    const secName = sel('sel-sys-sector');
+    if(!secName){ showMsg('Select a sector first.','err'); return; }
+    const name = v('inp-sys-name');
+    const code = v('inp-sys-code');
+    if(!name){ showMsg('System name is required.','err'); return; }
+    if(!code){ showMsg('Registration code is required.','err'); return; }
+    const isNew = sel('sel-system')==='__new__';
+    const originalName = isNew ? null : sel('sel-system');
+
+    commitChange(a=>{
+      const c = clone(a);
+      const sec = c.sectors.find(s=>s.name===secName);
+      if(isNew){
+        if(sec.systems.find(s=>s.name.toLowerCase()===name.toLowerCase())) throw new Error(`System "${name}" already exists in "${secName}".`);
+        sec.systems.push({name,code,planets:[],stations:[],ftl:ftlItems.slice()});
+      } else {
+        const sys = sec.systems.find(s=>s.name===originalName);
+        sys.name=name; sys.code=code; sys.ftl=ftlItems.slice();
+      }
+
+      // ── Bidirectional FTL sync ──────────────────────────────────────────
+      // Build a flat map of all systems for lookups
+      const sysMap={};
+      c.sectors.forEach(sc=>sc.systems.forEach(sy=>{ sysMap[sy.name.toLowerCase()]=sy; if(sy.code) sysMap[sy.code.toLowerCase()]=sy; }));
+
+      let resolvedCount=0, backAddedCount=0;
+
+      // 1. Resolve any bare-code entries across the whole atlas that refer to this system
+      c.sectors.forEach(sc=>sc.systems.forEach(sy=>{
+        if(sy.name===name) return; // skip self
+        if(sy.ftl){ sy.ftl=sy.ftl.map(e=>{
+          const t=e.trim();
+          if(t.toLowerCase()===code.toLowerCase()||t===`(${code})`){ resolvedCount++; return `${name} (${code})`; }
+          return e;
+        });}
+      }));
+
+      // 2. For every FTL entry on the saved system, ensure the linked system has a return link
+      const savedSys = sysMap[name.toLowerCase()];
+      if(savedSys && savedSys.ftl){
+        savedSys.ftl.forEach(entry=>{
+          // Extract name/code from entries like "Kepler (AB-123)" or bare "AB-123" or bare "Kepler"
+          const matchParen = entry.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+          let linkedSys = null;
+          if(matchParen){
+            linkedSys = sysMap[matchParen[1].trim().toLowerCase()] || sysMap[matchParen[2].trim().toLowerCase()];
+          } else {
+            linkedSys = sysMap[entry.trim().toLowerCase()];
+          }
+          if(!linkedSys || linkedSys.name===name) return;
+          if(!Array.isArray(linkedSys.ftl)) linkedSys.ftl=[];
+          // Check if a return link already exists (by name or code)
+          const alreadyLinked = linkedSys.ftl.some(e=>{
+            const t=e.trim().toLowerCase();
+            return t===name.toLowerCase() || t===code.toLowerCase() || t.startsWith(name.toLowerCase()+' (') || t===`(${code.toLowerCase()})`;
+          });
+          if(!alreadyLinked){ linkedSys.ftl.push(`${name} (${code})`); backAddedCount++; }
+        });
+      }
+
+      const notes=[];
+      if(resolvedCount) notes.push(`${resolvedCount} bare ref(s) resolved`);
+      if(backAddedCount) notes.push(`${backAddedCount} return link(s) added`);
+      const isNew2 = !a.sectors.find(sc=>sc.systems.find(sy=>sy.name===name));
+      const renamed = !isNew && name!==originalName;
+      const base = isNew ? `System "${name}" added to "${secName}"` : renamed ? `System renamed "${originalName}" → "${name}"` : `System "${name}" updated`;
+      return {atlas:c, summary:`${base}${notes.length?' ('+notes.join(', ')+')':''}`, type:'system'};
+    });
+  });
+
+  document.getElementById('btn-sys-del').addEventListener('click', ()=>showDelConfirm('system'));
+  document.getElementById('del-yes-system').addEventListener('click', ()=>{
+    const secName = sel('sel-sys-sector');
+    const sysName = sel('sel-system');
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      sec.systems=sec.systems.filter(s=>s.name!==sysName);
+      return{atlas:c,summary:`System "${sysName}" deleted from "${secName}"`,type:'system'};
+    });
+    hideDelConfirm('system');
+  });
+}
+
+// ─── PLANET FORM ──────────────────────────────────────────────────────────────
+function buildPlanetForm(){
+  const secOpts = allSectors().map(n=>opt(n,n)).join('');
+  return `
+<div class="sc-row col3">
+  <div class="sc-field">
+    <div class="lbl">Sector</div>
+    <select class="sc-sel" id="sel-planet-sector"><option value="">— Select sector —</option>${secOpts}</select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">System</div>
+    <select class="sc-sel" id="sel-planet-sys" disabled><option value="">— Select system —</option></select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Planet <span id="planet-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+    <select class="sc-sel" id="sel-planet" disabled><option value="__new__">— New planet —</option></select>
+  </div>
+</div>
+<div class="sc-row col2" style="margin-top:4px;">
+  <div class="sc-field">
+    <div class="lbl">Planet Name</div>
+    <input class="sc-inp" id="inp-planet-name" placeholder="Planet name…">
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Designation / Type</div>
+    <input class="sc-inp" id="inp-planet-type" placeholder="e.g. Terrestrial, Gas Giant…">
+  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Conditions</div>
+  <input class="sc-inp" id="inp-planet-cond" placeholder="e.g. Temperate, Toxic Atmosphere…">
+</div>
+<div class="sc-row col3" style="margin-top:4px;">
+  <div class="sc-field">
+    <div class="lbl">Resources</div>
+    <div id="tags-resources-wrap"></div>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Deposits</div>
+    <div id="tags-deposits-wrap"></div>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Bases</div>
+    <div id="tags-bases-wrap"></div>
+  </div>
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-planet-save">Save Planet</button>
+  <div class="del-confirm" id="del-confirm-planet">
+    <span>Delete this planet permanently?</span>
+    <button class="del-yes" id="del-yes-planet">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('planet')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-planet-del" style="display:none;">Delete Planet</button>
+</div>`;
+}
+
+function bindPlanetForm(){
+  document.getElementById('tags-resources-wrap').innerHTML = buildTagsWidget('resources',[]);
+  document.getElementById('tags-deposits-wrap').innerHTML = buildTagsWidget('deposits',[]);
+  document.getElementById('tags-bases-wrap').innerHTML = buildTagsWidget('bases',[]);
+  initTags('resources',[]); initTags('deposits',[]); initTags('bases',[]);
+
+  const secSel = document.getElementById('sel-planet-sector');
+  const sysSel = document.getElementById('sel-planet-sys');
+  const plSel  = document.getElementById('sel-planet');
+  const badge  = document.getElementById('planet-mode-badge');
+  const delBtn = document.getElementById('btn-planet-del');
+
+  // Sector → populate systems
+  secSel.addEventListener('change', ()=>{
+    const secName = secSel.value;
+    sysSel.innerHTML = '<option value="">— Select system —</option>';
+    sysSel.disabled = !secName;
+    plSel.innerHTML = '<option value="__new__">— New planet —</option>';
+    plSel.disabled = true;
+    if(secName){
+      const sec = atlas.sectors.find(s=>s.name===secName);
+      if(sec) sec.systems.forEach(sy=>sysSel.innerHTML+=opt(sy.name,sy.name));
+    }
+    clearPlanetFields();
+  });
+
+  // System → populate planets
+  sysSel.addEventListener('change', ()=>{
+    const sysName = sysSel.value;
+    plSel.innerHTML = '<option value="__new__">— New planet —</option>';
+    plSel.disabled = !sysName;
+    if(sysName){
+      const sec = atlas.sectors.find(s=>s.name===secSel.value);
+      const sys = sec?.systems.find(s=>s.name===sysName);
+      if(sys) sys.planets.forEach(p=>plSel.innerHTML+=opt(p.name,p.name));
+    }
+    clearPlanetFields();
+  });
+
+  plSel.addEventListener('change', loadPlanet);
+
+  function clearPlanetFields(){
+    document.getElementById('inp-planet-name').value='';
+    document.getElementById('inp-planet-type').value='';
+    document.getElementById('inp-planet-cond').value='';
+    initTags('resources',[]); initTags('deposits',[]); initTags('bases',[]);
+    badge.textContent='NEW'; badge.className='mode-badge new-mode';
+    delBtn.style.display='none'; hideDelConfirm('planet');
+  }
+
+  function loadPlanet(){
+    const plName = plSel.value;
+    if(plName==='__new__'){ clearPlanetFields(); return; }
+    const sec = atlas.sectors.find(s=>s.name===secSel.value);
+    const sys = sec?.systems.find(s=>s.name===sysSel.value);
+    const pl  = sys?.planets.find(p=>p.name===plName);
+    if(!pl) return;
+    document.getElementById('inp-planet-name').value=pl.name;
+    document.getElementById('inp-planet-type').value=pl.type||'';
+    document.getElementById('inp-planet-cond').value=pl.conditions||'';
+    initTags('resources',pl.resources||[]);
+    initTags('deposits',pl.deposits||[]);
+    initTags('bases',pl.bases||[]);
+    badge.textContent='EDITING'; badge.className='mode-badge';
+    delBtn.style.display='';
+  }
+
+  document.getElementById('btn-planet-save').addEventListener('click',()=>{
+    const secName = sel('sel-planet-sector');
+    const sysName = sel('sel-planet-sys');
+    if(!secName){ showMsg('Select a sector first.','err'); return; }
+    if(!sysName){ showMsg('Select a system first.','err'); return; }
+    const name = v('inp-planet-name');
+    if(!name){ showMsg('Planet name is required.','err'); return; }
+    const isNew = sel('sel-planet')==='__new__';
+    const originalName = isNew ? null : sel('sel-planet');
+    const obj = {
+      name,
+      type: v('inp-planet-type')||'Unknown',
+      conditions: v('inp-planet-cond')||'Unknown',
+      resources: tagState['resources'].slice(),
+      deposits: tagState['deposits'].slice(),
+      bases: tagState['bases'].slice()
+    };
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      if(!sys) throw new Error(`System "${sysName}" not found.`);
+      const idx=sys.planets.findIndex(p=>p.name===(isNew?name:originalName));
+      if(isNew&&idx>=0) throw new Error(`Planet "${name}" already exists in "${sysName}".`);
+      if(idx>=0) sys.planets[idx]=obj;
+      else sys.planets.push(obj);
+      return{atlas:c,summary:`Planet "${name}" ${isNew?'added to':'updated in'} "${sysName}"`,type:'planet'};
+    });
+  });
+
+  document.getElementById('btn-planet-del').addEventListener('click',()=>showDelConfirm('planet'));
+  document.getElementById('del-yes-planet').addEventListener('click',()=>{
+    const secName=sel('sel-planet-sector'), sysName=sel('sel-planet-sys'), plName=sel('sel-planet');
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      sys.planets=sys.planets.filter(p=>p.name!==plName);
+      return{atlas:c,summary:`Planet "${plName}" deleted from "${sysName}"`,type:'planet'};
+    });
+    hideDelConfirm('planet');
+  });
+}
+
+// tag widget builder (just the HTML — state managed separately via tagState)
+function buildTagsWidget(id, items){
+  return `<div class="tag-list" id="tags-${id}"></div>
+<div class="tag-add-row">
+  <input class="sc-inp" id="tag-inp-${id}" placeholder="Add…" style="padding:4px 8px;font-size:11px;" onkeydown="if(event.key==='Enter')addTag('${id}')">
+  <button class="tag-add-btn" onclick="addTag('${id}')">+ Add</button>
+</div>`;
+}
+
+// ─── STATION FORM ─────────────────────────────────────────────────────────────
+function buildStationForm(){
+  const secOpts = allSectors().map(n=>opt(n,n)).join('');
+  return `
+<div class="sc-row col3">
+  <div class="sc-field">
+    <div class="lbl">Sector</div>
+    <select class="sc-sel" id="sel-sta-sector"><option value="">— Select sector —</option>${secOpts}</select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">System</div>
+    <select class="sc-sel" id="sel-sta-sys" disabled><option value="">— Select system —</option></select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Station <span id="sta-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+    <select class="sc-sel" id="sel-station" disabled><option value="__new__">— New station —</option></select>
+  </div>
+</div>
+<div class="sc-row col2" style="margin-top:4px;">
+  <div class="sc-field">
+    <div class="lbl">Station Name</div>
+    <input class="sc-inp" id="inp-sta-name" placeholder="Station name…">
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Owner / Faction</div>
+    <input class="sc-inp" id="inp-sta-owner" placeholder="e.g. Federation, Independent…">
+  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Exploration Level</div>
+  <input class="sc-inp" id="inp-sta-level" type="number" min="0" placeholder="0">
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Floors / Facilities</div>
+  <div id="tags-floors-wrap"></div>
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-sta-save">Save Station</button>
+  <div class="del-confirm" id="del-confirm-station">
+    <span>Delete this station permanently?</span>
+    <button class="del-yes" id="del-yes-station">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('station')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-sta-del" style="display:none;">Delete Station</button>
+</div>`;
+}
+
+function bindStationForm(){
+  document.getElementById('tags-floors-wrap').innerHTML = buildTagsWidget('floors',[]);
+  initTags('floors',[]);
+
+  const secSel = document.getElementById('sel-sta-sector');
+  const sysSel = document.getElementById('sel-sta-sys');
+  const staSel = document.getElementById('sel-station');
+  const badge  = document.getElementById('sta-mode-badge');
+  const delBtn = document.getElementById('btn-sta-del');
+
+  // Sector → populate systems
+  secSel.addEventListener('change', ()=>{
+    const secName = secSel.value;
+    sysSel.innerHTML = '<option value="">— Select system —</option>';
+    sysSel.disabled = !secName;
+    staSel.innerHTML = '<option value="__new__">— New station —</option>';
+    staSel.disabled = true;
+    if(secName){
+      const sec = atlas.sectors.find(s=>s.name===secName);
+      if(sec) sec.systems.forEach(sy=>sysSel.innerHTML+=opt(sy.name,sy.name));
+    }
+    clearStationFields();
+  });
+
+  // System → populate stations
+  sysSel.addEventListener('change', ()=>{
+    const sysName = sysSel.value;
+    staSel.innerHTML = '<option value="__new__">— New station —</option>';
+    staSel.disabled = !sysName;
+    if(sysName){
+      const sec = atlas.sectors.find(s=>s.name===secSel.value);
+      const sys = sec?.systems.find(s=>s.name===sysName);
+      if(sys?.stations) sys.stations.forEach(st=>staSel.innerHTML+=opt(st.name,st.name));
+    }
+    clearStationFields();
+  });
+
+  staSel.addEventListener('change', loadStation);
+
+  function clearStationFields(){
+    document.getElementById('inp-sta-name').value='';
+    document.getElementById('inp-sta-owner').value='';
+    document.getElementById('inp-sta-level').value='';
+    initTags('floors',[]);
+    badge.textContent='NEW'; badge.className='mode-badge new-mode';
+    delBtn.style.display='none'; hideDelConfirm('station');
+  }
+
+  function loadStation(){
+    const staName = staSel.value;
+    if(staName==='__new__'){ clearStationFields(); return; }
+    const sec = atlas.sectors.find(s=>s.name===secSel.value);
+    const sys = sec?.systems.find(s=>s.name===sysSel.value);
+    const sta = sys?.stations?.find(s=>s.name===staName);
+    if(!sta) return;
+    document.getElementById('inp-sta-name').value=sta.name;
+    document.getElementById('inp-sta-owner').value=sta.owner||'';
+    document.getElementById('inp-sta-level').value=sta.exploration_level??'';
+    initTags('floors',sta.floors||[]);
+    badge.textContent='EDITING'; badge.className='mode-badge';
+    delBtn.style.display='';
+  }
+
+  document.getElementById('btn-sta-save').addEventListener('click',()=>{
+    const secName=sel('sel-sta-sector');
+    const sysName=sel('sel-sta-sys');
+    if(!secName){ showMsg('Select a sector first.','err'); return; }
+    if(!sysName){ showMsg('Select a system first.','err'); return; }
+    const name=v('inp-sta-name');
+    if(!name){ showMsg('Station name is required.','err'); return; }
+    const isNew=sel('sel-station')==='__new__';
+    const originalName=isNew?null:sel('sel-station');
+    const obj={name,owner:v('inp-sta-owner'),exploration_level:parseInt(document.getElementById('inp-sta-level').value)||0,floors:tagState['floors'].slice()};
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      if(!sys) throw new Error(`System "${sysName}" not found.`);
+      if(!Array.isArray(sys.stations)) sys.stations=[];
+      const idx=sys.stations.findIndex(s=>s.name===(isNew?name:originalName));
+      if(isNew&&idx>=0) throw new Error(`Station "${name}" already exists.`);
+      if(idx>=0) sys.stations[idx]=obj;
+      else sys.stations.push(obj);
+      return{atlas:c,summary:`Station "${name}" ${isNew?'added to':'updated in'} "${sysName}"`,type:'station'};
+    });
+  });
+
+  document.getElementById('btn-sta-del').addEventListener('click',()=>showDelConfirm('station'));
+  document.getElementById('del-yes-station').addEventListener('click',()=>{
+    const secName=sel('sel-sta-sector'), sysName=sel('sel-sta-sys'), staName=sel('sel-station');
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      sys.stations=sys.stations.filter(s=>s.name!==staName);
+      return{atlas:c,summary:`Station "${staName}" deleted from "${sysName}"`,type:'station'};
+    });
+    hideDelConfirm('station');
+  });
+}
+
+// ─── RULE FORM ────────────────────────────────────────────────────────────────
+function buildRuleForm(){
+  const rules = Object.keys(atlas.universe_rules||{});
+  const ruleOpts = `<option value="__new__">— New rule —</option>` + rules.map(r=>opt(r,r)).join('');
+  return `
+<div class="sc-field">
+  <div class="lbl">Rule <span id="rule-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+  <select class="sc-sel" id="sel-rule">${ruleOpts}</select>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Rule Name</div>
+  <input class="sc-inp" id="inp-rule-name" placeholder="e.g. random">
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Sources &nbsp;<span style="color:var(--sc-text3);font-size:10px;">one per line — format: key value</span></div>
+  <textarea class="sc-ta" id="inp-rule-sources" rows="8" placeholder="box 1.2&#10;iron 0.8&#10;titanium 0.4"></textarea>
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-rule-save">Save Rule</button>
+  <div class="del-confirm" id="del-confirm-rule">
+    <span>Delete this rule permanently?</span>
+    <button class="del-yes" id="del-yes-rule">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('rule')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-rule-del" style="display:none;">Delete Rule</button>
+</div>`;
+}
+
+function bindRuleForm(){
+  const ruleSel = document.getElementById('sel-rule');
+  const nameEl = document.getElementById('inp-rule-name');
+  const srcEl = document.getElementById('inp-rule-sources');
+  const badge = document.getElementById('rule-mode-badge');
+  const delBtn = document.getElementById('btn-rule-del');
+
+  function ruleToText(obj){
+    return Object.entries(obj).map(([k,v])=>`${k} ${v}`).join('\n');
+  }
+
+  function load(){
+    const r=ruleSel.value;
+    if(r==='__new__'){
+      nameEl.value=''; srcEl.value='';
+      badge.textContent='NEW'; badge.className='mode-badge new-mode';
+      delBtn.style.display='none'; hideDelConfirm('rule');
+    } else {
+      nameEl.value=r;
+      srcEl.value=ruleToText(atlas.universe_rules[r]||{});
+      badge.textContent='EDITING'; badge.className='mode-badge';
+      delBtn.style.display='';
+    }
+  }
+  ruleSel.addEventListener('change',load);
+  load();
+
+  document.getElementById('btn-rule-save').addEventListener('click',()=>{
+    const name=v('inp-rule-name');
+    if(!name){ showMsg('Rule name is required.','err'); return; }
+    const isNew=sel('sel-rule')==='__new__';
+    const originalName=isNew?null:sel('sel-rule');
+
+    // Parse sources textarea
+    const sources={};
+    srcEl.value.split('\n').forEach(line=>{
+      const t=line.trim(); if(!t) return;
+      const sp=t.lastIndexOf(' ');
+      if(sp===-1){ sources[t]=''; return; }
+      sources[t.slice(0,sp).trimEnd()]=t.slice(sp+1).trim();
     });
 
+    commitChange(a=>{
+      const c=clone(a);
+      if(isNew&&c.universe_rules[name]) throw new Error(`Rule "${name}" already exists.`);
+      if(!isNew&&originalName!==name){
+        delete c.universe_rules[originalName];
+      }
+      c.universe_rules[name]=sources;
+      return{atlas:c,summary:`Rule "${name}" ${isNew?'added':'updated'} (${Object.keys(sources).length} source(s))`,type:'rule'};
+    });
+  });
+
+  document.getElementById('btn-rule-del').addEventListener('click',()=>showDelConfirm('rule'));
+  document.getElementById('del-yes-rule').addEventListener('click',()=>{
+    const name=sel('sel-rule');
+    commitChange(a=>{
+      const c=clone(a);
+      delete c.universe_rules[name];
+      return{atlas:c,summary:`Rule "${name}" deleted`,type:'rule'};
+    });
+    hideDelConfirm('rule');
+  });
+}
+
+// ─── Bind events per mode ─────────────────────────────────────────────────────
+function bindFormEvents(){
+  if(mode==='sector')  bindSectorForm();
+  if(mode==='system')  bindSystemForm();
+  if(mode==='planet')  bindPlanetForm();
+  if(mode==='station') bindStationForm();
+  if(mode==='rule')    bindRuleForm();
+}
+
+// ─── Delete confirm helpers ───────────────────────────────────────────────────
+function showDelConfirm(key){ document.getElementById('del-confirm-'+key)?.classList.add('visible'); }
+function hideDelConfirm(key){ document.getElementById('del-confirm-'+key)?.classList.remove('visible'); }
+
+// ─── Commit a change ─────────────────────────────────────────────────────────
+function commitChange(applyFn){
+  try{
+    const snapshotBefore = clone(atlas);
+    const result = applyFn(atlas);
+    atlas = result.atlas;
+
+    sessionChanges.push({summary:result.summary, type:result.type||mode, snapshot:snapshotBefore});
     updateStatus();
     updateFooter();
     updateChangeLog();
+    showMsg('✓ ' + result.summary,'ok');
 
-    // Flash confirm then reset input for next entry
-    showMsg('✓ ' + result.summary + ' — add another or download when done.','ok');
-    document.getElementById('tpl').value = '';
-    document.getElementById('out-area').style.display = 'none';
-    pendingPayload = null;
+    // Refresh dropdowns to reflect new data
+    renderForm();
 
-    // Briefly flash the log section to draw attention
-    const logSec = document.getElementById('log-section');
+    const logSec=document.getElementById('log-section');
     logSec.classList.remove('flash-applied');
     void logSec.offsetWidth;
     logSec.classList.add('flash-applied');
+  } catch(e){ showMsg(e.message,'err'); }
+}
 
-  } catch(e) { showMsg('Apply failed: '+e.message,'err'); }
-});
+// ─── Session log ──────────────────────────────────────────────────────────────
+function undoChange(idx){
+  if(idx!==sessionChanges.length-1) return;
+  atlas=clone(sessionChanges[idx].snapshot);
+  sessionChanges.splice(idx,1);
+  updateStatus(); updateFooter(); updateChangeLog();
+  showMsg('Last change undone — Atlas restored.','warn');
+  renderForm();
+}
 
-document.getElementById('dl-btn').addEventListener('click', () => {
-  if (!atlas) return;
-  const blob = new Blob([JSON.stringify(atlas, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+function updateChangeLog(){
+  const logSec=document.getElementById('log-section');
+  const logEl=document.getElementById('change-log');
+  const countEl=document.getElementById('log-count');
+  if(sessionChanges.length===0){ logSec.style.display='none'; return; }
+  logSec.style.display='block';
+  countEl.textContent=`(${sessionChanges.length})`;
+  logEl.innerHTML=sessionChanges.map((c,i)=>{
+    const isLast=i===sessionChanges.length-1;
+    return `<div class="sc-log-entry">
+      <span class="log-num">${i+1}.</span>
+      <span class="log-type">${TYPE_LABELS[c.type]||c.type}</span>
+      <span class="log-summary">${esc(c.summary)}</span>
+      <button class="log-undo-btn" ${isLast?'':'disabled'} onclick="undoChange(${i})">Undo</button>
+    </div>`;
+  }).join('');
+  logEl.scrollTop=logEl.scrollHeight;
+}
+
+// ─── Footer / status ──────────────────────────────────────────────────────────
+function updateFooter(){
+  const count=sessionChanges.length;
+  const footerCount=document.getElementById('footer-count');
+  const dlBtn=document.getElementById('dl-btn');
+  if(count===0){ footerCount.innerHTML='<span>No unsaved changes</span>'; dlBtn.disabled=true; }
+  else{ footerCount.innerHTML=`<b style="color:var(--sc-gold);">⬡ ${count} unsaved change${count===1?'':'s'}</b>`; dlBtn.disabled=false; }
+}
+
+function updateStatus(){
+  if(!atlas){ document.getElementById('top-status').textContent='○ No file loaded'; document.getElementById('top-status').className='sc-status unloaded'; return; }
+  const sCount=atlas.sectors.length;
+  const syCount=atlas.sectors.reduce((a,s)=>a+s.systems.length,0);
+  document.getElementById('top-status').textContent=`● ${sCount} sectors · ${syCount} systems`;
+  document.getElementById('top-status').className='sc-status loaded';
+}
+
+// ─── Download ─────────────────────────────────────────────────────────────────
+document.getElementById('dl-btn').addEventListener('click',()=>{
+  if(!atlas) return;
+  const blob=new Blob([JSON.stringify(atlas,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
   a.href=url; a.download=loadedFileName;
   document.body.appendChild(a); a.click();
   document.body.removeChild(a); URL.revokeObjectURL(url);
   showMsg(`Downloaded "${loadedFileName}" with ${sessionChanges.length} change(s) applied.`,'ok');
 });
 
-function undoChange(idx) {
-  // Only allow undoing the last change
-  if (idx !== sessionChanges.length - 1) return;
-  const change = sessionChanges[idx];
-  atlas = JSON.parse(JSON.stringify(change.snapshot));
-  sessionChanges.splice(idx, 1);
-  lastAtlas = sessionChanges.length > 0 ? sessionChanges[sessionChanges.length-1].snapshot : null;
-  updateStatus();
-  updateFooter();
-  updateChangeLog();
-  showMsg('Last change undone — Atlas restored.','warn');
-}
-
-function updateChangeLog() {
-  const logSec = document.getElementById('log-section');
-  const logEl = document.getElementById('change-log');
-  const countEl = document.getElementById('log-count');
-
-  if (sessionChanges.length === 0) {
-    logSec.style.display = 'none';
-    return;
-  }
-
-  logSec.style.display = 'block';
-  countEl.textContent = `(${sessionChanges.length})`;
-
-  logEl.innerHTML = sessionChanges.map((c,i) => {
-    const isLast = i === sessionChanges.length - 1;
-    return `<div class="sc-log-entry">
-      <span class="log-num">${i+1}.</span>
-      <span class="log-type">${TYPE_LABELS[c.type]||c.type}</span>
-      <span class="log-summary">${c.summary}</span>
-      <button class="log-undo-btn" ${isLast?'':'disabled'} onclick="undoChange(${i})">Undo</button>
-    </div>`;
-  }).join('');
-
-  // Scroll to bottom of log
-  logEl.scrollTop = logEl.scrollHeight;
-}
-
-function updateFooter() {
-  const count = sessionChanges.length;
-  const footerCount = document.getElementById('footer-count');
-  const dlBtn = document.getElementById('dl-btn');
-
-  if (count === 0) {
-    footerCount.innerHTML = '<span>No unsaved changes</span>';
-    dlBtn.disabled = true;
-  } else {
-    footerCount.innerHTML = `<b style="color:var(--sc-gold);">⬡ ${count} unsaved change${count===1?'':'s'}</b>`;
-    dlBtn.disabled = false;
-  }
-}
-
-function updateStatus() {
-  if (!atlas) {
-    document.getElementById('top-status').textContent = '○ No file loaded';
-    document.getElementById('top-status').className = 'sc-status unloaded';
-    return;
-  }
-  const sCount = atlas.sectors.length;
-  const syCount = atlas.sectors.reduce((a,s)=>a+s.systems.length,0);
-  document.getElementById('top-status').textContent = `● ${sCount} sectors · ${syCount} systems`;
-  document.getElementById('top-status').className = 'sc-status loaded';
-}
-
-function getLine(lines,key){const l=lines.find(x=>x.toLowerCase().startsWith(key.toLowerCase()+':'));return l?l.slice(key.length+1).trim():'';}
-function getBlock(lines,startKey,nextKeys){const si=lines.findIndex(x=>x.trim().toLowerCase()===startKey.toLowerCase()+':');if(si===-1)return[];const res=[];for(let i=si+1;i<lines.length;i++){const t=lines[i].trim();if(!t)continue;if(nextKeys.some(k=>t.toLowerCase().startsWith(k.toLowerCase()+':')))break;res.push(t);}return res;}
-function isNone(arr){return arr.length===0||(arr.length===1&&arr[0].toLowerCase()==='none');}
-
-function parseSector(raw){
-  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
-  const name=getLine(lines,'Name');
-  if(!name)throw new Error('Could not find "Name:" line.');
-  if(atlas.sectors.find(s=>s.name.toLowerCase()===name.toLowerCase()))throw new Error(`Sector "${name}" already exists.`);
-  const obj={name,systems:[]};
-  pendingPayload={obj,apply(a){const c=JSON.parse(JSON.stringify(a));c.sectors.push(JSON.parse(JSON.stringify(obj)));return{atlas:c,summary:`Sector "${name}" added`};}};
-  showOutput(JSON.stringify(obj,null,2),`Will be added to the top-level <b>"sectors"</b> array.`);
-  showMsg('Sector parsed. Review above then click Apply.','ok');
-}
-
-function parseSystem(raw){
-  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
-  const name=getLine(lines,'Name'),code=getLine(lines,'Registration Code'),sector=getLine(lines,'Sector');
-  if(!name||!code)throw new Error('Could not find Name or Registration Code.');
-  const planetBlock=getBlock(lines,'Planets',['Space Stations','Other POI','FTL Jump Points']);
-  const planets=planetBlock.filter(l=>l.toLowerCase()!=='none').map(l=>({name:l,type:'Unknown',conditions:'Unknown',resources:[],deposits:[],bases:[]}));
-  const ftlBlock=getBlock(lines,'FTL Jump Points',[]);
-  // Build a lookup map: system name (lowercase) → registration code, from the current atlas
-  const sysCodeMap={};
-  atlas.sectors.forEach(sec=>sec.systems.forEach(sys=>{if(sys.code)sysCodeMap[sys.name.toLowerCase()]=sys.code;}));
-  // Resolve FTL entries — append (CODE) if found in atlas, leave unknown ones as-is
-  let ftlResolved=0,ftlUnknown=[];
-  const ftl=isNone(ftlBlock)?[]:ftlBlock.filter(l=>l.toLowerCase()!=='none').map(raw=>{
-    // Strip any existing (CODE) suffix so we work with just the system name
-    const stripped=raw.replace(/\s*\([^)]+\)\s*$/, '').trim();
-    const found=sysCodeMap[stripped.toLowerCase()];
-    if(found){ftlResolved++;return `${stripped} (${found})`;}
-    ftlUnknown.push(stripped);
-    return raw.trim();
-  });
-  const obj={name,code,planets,stations:[],ftl};
-  const targetSector=atlas.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase());
-  if(!targetSector)throw new Error(`Sector "${sector}" not found. Add it first.`);
-  if(targetSector.systems.find(s=>s.name.toLowerCase()===name.toLowerCase()))throw new Error(`System "${name}" already exists in sector "${sector}".`);
-  const ftlNote=ftl.length===0?'':(ftlResolved===ftl.length?' (all resolved)':ftlUnknown.length>0?` (${ftlResolved} resolved, ${ftlUnknown.length} unknown: ${ftlUnknown.join(', ')})`:'');
-  const instrFtl=ftlUnknown.length>0?`<br><span style="color:var(--sc-gold);">⚠ FTL unknown (kept as-is): ${ftlUnknown.map(s=>`<b>${s}</b>`).join(', ')}</span>`:'';
-  // Preview: scan existing FTL lists for bare code entries matching the new system's code
-  const backUpdatePreviews=[];
-  atlas.sectors.forEach(sec=>sec.systems.forEach(sys=>{
-    if(sys.ftl){sys.ftl.forEach(entry=>{
-      const trimmed=entry.trim();
-      // Match bare code (e.g. "AB-1223D") or code-only with parens (e.g. "(AB-1223D)")
-      if(trimmed.toLowerCase()===code.toLowerCase()||trimmed===`(${code})`){
-        backUpdatePreviews.push(sys.name);
-      }
-    });}
-  }));
-  const instrBack=backUpdatePreviews.length>0
-    ?`<br><span style="color:var(--sc-accent);">&#8629; Will also update bare code <b>${code}</b> in FTL lists of: <b>${backUpdatePreviews.join(', ')}</b></span>`
-    :'';
-  pendingPayload={obj,apply(a){
-    const c=JSON.parse(JSON.stringify(a));
-    c.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase()).systems.push(JSON.parse(JSON.stringify(obj)));
-    // Back-update existing systems: replace bare code entries with "Name (CODE)"
-    let backCount=0;
-    c.sectors.forEach(sec=>sec.systems.forEach(sys=>{
-      if(sys.ftl){sys.ftl=sys.ftl.map(entry=>{
-        const trimmed=entry.trim();
-        if(trimmed.toLowerCase()===code.toLowerCase()||trimmed===`(${code})`){backCount++;return `${name} (${code})`;}
-        return entry;
-      });}
-    }));
-    const backNote=backCount>0?`, back-updated ${backCount} FTL reference(s)`:'';
-    return{atlas:c,summary:`System "${name}" added to "${sector}" (${planets.length} planet(s), ${ftl.length} FTL link(s)${ftlNote}${backNote})`};
-  }};
-  showOutput(JSON.stringify(obj,null,2),`Will be added to sector <b>"${sector}"</b> → <b>"systems"</b> array.<br>Planets set to Unknown — use the Planet tab to fill in their details.${instrFtl}${instrBack}`);
-  showMsg(`System parsed — ${planets.length} planet(s), ${ftl.length} FTL link(s)${ftlNote}. Review then Apply.`,ftlUnknown.length>0?'warn':'ok');
-}
-
-function parseStation(raw){
-  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
-  const name=getLine(lines,'Name'),system=getLine(lines,'System'),owner=getLine(lines,'Owner');
-  const levelRaw=getLine(lines,'Exploration Level');
-  const floorsRaw=getLine(lines,'Floors');
-  if(!name)throw new Error('Could not find "Name:" line.');
-  if(!system)throw new Error('Could not find "System:" line.');
-  const exploration_level=parseInt(levelRaw)||0;
-  const floors=floorsRaw?floorsRaw.split(',').map(s=>s.trim()).filter(Boolean):[];
-  const obj={name,owner:owner||'',exploration_level,floors};
-  // Find the system across all sectors
-  let foundSys=null,foundSecName='';
-  for(const sec of atlas.sectors){const s=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(s){foundSys=s;foundSecName=sec.name;break;}}
-  if(!foundSys)throw new Error(`System "${system}" not found in atlas. Add it first.`);
-  // Ensure stations array exists
-  if(!Array.isArray(foundSys.stations))foundSys.stations=[];
-  const existingIdx=foundSys.stations.findIndex(st=>st.name.toLowerCase()===name.toLowerCase());
-  const action=existingIdx>=0?'replace':'add';
-  const instr=action==='replace'
-    ?`Station <b>"${name}"</b> already exists in <b>"${system}"</b> (${foundSecName}) — it will be <b style="color:var(--sc-gold)">replaced</b> with the updated data.`
-    :`Will be added to system <b>"${system}"</b> in sector <b>"${foundSecName}"</b> → <b>"stations"</b> array.`;
-  pendingPayload={obj,apply(a){
-    const c=JSON.parse(JSON.stringify(a));
-    let sys=null;
-    for(const sec of c.sectors){sys=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(sys)break;}
-    if(!Array.isArray(sys.stations))sys.stations=[];
-    const idx=sys.stations.findIndex(st=>st.name.toLowerCase()===name.toLowerCase());
-    if(idx>=0)sys.stations[idx]=JSON.parse(JSON.stringify(obj));
-    else sys.stations.push(JSON.parse(JSON.stringify(obj)));
-    return{atlas:c,summary:`Station "${name}" ${action==='replace'?'updated':'added'} in "${system}" (${floors.length} floor(s))`};
-  }};
-  showOutput(JSON.stringify(obj,null,2),instr);
-  showMsg(`Station parsed (${action==='replace'?'will update existing entry':'new entry'}). Review then Apply.`,action==='replace'?'warn':'ok');
-}
-
-function parsePlanet(raw){
-  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
-  const name=getLine(lines,'Name'),sector=getLine(lines,'Sector'),system=getLine(lines,'Solar System');
-  const type=getLine(lines,'Designation')||'Unknown',conditions=getLine(lines,'Conditions')||'Unknown';
-  const resBlock=getBlock(lines,'Resources',['Deposits','Bases']);
-  const depBlock=getBlock(lines,'Deposits',['Bases']);
-  const baseBlock=getBlock(lines,'Bases',[]);
-  const resources=isNone(resBlock)?[]:resBlock.filter(l=>l.toLowerCase()!=='none');
-  const deposits=isNone(depBlock)?[]:depBlock.filter(l=>l.toLowerCase()!=='none');
-  const bases=isNone(baseBlock)?[]:baseBlock.filter(l=>l.toLowerCase()!=='none');
-  if(!name)throw new Error('Could not find "Name:" line.');
-  if(!system)throw new Error('Could not find "Solar System:" line.');
-  const obj={name,type,conditions,resources,deposits,bases};
-  // Try exact sector match first; if none found, search all sectors (handles mismatches like "Threshold Sector" vs "Threshold")
-  let searchSectors=atlas.sectors;
-  if(sector){
-    const exactMatch=atlas.sectors.filter(s=>s.name.toLowerCase()===sector.toLowerCase());
-    if(exactMatch.length>0) searchSectors=exactMatch;
-    // else: sector name didn't match exactly — fall back to all sectors and find by system name
-  }
-  let foundSys=null, foundSecName='';
-  for(const sec of searchSectors){const s=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(s){foundSys=s;foundSecName=sec.name;break;}}
-  if(!foundSys){
-    const hint=sector&&atlas.sectors.find(s=>s.name.toLowerCase()===sector.toLowerCase())?`in sector "${sector}"`:`in atlas (sector "${sector}" not found by that name — check spelling)`;
-    throw new Error(`System "${system}" not found ${hint}.`);
-  }
-  const existingIdx=foundSys.planets.findIndex(p=>p.name.toLowerCase()===name.toLowerCase());
-  const action=existingIdx>=0?'replace':'add';
-  const instr=action==='replace'?`Planet <b>"${name}"</b> already exists in <b>"${system}"</b> (${foundSecName}) — it will be <b style="color:var(--sc-gold)">replaced</b> with the updated data.`:`Will be added to system <b>"${system}"</b> in sector <b>"${foundSecName}"</b> → <b>"planets"</b> array.`;
-  pendingPayload={obj,apply(a){const c=JSON.parse(JSON.stringify(a));let sys=null;for(const sec of c.sectors){sys=sec.systems.find(s=>s.name.toLowerCase()===system.toLowerCase());if(sys)break;}const idx=sys.planets.findIndex(p=>p.name.toLowerCase()===name.toLowerCase());if(idx>=0)sys.planets[idx]=JSON.parse(JSON.stringify(obj));else sys.planets.push(JSON.parse(JSON.stringify(obj)));return{atlas:c,summary:`Planet "${name}" ${action==='replace'?'updated':'added'} in "${system}" (${resources.length} resource(s), ${deposits.length} deposit(s))`};}};
-  showOutput(JSON.stringify(obj,null,2),instr);
-  showMsg(`Planet parsed (${action==='replace'?'will update existing entry':'new entry'}). Review then Apply.`,action==='replace'?'warn':'ok');
-}
-
-function parseRule(raw){
-  // Work on raw lines preserving indentation to distinguish resource name (no indent) from sources (indented)
-  const lines=raw.split('\n').filter(l=>l.trim().length>0);
-  if(!lines.length)throw new Error('Empty input.');
-  // First non-empty line must be the resource name ending with ':'
-  const firstLine=lines[0].trim();
-  if(!firstLine.endsWith(':'))throw new Error('First line should be "Resource Name:" e.g. "random:"');
-  const resourceName=firstLine.slice(0,-1);
-  const sources={};
-  for(let i=1;i<lines.length;i++){
-    const raw_line=lines[i];
-    const trimmed=raw_line.trim();
-    if(!trimmed||trimmed.toLowerCase()==='none')continue;
-    // Split on last space to separate key from value
-    const sp=trimmed.lastIndexOf(' ');
-    if(sp===-1){sources[trimmed]='';continue;}
-    // Preserve the key exactly as it appears (including any trailing space before the value)
-    const key=trimmed.slice(0,sp+1); // keep trailing space: "box " not "box"
-    const val=trimmed.slice(sp+1).trim();
-    sources[key]=val;
-  }
-  const wrapper={};wrapper[resourceName]=sources;
-  const existing=atlas.universe_rules[resourceName];
-  const action=existing?'merge':'add';
-  const instr=action==='merge'?`Rule <b>"${resourceName}"</b> already exists — new sources will be <b style="color:var(--sc-gold)">merged</b> into it.`:`Will be added as a new rule in <b>"universe_rules"</b>.`;
-  pendingPayload={obj:wrapper,apply(a){const c=JSON.parse(JSON.stringify(a));if(c.universe_rules[resourceName])Object.assign(c.universe_rules[resourceName],sources);else c.universe_rules[resourceName]=JSON.parse(JSON.stringify(sources));return{atlas:c,summary:`Rule "${resourceName}" ${action==='merge'?'merged':'added'} (${Object.keys(sources).length} source(s))`};}};
-  showOutput(JSON.stringify(wrapper,null,2),instr);
-  showMsg(`Rule parsed (${action==='merge'?'will merge into existing rule':'new rule'}). Review then Apply.`,action==='merge'?'warn':'ok');
-}
-
-function showOutput(json,instr){document.getElementById('json-out').value=json;document.getElementById('instr-area').innerHTML=instr;document.getElementById('out-area').style.display='block';}
-function showMsg(text,type){document.getElementById('msg-area').innerHTML=`<div class="sc-msg ${type}">${text}</div>`;}
-function clearAll(){document.getElementById('tpl').value='';document.getElementById('msg-area').innerHTML='';document.getElementById('out-area').style.display='none';pendingPayload=null;}
+// ─── Utility ──────────────────────────────────────────────────────────────────
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+function showMsg(text,type){ document.getElementById('msg-area').innerHTML=`<div class="sc-msg ${type}">${text}</div>`; }
+function clearMsg(){ document.getElementById('msg-area').innerHTML=''; }
 </script>
