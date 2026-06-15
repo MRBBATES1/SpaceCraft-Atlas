@@ -7,34 +7,55 @@
     "Iron Ore": {
       "Iron Deposit": "60.0/h",
       "Siderite": "3.5",
-      "Ferric Stone": "2.5",
+      "Ferric Stone": "2.4",
       "Ferrous Outcrop": "<1"
     },
-    "Copper Ore": {
-      "Copper Deposit": "55.0/h",
-      "Brassy Outcrop": "3.0",
-      "Cupric Stone": "2.0",
-      "Chalcopyrite": "1.2"
-    },
-    "Iron Nuggets": {
+    "Iron Nugget": {
       "Ferrous Outcrop": "2.2"
     },
-    "Copper Nuggets": {
+    "Copper Ore": {
+      "Copper Deposit": "60.0/h",
+      "Cupric Stone": "2.4",
+      "Chalcocite": "1.4",
+      "Chalcopyrite": "1.2",
+      "Brassy Outcrop": "<1"
+    },
+    "Copper Nugget": {
       "Chalcocite": "12.41",
       "Brassy Outcrop": "4.5"
+    },
+    "Aluminum Ore": {
+     "White Feldspar Mound":"4.7"
+    },
+    "Aluminum Nugget": {
+    },
+    "Elmerium Nugget": {
+      "Elmerite": "4.1"
+    },
+    "Elmerium Dust": {
+      "Hollow Outcrop": "1.8"
     },
     "a-Carbon": {
       "Coal Clump": "3.6",
       "Siderite": "1.6"
     },
     "Silicate": {
-      "Sandstone Mound": "3.4"
+      "Sandstone Mound": "3.4",
+      "Hollow Outcrop ": "<1",
+      "White Feldspar Mound" : "<1",
+      "Chalcopyrite ": "<1"
+    },
+    "Kaolinite": {
     },
     "Calcite": {
       "Siderite": "<1"
     },
+    "Graphite Crystal": {
+    },
     "Quartz": {
       "Gray Quartz": "1.0"
+    },
+    "Aquamarine": {
     },
     "Pyrite": {
       "Chalcopyrite": "1.2"
@@ -622,9 +643,18 @@
             },
             {
               "name": "Phura IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Elmerite",
+                "Chalcedony Shell",
+                "Hollow Outcrop",
+                "Coal Clump",
+                "Gray Quartz"
+              ],
               "deposits": [],
               "bases": []
             }
@@ -887,9 +917,18 @@
           "planets": [
             {
               "name": "Sawma I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "White Feldspar Mound",
+                "Sandstone Mound",
+                "Water Geyser",
+                "Cupric Stone",
+                "Clay Shell",
+                "Chalcedony Shell",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },
