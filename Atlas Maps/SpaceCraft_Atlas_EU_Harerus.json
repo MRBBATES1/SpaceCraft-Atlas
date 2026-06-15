@@ -3,6 +3,9 @@
     "region": "Europe",
     "quadrant": "Harerus"
   },
+  "MapContributors": {
+    "MRBBATES1": "https://github.com/MRBBATES1"
+  },
   "universe_rules": {
     "Iron Ore": {
       "Iron Deposit": "60.0/h",
@@ -25,10 +28,9 @@
       "Brassy Outcrop": "4.5"
     },
     "Aluminum Ore": {
-     "White Feldspar Mound":"4.7"
+      "White Feldspar Mound": "4.7"
     },
-    "Aluminum Nugget": {
-    },
+    "Aluminum Nugget": {},
     "Elmerium Nugget": {
       "Elmerite": "4.1"
     },
@@ -42,21 +44,21 @@
     "Silicate": {
       "Sandstone Mound": "3.4",
       "Hollow Outcrop ": "<1",
-      "White Feldspar Mound" : "<1",
+      "White Feldspar Mound": "<1",
       "Chalcopyrite ": "<1"
     },
-    "Kaolinite": {
-    },
+    "Kaolinite": {},
     "Calcite": {
       "Siderite": "<1"
     },
-    "Graphite Crystal": {
+    "Sulfur": {
+      "Sulphuric Stone": "5.8"
     },
+    "Graphite Crystal": {},
     "Quartz": {
       "Gray Quartz": "1.0"
     },
-    "Aquamarine": {
-    },
+    "Aquamarine": {},
     "Pyrite": {
       "Chalcopyrite": "1.2"
     }
@@ -934,17 +936,31 @@
             },
             {
               "name": "Sawma II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Chalcopyrite",
+                "Elmerite",
+                "Hollow Outcrop",
+                "Cupric Stone",
+                "Sulphuric Stone"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Sawma III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Sulphuric Stone",
+                "Chalcopyrite",
+                "Chalcedony Shell",
+                "Chalcocite",
+                "Cupric Stone"
+              ],
               "deposits": [],
               "bases": []
             },
@@ -958,9 +974,15 @@
             },
             {
               "name": "Sawma V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Sulphuric Stone",
+                "Chalcocite",
+                "Chalcedony Shell",
+                "Chalcopyrite"
+              ],
               "deposits": [],
               "bases": []
             }
