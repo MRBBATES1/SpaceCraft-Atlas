@@ -1,6 +1,6 @@
 # SpaceCraft Atlas Editor
 
-A browser-based tool for building and maintaining Atlas map files. As you explore the universe, use the Editor to log your discoveries using pre-set templates — the tool handles the JSON so you don't have to. When you're done, download the updated file and load it straight into the Atlas.
+A browser-based tool for building and maintaining Atlas map files. As you explore the universe, use the Editor to log your discoveries through interactive forms — the tool handles the JSON so you don't have to. When you're done, download the updated file and load it straight into the Atlas.
 
 ---
 
@@ -16,73 +16,39 @@ A browser-based tool for building and maintaining Atlas map files. As you explor
 
 ## How It Works
 
-The Editor works in three steps for every change:
+Select a category from the tabs along the top, then use the form to add or update entries. Each tab populates its dropdowns from your currently loaded atlas, so you can navigate straight to what you want to edit.
 
-1. **Pick a template** — choose what you're adding from the tabs along the top.
-2. **Fill in the template** — paste your completed template into the input area and click **Parse → Preview JSON**. The editor validates your input and shows you exactly what will be added or changed.
-3. **Apply it** — if the preview looks correct, click **Apply to Atlas**. The change is written to memory immediately.
-
-Repeat this as many times as you like. All changes are held in session — nothing is written to disk until you choose to download.
+When you click **Save**, the change is written to memory immediately and logged in the Session Changes panel below. All changes are held in session — nothing is written to disk until you choose to download.
 
 ---
 
-## Templates
+## Tabs
 
-Select the appropriate tab for what you're adding:
+**Sectors**
+Create a new sector or rename an existing one. Select an existing sector from the dropdown to edit it, or leave it on *New sector* to add one. Only a name is required.
 
-**New Sector**
-Creates a new top-level sector. Only requires a name.
-```
-Name: {Sector Name}
-```
+**Systems**
+Add a star system to a sector, or edit an existing one. Select a sector first to populate the system list. Each system requires a name and a registration code. FTL jump points are managed with the add/remove interface — see [FTL Jump Points](#ftl-jump-points) below.
 
-**New System**
-Adds a star system to an existing sector. List planets one per line — they'll be created as Unknown and can be filled in later using the Planet tab. FTL connections are automatically resolved to system codes if those systems are already in the atlas.
-```
-Name: {System Name}
-Sector: {Sector Name}
-Registration Code: {Code}
-Planets:
-  {Planet Name} I
-  {Planet Name} II
-Other POI: None
-FTL Jump Points:
-  System Name (CODE)
-```
+**Planets**
+Add a planet to a system, or update one that already exists. Select a sector, then a system, then a planet (or *New planet* to add one). Resources, deposits, and bases are managed as tag lists — type a value and click **+ Add**, or click **×** to remove.
 
-**New / Update Planet**
-Adds a planet to an existing system, or updates it if it already exists. Resources and deposits go one per line. Use `None` if a section is empty.
-```
-Name: {Planet Name}
-Sector: {Sector Name}
-Solar System: {System Name}
-Designation: {Type}
-Conditions: {Weather}
-Resources:
-  {Resource Name}
-Deposits:
-  {Deposit Name}
-Bases:
-  {Base Name}
-```
+**Space Stations**
+Add a station to a system, or update an existing one. Works the same way as planets — drill down through sector and system to reach the station list. Floors and facilities are managed as a tag list.
 
-**Space Station**
-Adds a station to an existing system, or replaces it if one with the same name already exists. Floors are comma-separated.
-```
-Name: {Station Name}
-System: {System Name}
-Owner: {Faction}
-Exploration Level: {Level}
-Floors: {Facility},{Facility}
-```
+**Resources**
+Add or edit a universe rule. Select an existing rule to edit its sources, or choose *New rule* to create one. Sources are entered one per line in `key value` format (e.g. `iron 0.8`).
 
-**Universe Rule**
-Adds or merges a resource rule into the universe rules index. The first line is the resource name followed by a colon. Each indented line is a source node and its yield rate, separated by a space.
-```
-{Resource Name}:
-  {Source Node} {Yield Rate}
-  {Source Node} {Yield Rate}
-```
+---
+
+## FTL Jump Points
+
+FTL links are managed on the **Systems** tab. Use the input field to add a jump point by typing either the system name or its registration code — the editor will automatically resolve it to the full `System Name (CODE)` format if that system is already in the atlas.
+
+When you save a system, two things happen automatically:
+
+- **Forward resolution** — any bare registration codes in other systems' FTL lists that match this system are expanded to the full name and code.
+- **Bidirectional linking** — if the saved system lists another system as an FTL destination, a return link is automatically added to that system if one doesn't already exist.
 
 ---
 
@@ -93,14 +59,13 @@ Consistent naming is important — the editor matches sectors, systems, and plan
 - **Sectors** — plain name only, no suffix (e.g. `Threshold`, not `Threshold Sector`)
 - **Registration Codes** — use the in-game format exactly as it appears (e.g. `AB-1223D`)
 - **Planets** — include the Roman numeral suffix where applicable (e.g. `Kepler IV`)
-- **FTL Jump Points** — list as `System Name (CODE)` where the code is known, or just the bare code if the system hasn't been added yet; the editor will resolve it automatically once that system is in the atlas
 - **Resources and Deposits** — match the exact in-game name, including capitalisation
 
 ---
 
 ## Session Changes & Undo
 
-Every time you apply a change, it appears in the **Session Changes** log below the input. The log shows a summary of each change — what was added or updated and where it went.
+Every time you save a change, it appears in the **Session Changes** log below the form. The log shows a summary of each change — what was added or updated and where it went.
 
 You can undo the most recent change at any time using the **Undo** button next to it in the log. Only the last change can be undone.
 

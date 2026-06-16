@@ -109,11 +109,13 @@
             }
           ],
           "ftl": [
-            "IN-3080",
-            "GR-867M",
-            "CJ-638Z",
+            "Tilalis (GR-867M)",
             "PC-699H",
-            "Delphuni (DG-132G)"
+            "Delphuni (DG-132G)",
+            "Rushion (XG-146V)",
+            "OE-1084N",
+            "VE-7240N",
+            "IW-3758N"
           ]
         }
       ]
@@ -206,9 +208,9 @@
           ],
           "ftl": [
             "Vishoni (HN-133K)",
-            "RM-533U",
-            "CR-371Y",
-            "MS-838N",
+            "Retaco (RM-533U)",
+            "Cyvyx Coxaco (CR-371Y)",
+            "Pego (MS-838N)",
             "Hydo (EN-956Q)",
             "Syllion (RP-907S)"
           ]
@@ -267,9 +269,9 @@
           ],
           "stations": [],
           "ftl": [
-            "IN-3080",
+            "Cashax (IN-3080)",
             "Sisheda (RY-963R)",
-            "GR-867M",
+            "Tilalis (GR-867M)",
             "Solar Alpha (HX-700R)",
             "CJ-638Z",
             "PC-699H"
@@ -316,7 +318,7 @@
             "Janus (YI-960A)",
             "Vishoni (HN-133K)",
             "Relor Cephyx (VS-556I)",
-            "MS-838N",
+            "Pego (MS-838N)",
             "Sallion (OR-335C)"
           ]
         },
@@ -346,9 +348,9 @@
           "ftl": [
             "Delphuni (DG-132G)",
             "Syllion (RP-907S)",
-            "CR-371Y",
-            "GR-867M",
-            "IN-3080"
+            "Cyvyx Coxaco (CR-371Y)",
+            "Tilalis (GR-867M)",
+            "Cashax (IN-3080)"
           ]
         },
         {
@@ -375,7 +377,10 @@
           "stations": [],
           "ftl": [
             "Sisheda (RY-963R)",
-            "Janus (YI-960A)"
+            "Janus (YI-960A)",
+            "Cyvyx Coxaco (CR-371Y)",
+            "Retaco (RM-533U)",
+            "Cashax (IN-3080)"
           ]
         },
         {
@@ -421,8 +426,8 @@
           "stations": [],
           "ftl": [
             "Hydo (EN-956Q)",
-            "MS-838N",
-            "XG-146V",
+            "Pego (MS-838N)",
+            "Rushion (XG-146V)",
             "Sallion (OR-335C)",
             "Octaco Lytion (TQ-284T)",
             "Phura (VC-7270)"
@@ -469,11 +474,289 @@
           "ftl": [
             "Hydo (EN-956Q)",
             "Janus (YI-960A)",
-            "RM-533U",
-            "SV-623Z",
+            "Retaco (RM-533U)",
+            "Sceda (SV-623Z)",
             "Sallion (OR-335C)",
             "Dracion Sigma (TP-897J)",
             "LO-66OK"
+          ]
+        },
+        {
+          "name": "Pego",
+          "code": "MS-838N",
+          "planets": [
+            {
+              "name": "Pego I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Pego II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Janus (YI-960A)",
+            "Relor Cephyx (VS-556I)",
+            "Hydo (EN-956Q)",
+            "Cyvyx Coxaco (CR-371Y)",
+            "Rushion (XG-146V)"
+          ]
+        },
+        {
+          "name": "Cyvyx Coxaco",
+          "code": "CR-371Y",
+          "planets": [
+            {
+              "name": "Cyvyx Coxaco I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Cyvyx Coxaco II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Cyvyx Coxaco III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Janus (YI-960A)",
+            "Pego (MS-838N)",
+            "Syllion (RP-907S)",
+            "Sisheda (RY-963R)",
+            "Tilalis (GR-867M)",
+            "Rushion (XG-146V)"
+          ]
+        },
+        {
+          "name": "Tilalis",
+          "code": "GR-867M",
+          "planets": [
+            {
+              "name": "Tilalis I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tilalis II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tilalis III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Tilalis IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Rushion (XG-146V)",
+            "Cyvyx Coxaco (CR-371Y)",
+            "Delphuni (DG-132G)",
+            "Sisheda (RY-963R)",
+            "Solar Alpha (HX-700R)"
+          ]
+        },
+        {
+          "name": "Rushion",
+          "code": "XG-146V",
+          "planets": [
+            {
+              "name": "Rushion I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rushion II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rushion III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rushion IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Tilalis (GR-867M)",
+            "Pego (MS-838N)",
+            "Relor Cephyx (VS-556I)",
+            "Cyvyx Coxaco (CR-371Y)",
+            "Solar Alpha (HX-700R)"
+          ]
+        },
+        {
+          "name": "Retaco",
+          "code": "RM-533U",
+          "planets": [
+            {
+              "name": "Retaco I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Retaco II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Janus (YI-960A)",
+            "Syllion (RP-907S)",
+            "Cashax (IN-3080)",
+            "Sceda (SV-623Z)",
+            "Vishoni (HN-133K)"
+          ]
+        },
+        {
+          "name": "Cashax",
+          "code": "IN-3080",
+          "planets": [
+            {
+              "name": "Cashax I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Cashax II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Cashax III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Cashax IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Delphuni (DG-132G)",
+            "Sisheda (RY-963R)",
+            "Syllion (RP-907S)",
+            "Retaco (RM-533U)",
+            "Sceda (SV-623Z)",
+            "CJ-638Z"
+          ]
+        },
+        {
+          "name": "Sceda",
+          "code": "SV-623Z",
+          "planets": [
+            {
+              "name": "Sceda I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sceda II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sceda III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Cashax (IN-3080)",
+            "Retaco (RM-533U)",
+            "Vishoni (HN-133K)",
+            "CJ-638Z",
+            "JU-638Y",
+            "WM-180H",
+            "LO-660K"
           ]
         }
       ]
