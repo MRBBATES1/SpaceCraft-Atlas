@@ -227,7 +227,8 @@
                 "Ferrous Outcrop",
                 "Ferric Stone",
                 "Coal Clump",
-                "Siderite"
+                "Siderite",
+                "Graphite"
               ],
               "deposits": [
                 "Iron Deposit"
@@ -236,34 +237,62 @@
             },
             {
               "name": "Delphuni II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Brassy Outcrop",
+                "Chalcopyrite",
+                "Cupric Stone",
+                "Chalcocite"
+              ],
+              "deposits": [
+                "Iron Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Delphuni III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Delphuni IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Siderite",
+                "Sandstone Mound",
+                "Graphite"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Delphuni V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Chalcopyrite",
+                "Chalcocite"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
               "bases": []
             }
           ],
@@ -298,18 +327,34 @@
             },
             {
               "name": "Hydo II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Chalcopyrite",
+                "Chalcocite"
+              ],
+              "deposits": [
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Hydo III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferric Stone",
+                "Brassy Outcrop",
+                "Ferrous Outcrop",
+                "Cupric Stone"
+              ],
+              "deposits": [
+                "Copper Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             }
           ],
@@ -342,6 +387,22 @@
               "bases": [
                 "The Company's CPAF"
               ]
+            },
+            {
+              "name": "Sisheda I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sisheda II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
             }
           ],
           "stations": [],
@@ -489,16 +550,32 @@
               "name": "Pego I",
               "type": "Terrestrial",
               "conditions": "Temperate",
-              "resources": [],
-              "deposits": [],
+              "resources": [
+                "Siderite",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Coal Clump",
+                "Graphite"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Pego II",
               "type": "Terrestrial",
               "conditions": "Temperate",
-              "resources": [],
-              "deposits": [],
+              "resources": [
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Siderite",
+                "Gray Quartz",
+                "Sandstone Mound"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
               "bases": []
             }
           ],
@@ -1170,11 +1247,18 @@
             },
             {
               "name": "Tucyx Alpha III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Elmerite",
+                "Chalcedony Shell",
+                "Hollow Outcrop"
+              ],
               "deposits": [],
-              "bases": []
+              "bases": [
+                "The Company's Warehouse"
+              ]
             },
             {
               "name": "Tucyx Alpha IV",
@@ -1212,7 +1296,7 @@
                 "Cupric Stone",
                 "Clay Shell",
                 "Chalcedony Shell",
-                "Unknown Resource"
+                "Aquamarine"
               ],
               "deposits": [],
               "bases": []
@@ -1257,9 +1341,9 @@
                 "Clay Shell",
                 "Chalcocite",
                 "White Feldspar Mound",
-                "Unknown Resource",
-                "Unknown Resource",
-                "Unknown Resource"
+                "Malachite",
+                "Tenorite",
+                "Azurite"
               ],
               "deposits": [],
               "bases": []
@@ -1324,10 +1408,23 @@
             },
             {
               "name": "Maphax III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Cupric Stone",
+                "Clay Shell",
+                "Brassy Outcrop",
+                "Malachite",
+                "Chalcedony Shell",
+                "Tenorite",
+                "Azurite"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit",
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
