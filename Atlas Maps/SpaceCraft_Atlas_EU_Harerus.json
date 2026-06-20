@@ -28,7 +28,8 @@
       "Brassy Outcrop": "4.5"
     },
     "Aluminum Ore": {
-      "White Feldspar Mound": "4.7"
+      "White Feldspar Mound": "4.7",
+      "Aluminum Deposit": "60.0/h"
     },
     "Aluminum Nugget": {},
     "Elmerium Nugget": {
@@ -43,9 +44,10 @@
     },
     "Silicate": {
       "Sandstone Mound": "3.4",
-      "Hollow Outcrop ": "<1",
+      "Hollow Outcrop": "<1",
       "White Feldspar Mound": "<1",
-      "Chalcopyrite ": "<1"
+      "Chalcopyrite": "<1",
+      "Sandstone Deposit": "100.0/h"
     },
     "Kaolinite": {},
     "Calcite": {
@@ -54,14 +56,19 @@
     "Sulfur": {
       "Sulphuric Stone": "5.8"
     },
-    "Graphite Crystal": {},
+    "Graphite Crystal": {
+      "Graphite": "2.5"
+    },
     "Quartz": {
       "Gray Quartz": "1.0"
     },
-    "Aquamarine": {},
+    "Aquamarine": {
+      "Aquamarine": "<1"
+    },
     "Pyrite": {
       "Chalcopyrite": "1.2"
-    }
+    },
+    "Titanium Nugget": {}
   },
   "sectors": [
     {
