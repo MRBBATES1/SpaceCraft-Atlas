@@ -14,7 +14,7 @@
       "Ferrous Outcrop": "<1"
     },
     "Iron Nugget": {
-      "Ferrous Outcrop": "2.2"
+      "Ferrous Outcrop": "4.6"
     },
     "Copper Ore": {
       "Copper Deposit": "60.0/h",
@@ -25,13 +25,17 @@
     },
     "Copper Nugget": {
       "Chalcocite": "12.41",
+      "Tenorite": "10.71",
       "Brassy Outcrop": "4.5"
     },
     "Aluminum Ore": {
       "White Feldspar Mound": "4.7",
       "Aluminum Deposit": "60.0/h"
     },
-    "Aluminum Nugget": {},
+    "Aluminum Nugget": {
+      "Aluminum Reduction": "20.02",
+      "Clay Shell": "2.7"
+    },
     "Elmerium Nugget": {
       "Elmerite": "4.1"
     },
@@ -49,8 +53,11 @@
       "Chalcopyrite": "<1",
       "Sandstone Deposit": "100.0/h"
     },
-    "Kaolinite": {},
+    "Kaolinite": {
+      "Clay Shell": "2.7"
+    },
     "Calcite": {
+      "Clay Shell": "<1",
       "Siderite": "<1"
     },
     "Sulfur": {
@@ -63,12 +70,32 @@
       "Gray Quartz": "1.0"
     },
     "Aquamarine": {
+      "Clay Shell": "1.8",
       "Aquamarine": "<1"
     },
     "Pyrite": {
-      "Chalcopyrite": "1.2"
+      "Chalcopyrite": "1.2",
+      "Pyrite Formation": "1.0"
     },
-    "Titanium Nugget": {}
+    "Titanium Nugget": {},
+    "Turquoise": {
+      "Turquoise Clump": "8.6",
+      "Turquoise Stone": "3.6"
+    },
+    "Azurite Stone": {
+      "Azurite": "1.0"
+    },
+    "Malachite Stone": {
+      "Malachite": "1.0"
+    },
+    "Vanadium Ore": {},
+    "Diamond": {},
+    "Beautiful Gemstone": {
+      "Clay Shell": "<1"
+    },
+    "Marvelous Gemstone": {
+      "Clay Shell": "<1"
+    }
   },
   "sectors": [
     {
@@ -839,8 +866,8 @@
             "Vishoni (HN-133K)",
             "CJ-638Z",
             "JU-638Y",
-            "WM-180H",
-            "LO-660K"
+            "Xutus (WM-180H)",
+            "Loraco Ralyx (LO-660K)"
           ]
         }
       ]
@@ -854,25 +881,50 @@
           "planets": [
             {
               "name": "Sallion I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Brassy Outcrop",
+                "Coal Clump",
+                "Elmerite",
+                "Siderite",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Sallion II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Cupric Stone",
+                "Brassy Outcrop",
+                "Elmerite",
+                "Hollow Outcrop",
+                "Malachite",
+                "Tenorite",
+                "Pyrite Formation",
+                "Azurite"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Sallion III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Sulphuric Stone",
+                "Pyrite Formation",
+                "Elmerite"
+              ],
               "deposits": [],
               "bases": []
             }
@@ -940,7 +992,7 @@
             "CK-584I",
             "Phoshex (RF-915V)",
             "Phura (VC-7270)",
-            "CT-403R"
+            "Arices (CT-403R)"
           ]
         },
         {
@@ -979,7 +1031,7 @@
             "Phura (VC-7270)",
             "Soceda (EK-751A)",
             "Hypatia (ZJ-353S)",
-            "CT-403R"
+            "Arices (CT-403R)"
           ]
         },
         {
@@ -1092,41 +1144,83 @@
           "planets": [
             {
               "name": "Hypatia I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Brassy Outcrop",
+                "Gigantic Diamonds"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Hypatia II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Sulphuric Stone",
+                "Sandstone Mound",
+                "Tenorite",
+                "Azurite",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Chalcedony Shell",
+                "Unknown Resource",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Hypatia III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Sandstone Mound",
+                "Cupric Stone",
+                "Sulphuric Stone",
+                "Chalcedony Shell",
+                "Brassy Outcrop",
+                "Pyrite Formation",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Hypatia IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Ferrous Outcrop",
+                "Cupric Stone",
+                "Chalcedony Shell",
+                "Coal Clump",
+                "Graphite"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Hypatia V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Unknown Resource",
+                "Brassy Outcrop",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             }
@@ -1146,9 +1240,67 @@
           "ftl": [
             "Phoshex (RF-915V)",
             "Soceda (EK-751A)",
-            "CT-403R",
+            "Arices (CT-403R)",
             "XN-481M",
             "WE-648N"
+          ]
+        },
+        {
+          "name": "Arices",
+          "code": "CT-403R",
+          "planets": [
+            {
+              "name": "Arices I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Coal Clump",
+                "Brassy Outcrop",
+                "Siderite",
+                "Ferric Stone",
+                "Cupric Stone",
+                "Ferrous Outcrop",
+                "Gray Quartz",
+                "Chalcedony Shell"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": [
+                "Local Intelligence Center"
+              ]
+            },
+            {
+              "name": "Arices II",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Brassy Outcrop",
+                "Chalcedony Shell",
+                "Wolframite",
+                "Cupric Stone",
+                "Unknown Resource",
+                "Sandstone Mound",
+                "Malachite",
+                "Tenorite",
+                "Azurite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Hypatia (ZJ-353S)",
+            "Phoshex (RF-915V)",
+            "CK-584I",
+            "XN-481M",
+            "YZ-662H"
           ]
         }
       ]
@@ -1162,25 +1314,47 @@
           "planets": [
             {
               "name": "Dracion Sigma I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Aluminum Reduction",
+                "Turquoise Clump",
+                "Sandstone Mound",
+                "Turquoise Stone",
+                "Chalcedony Shell"
+              ],
+              "deposits": [
+                "Unknown Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Dracion Sigma II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Sandstone Mound",
+                "Chalcocite",
+                "Chalcopyrite",
+                "Chalcedony Shell"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Dracion Sigma III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Sandstone Mound",
+                "Chalcopyrite",
+                "Chalcedony Shell",
+                "Chalcocite"
+              ],
               "deposits": [],
               "bases": []
             }
@@ -1192,7 +1366,8 @@
             "XW-535D",
             "Silleia (NP-667V)",
             "LO-66OK",
-            "Maphax (JJ-129Q)"
+            "Maphax (JJ-129Q)",
+            "Loraco Ralyx (LO-660K)"
           ]
         },
         {
@@ -1229,7 +1404,8 @@
             "Dracion Sigma (TP-897J)",
             "LO-66OK",
             "Tucyx Alpha (QP-441R)",
-            "Maphax (JJ-129Q)"
+            "Maphax (JJ-129Q)",
+            "Loraco Ralyx (LO-660K)"
           ]
         },
         {
@@ -1279,12 +1455,13 @@
           "stations": [],
           "ftl": [
             "Silleia (NP-667V)",
-            "WM-180H",
-            "PI-445C",
-            "KD-339Y",
-            "SO-870S",
+            "Xutus (WM-180H)",
+            "Ophices (PI-445C)",
+            "Xetalis (KD-339Y)",
+            "Rello (SO-870S)",
             "Sawma (XK-405A)",
-            "Maphax (JJ-129Q)"
+            "Maphax (JJ-129Q)",
+            "Loraco Ralyx (LO-660K)"
           ]
         },
         {
@@ -1386,11 +1563,13 @@
             "Silleia (NP-667V)",
             "Tucyx Alpha (QP-441R)",
             "LO-66OK",
-            "WM-180H",
-            "PI-445C",
-            "KD-339Y",
-            "SO-870S",
-            "Maphax (JJ-129Q)"
+            "Xutus (WM-180H)",
+            "Ophices (PI-445C)",
+            "Xetalis (KD-339Y)",
+            "Rello (SO-870S)",
+            "Maphax (JJ-129Q)",
+            "Rulla (LO-328N)",
+            "Toseda Delta (YB-320B)"
           ]
         },
         {
@@ -1399,17 +1578,31 @@
           "planets": [
             {
               "name": "Maphax I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Chalcocite",
+                "Chalcopyrite",
+                "Chalcedony Shell",
+                "Cupric Stone",
+                "Sandstone Mound"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Maphax II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sulphuric Stone",
+                "Chalcopyrite",
+                "Unknown Resource",
+                "Hollow Outcrop",
+                "Cupric Stone"
+              ],
               "deposits": [],
               "bases": []
             },
@@ -1436,18 +1629,37 @@
             },
             {
               "name": "Maphax IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sandstone Mound",
+                "Sulphuric Stone",
+                "Chalcopyrite",
+                "Cupric Stone"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Maphax V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "White Feldspar Mound",
+                "Chalcopyrite",
+                "Sulphuric Stone",
+                "Cupric Stone",
+                "Brassy Outcrop",
+                "Clay Shell",
+                "Chalcocite"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             }
           ],
@@ -1468,26 +1680,51 @@
           "planets": [
             {
               "name": "Savana I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Turquoise Clump",
+                "Unknown Resource",
+                "Sandstone Mound",
+                "Turquoise Stone",
+                "Hollow Outcrop"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Savana II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sandstone Mound",
+                "Chalcedony Shell",
+                "Chalcopyrite",
+                "Cupric Stone",
+                "Sulphuric Stone"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Savana III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "White Feldspar Mound",
+                "Unknown Resource",
+                "Hollow Outctop",
+                "Cupric Stone",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             }
           ],
@@ -1497,7 +1734,412 @@
             "Sawma (XK-405A)",
             "ZM-162W",
             "UD-6960",
-            "YB-320B"
+            "Toseda Delta (YB-320B)"
+          ]
+        },
+        {
+          "name": "Rello",
+          "code": "SO-870S",
+          "planets": [
+            {
+              "name": "Rello I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Water Geyser",
+                "Brassy Outcrop",
+                "Elmerite",
+                "Clay Shell",
+                "Hollow Outcrop",
+                "Cupric Stone",
+                "White Feldspar Mound",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Rello II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Water Geyser",
+                "Cupric Stone",
+                "Chalcocite",
+                "Brassy Outcrop",
+                "Chalcopyrite",
+                "White Feldspar Mound",
+                "Clay Shell",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Rello III",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sulphuric Stone",
+                "Chalcopyrite",
+                "Elmerite",
+                "Hollow Outcrop",
+                "Cupric Stone"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rello IV",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Water Geyser",
+                "Brassy Outcrop",
+                "White Feldspar Mound",
+                "Clay Shell",
+                "Elmerite",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xetalis (KD-339Y)",
+            "Vura (EU-812G)",
+            "Rulla (LO-328N)",
+            "Sawma (XK-405A)",
+            "Tucyx Alpha (QP-441R)"
+          ]
+        },
+        {
+          "name": "Xetalis",
+          "code": "KD-339Y",
+          "planets": [
+            {
+              "name": "Xetalis I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xetalis II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Clay Shell",
+                "Chalcedony Shell",
+                "Sandstone Mound",
+                "Malachite",
+                "Unknown Resource",
+                "Azurite",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit",
+                "Unknown Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ophices (PI-445C)",
+            "Tucyx Alpha (QP-441R)",
+            "Rello (SO-870S)",
+            "Vura (EU-812G)",
+            "NP-22260",
+            "AT-6812Q",
+            "HE-17540"
+          ]
+        },
+        {
+          "name": "Rulla",
+          "code": "LO-328N",
+          "planets": [
+            {
+              "name": "Rulla I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rulla II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rulla III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rulla IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Sawma (XK-405A)",
+            "Rello (SO-870S)",
+            "Vura (EU-812G)",
+            "Toseda Delta (YB-320B)",
+            "Rushana Resheia (JU-985I)"
+          ]
+        },
+        {
+          "name": "Toseda Delta",
+          "code": "YB-320B",
+          "planets": [
+            {
+              "name": "Toseda Delta I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Toseda Delta II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Rulla (LO-328N)",
+            "Sawma (XK-405A)",
+            "LC-308M",
+            "WM-682Z",
+            "Rushana Resheia (JU-985I)",
+            "UD-6960"
+          ]
+        },
+        {
+          "name": "Rushana Resheia",
+          "code": "JU-985I",
+          "planets": [
+            {
+              "name": "Rushana Resheia I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rushana Resheia II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Rushana Resheia III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Toseda Delta (YB-320B)",
+            "Rulla (LO-328N)",
+            "WM-682Z",
+            "FO-384T",
+            "Vura (EU-812G)"
+          ]
+        },
+        {
+          "name": "Vura",
+          "code": "EU-812G",
+          "planets": [
+            {
+              "name": "Vura I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Vura II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Vura III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xetalis (KD-339Y)",
+            "Rello (SO-870S)",
+            "Rulla (LO-328N)",
+            "Rushana Resheia (JU-985I)",
+            "MJ-3835V",
+            "NP-22260",
+            "FO-384T"
+          ]
+        },
+        {
+          "name": "Ophices",
+          "code": "PI-445C",
+          "planets": [
+            {
+              "name": "Ophices I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ophices II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xetalis (KD-339Y)",
+            "Xutus (WM-180H)",
+            "Tucyx Alpha (QP-441R)",
+            "HE-17540",
+            "AV-168C",
+            "JU-638Y"
+          ]
+        },
+        {
+          "name": "Xutus",
+          "code": "WM-180H",
+          "planets": [
+            {
+              "name": "Xutus I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xutus II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xutus III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xutus IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xutus V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ophices (PI-445C)",
+            "Tucyx Alpha (QP-441R)",
+            "Loraco Ralyx (LO-660K)",
+            "Sceda (SV-623Z)",
+            "JU-638Y"
+          ]
+        },
+        {
+          "name": "Loraco Ralyx",
+          "code": "LO-660K",
+          "planets": [
+            {
+              "name": "Loraco Ralyx I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Loraco Ralyx II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xutus (WM-180H)",
+            "Dracion Sigma (TP-897J)",
+            "Tucyx Alpha (QP-441R)",
+            "Sceda (SV-623Z)",
+            "Silleia (NP-667V)"
           ]
         }
       ]
