@@ -935,8 +935,8 @@
             "Hydo (EN-956Q)",
             "Relor Cephyx (VS-556I)",
             "Dracion Sigma (TP-897J)",
-            "XW-535D",
-            "CK-584I",
+            "Ricax (XW-535D)",
+            "Xileda (CK-584I)",
             "Octaco Lytion (TQ-284T)"
           ]
         },
@@ -989,7 +989,7 @@
           "ftl": [
             "Sallion (OR-335C)",
             "Relor Cephyx (VS-556I)",
-            "CK-584I",
+            "Xileda (CK-584I)",
             "Phoshex (RF-915V)",
             "Phura (VC-7270)",
             "Arices (CT-403R)"
@@ -1027,7 +1027,7 @@
           "stations": [],
           "ftl": [
             "Octaco Lytion (TQ-284T)",
-            "CK-584I",
+            "Xileda (CK-584I)",
             "Phura (VC-7270)",
             "Soceda (EK-751A)",
             "Hypatia (ZJ-353S)",
@@ -1241,7 +1241,7 @@
             "Phoshex (RF-915V)",
             "Soceda (EK-751A)",
             "Arices (CT-403R)",
-            "XN-481M",
+            "Simutes (XN-481M)",
             "WE-648N"
           ]
         },
@@ -1298,9 +1298,268 @@
           "ftl": [
             "Hypatia (ZJ-353S)",
             "Phoshex (RF-915V)",
-            "CK-584I",
-            "XN-481M",
+            "Xileda (CK-584I)",
+            "Simutes (XN-481M)",
             "YZ-662H"
+          ]
+        },
+        {
+          "name": "Xileda",
+          "code": "CK-584I",
+          "planets": [
+            {
+              "name": "Xileda I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xileda II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xileda III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xileda IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xileda V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ricax (XW-535D)",
+            "Sallion (OR-335C)",
+            "Octaco Lytion (TQ-284T)",
+            "Phoshex (RF-915V)",
+            "Arices (CT-403R)",
+            "Xulices (YZ-663H)",
+            "Xephites (GP-395F)"
+          ]
+        },
+        {
+          "name": "Xephites",
+          "code": "GP-395F",
+          "planets": [
+            {
+              "name": "Xephites I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xephites II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xephites III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xephites IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xephites V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xileda (CK-584I)",
+            "Xulices (YZ-663H)",
+            "Sucor Theta (HJ-934B)",
+            "XU-499D",
+            "Ricax (XW-535D)",
+            "Ophites Delta (QK-751F)",
+            "TH-4341Q",
+            "AM-6688Y",
+            "ZH-6596Y"
+          ]
+        },
+        {
+          "name": "Sucor Theta",
+          "code": "HJ-934B",
+          "planets": [
+            {
+              "name": "Sucor Theta I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sucor Theta II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sucor Theta III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sucor Theta IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sucor Theta V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xephites (GP-395F)",
+            "Xulices (YZ-663H)",
+            "LB-437K",
+            "XU-499D"
+          ]
+        },
+        {
+          "name": "Xulices",
+          "code": "YZ-663H",
+          "planets": [
+            {
+              "name": "Xulices I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xulices II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Xulices III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Xephites (GP-395F)",
+            "Sucor Theta (HJ-934B)",
+            "Xileda (CK-584I)",
+            "LB-437K",
+            "Simutes (XN-481M)"
+          ]
+        },
+        {
+          "name": "Simutes",
+          "code": "XN-481M",
+          "planets": [
+            {
+              "name": "Simutes I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Simutes II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Simutes III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Simutes IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Simutes V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Hypatia (ZJ-353S)",
+            "Arices (CT-403R)",
+            "Xulices (YZ-663H)",
+            "WE-648N",
+            "LB-437K"
           ]
         }
       ]
@@ -1363,7 +1622,7 @@
           "ftl": [
             "Vishoni (HN-133K)",
             "Sallion (OR-335C)",
-            "XW-535D",
+            "Ricax (XW-535D)",
             "Silleia (NP-667V)",
             "LO-66OK",
             "Maphax (JJ-129Q)",
@@ -1670,8 +1929,8 @@
             "Dracion Sigma (TP-897J)",
             "Sawma (XK-405A)",
             "Savana (SW-315U)",
-            "ZM-162W",
-            "XW-535D"
+            "Sypha (ZM-162W)",
+            "Ricax (XW-535D)"
           ]
         },
         {
@@ -1732,8 +1991,8 @@
           "ftl": [
             "Maphax (JJ-129Q)",
             "Sawma (XK-405A)",
-            "ZM-162W",
-            "UD-6960",
+            "Sypha (ZM-162W)",
+            "Phellax Vusa (UD-6960)",
             "Toseda Delta (YB-320B)"
           ]
         },
@@ -1943,10 +2202,10 @@
           "ftl": [
             "Rulla (LO-328N)",
             "Sawma (XK-405A)",
-            "LC-308M",
-            "WM-682Z",
+            "Comeus (LC-308M)",
+            "Ratex Silleia (WM-682Z)",
             "Rushana Resheia (JU-985I)",
-            "UD-6960"
+            "Phellax Vusa (UD-6960)"
           ]
         },
         {
@@ -1982,8 +2241,8 @@
           "ftl": [
             "Toseda Delta (YB-320B)",
             "Rulla (LO-328N)",
-            "WM-682Z",
-            "FO-384T",
+            "Ratex Silleia (WM-682Z)",
+            "Peryni (FO-384T)",
             "Vura (EU-812G)"
           ]
         },
@@ -2024,7 +2283,7 @@
             "Rushana Resheia (JU-985I)",
             "MJ-3835V",
             "NP-22260",
-            "FO-384T"
+            "Peryni (FO-384T)"
           ]
         },
         {
@@ -2140,6 +2399,288 @@
             "Tucyx Alpha (QP-441R)",
             "Sceda (SV-623Z)",
             "Silleia (NP-667V)"
+          ]
+        },
+        {
+          "name": "Ricax",
+          "code": "XW-535D",
+          "planets": [
+            {
+              "name": "Ricax I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ricax II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ricax III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ricax IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Maphax (JJ-129Q)",
+            "Dracion Sigma (TP-897J)",
+            "Sallion (OR-335C)",
+            "Xileda (CK-584I)",
+            "Xephites (GP-395F)",
+            "Ophites Delta (QK-751F)",
+            "Sypha (ZM-162W)"
+          ]
+        },
+        {
+          "name": "Sypha",
+          "code": "ZM-162W",
+          "planets": [
+            {
+              "name": "Sypha I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sypha II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sypha III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sypha IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Sypha V",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ricax (XW-535D)",
+            "Maphax (JJ-129Q)",
+            "Savana (SW-315U)",
+            "Phellax Vusa (UD-6960)",
+            "Ophites Delta (QK-751F)",
+            "Comeus (LC-308M)"
+          ]
+        },
+        {
+          "name": "Phellax Vusa",
+          "code": "UD-6960",
+          "planets": [
+            {
+              "name": "Phellax Vusa I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Phellax Vusa II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Savana (SW-315U)",
+            "Sypha (ZM-162W)",
+            "Comeus (LC-308M)",
+            "Toseda Delta (YB-320B)"
+          ]
+        },
+        {
+          "name": "Comeus",
+          "code": "LC-308M",
+          "planets": [
+            {
+              "name": "Comeus I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Comeus II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Phellax Vusa (UD-6960)",
+            "Sypha (ZM-162W)",
+            "Toseda Delta (YB-320B)",
+            "Ratex Silleia (WM-682Z)",
+            "Ophites Delta (QK-751F)"
+          ]
+        },
+        {
+          "name": "Ophites Delta",
+          "code": "QK-751F",
+          "planets": [
+            {
+              "name": "Ophites Delta I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ophites Delta II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Comeus (LC-308M)",
+            "Sypha (ZM-162W)",
+            "Ricax (XW-535D)",
+            "Ratex Silleia (WM-682Z)",
+            "DO-5332Q",
+            "Xephites (GP-395F)",
+            "TH-4341Q",
+            "BG-2808N"
+          ]
+        },
+        {
+          "name": "Ratex Silleia",
+          "code": "WM-682Z",
+          "planets": [
+            {
+              "name": "Ratex Silleia I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ratex Silleia II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Ratex Silleia III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ophites Delta (QK-751F)",
+            "Comeus (LC-308M)",
+            "Toseda Delta (YB-320B)",
+            "Rushana Resheia (JU-985I)",
+            "Peryni (FO-384T)",
+            "DO-5332Q"
+          ]
+        },
+        {
+          "name": "Peryni",
+          "code": "FO-384T",
+          "planets": [
+            {
+              "name": "Peryni I",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Peryni II",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Peryni III",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Peryni IV",
+              "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "ftl": [
+            "Ratex Silleia (WM-682Z)",
+            "Rushana Resheia (JU-985I)",
+            "Vura (EU-812G)",
+            "DO-5332Q",
+            "MJ-3835V",
+            "KG-87800",
+            "UQ-9043V"
           ]
         }
       ]
