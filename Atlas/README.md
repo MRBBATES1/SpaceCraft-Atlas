@@ -62,9 +62,9 @@ Click **Clear filter** or click the resource again to remove the filter.
 
 ## Marking Your Base
 
-On any planet card, click the **⌂** icon to mark it as your base. Marked planets are highlighted across the Atlas — in system detail views and in the sidebar badges — so you can always find your way home.
+On any planet card, click the **⌂** icon to mark it as your base. You'll be asked for a base name — use the name you gave the base in game, or leave it blank to use the planet name. Marked planets are highlighted across the Atlas — in system detail views and in the sidebar badges — so you can always find your way home. Hover the orange **⌂** badge in the sidebar to see each base's name and the planet it's on.
 
-Your base selection is saved in the browser session. To remove it, click the **⌂** icon again.
+Your bases are saved in this browser. To rename or remove a base, click its **⌂** icon again and choose **Save** or **Remove base**.
 
 ---
 

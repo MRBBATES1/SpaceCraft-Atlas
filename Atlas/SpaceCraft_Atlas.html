@@ -386,6 +386,7 @@
   .mb-station { background: rgba(61,186,110,0.15); color: var(--green); }
   .mb-deposit { background: rgba(200,168,75,0.15); color: var(--gold); }
   .mb-base    { background: var(--red-bg); color: var(--red); }
+  .mb-asteroid { background: var(--purple-bg); color: #a78bfa; }
   .mb-mybase  { background: rgba(245,166,35,0.15); color: #f5a623; border: 1px solid rgba(245,166,35,0.4); }
   .mb-highlight { background: rgba(74,184,204,0.25); color: var(--accent); border: 1px solid var(--accent); box-shadow: 0 0 6px rgba(74,184,204,0.25); }
 
@@ -432,11 +433,12 @@
   .sys-ftl-count { font-family: var(--mono); font-size: var(--fs-sm); color: var(--text3); }
 
   .section-head {
-    font-family: var(--head); font-size: var(--fs-sm); font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--text3);
+    font-family: var(--head); font-size: var(--fs-sm); font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: #a9c7d3;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.85);
     margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
   }
-  .section-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section-head::after { content: ''; flex: 1; height: 1px; background: var(--border2); }
 
   /* ── PLANET CARDS ── */
   .planets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 28px; }
@@ -479,6 +481,9 @@
   .tag-deposit { background: rgba(200,168,75,0.15); color: var(--gold); border: 1px solid var(--gold2); }
   .tag-base    { background: var(--red-bg); color: var(--red); border: 1px solid rgba(217,79,79,0.3); }
   .tag-floor   { background: rgba(74,184,204,0.12); color: var(--accent); border: 1px solid var(--accent2); }
+  /* Resource on the dark side of the planet — half-crescent moon icon */
+  .tag.tag-dark { display: inline-flex; align-items: center; gap: 5px; }
+  .dark-side-icon { width: 12px; height: 12px; flex-shrink: 0; }
 
   /* ── STATIONS ── */
   .stations-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 28px; }
@@ -490,12 +495,29 @@
   .exp-1 { background: var(--green-bg); color: var(--green); border: 1px solid rgba(61,186,110,0.3); }
   .exp-2 { background: rgba(74,184,204,0.1); color: var(--accent); border: 1px solid var(--accent2); }
 
+  /* ── ASTEROID BELTS ── */
+  .asteroids-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .asteroid-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-left: 2px solid var(--purple);
+    border-radius: 3px; padding: 14px;
+    transition: border-color .15s; position: relative; overflow: hidden;
+  }
+  .asteroid-card:hover { border-color: var(--border2); border-left-color: var(--purple); }
+  .asteroid-card.filter-match { border-color: var(--accent); box-shadow: 0 0 8px rgba(74,184,204,0.15); }
+  .asteroid-name { font-family: var(--head); font-size: var(--fs-lg); font-weight: 600; letter-spacing: 1px; color: var(--text); margin-bottom: 10px; }
+
   /* ── FTL ── */
   .ftl-section { margin-bottom: 28px; }
   .ftl-grid { display: flex; flex-wrap: wrap; gap: 6px; }
   .ftl-pill { font-family: var(--mono); font-size: var(--fs-sm); padding: 4px 10px; border-radius: 1px; border: 1px solid var(--border2); color: var(--text2); letter-spacing: .5px; }
   .ftl-pill.named { border-color: var(--accent2); color: var(--accent); cursor: pointer; transition: all .15s; }
   .ftl-pill.named:hover { background: var(--accent-glow); border-color: var(--accent); }
+  /* Jumps that lead out of the current sector */
+  .ftl-pill.other-sector { border-color: rgba(224,123,58,0.55); color: var(--orange); background: rgba(224,123,58,0.06); }
+  .ftl-pill.other-sector:hover { background: rgba(224,123,58,0.16); border-color: var(--orange); }
+  .ftl-sector { margin-left: 8px; padding-left: 8px; border-left: 1px solid rgba(74,184,204,0.4); font-size: var(--fs-xs); letter-spacing: 1.5px; text-transform: uppercase; opacity: .85; }
+  .ftl-pill.other-sector .ftl-sector { border-left-color: rgba(224,123,58,0.4); }
 
   /* ── RESOURCE RULES ── */
   .rule-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 3px; padding: 24px; position: relative; width: 100%; }
@@ -542,6 +564,37 @@
   ::-webkit-scrollbar-thumb:hover { background: var(--border); }
 
   /* ── CREDITS MODAL ── */
+  /* ── MY BASE NAME DIALOG ── */
+  #base-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 2000;
+    align-items: center; justify-content: center;
+    background: rgba(10,16,24,0.82);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  #base-modal .credits-box { max-width: 420px; }
+  #base-modal .credits-title { color: #f5a623; margin-bottom: 6px; }
+  .base-modal-planet { font-family: var(--mono); font-size: var(--fs-sm); color: var(--text2); letter-spacing: 1px; margin-bottom: 18px; }
+  .base-modal-label { font-family: var(--mono); font-size: var(--fs-xs); color: var(--text2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .base-modal-input {
+    width: 100%; background: rgba(19,22,31,0.7); border: 1px solid var(--border2); border-radius: 2px;
+    padding: 8px 10px; color: var(--text); font-family: var(--mono); font-size: var(--fs-md); outline: none;
+  }
+  .base-modal-input:focus { border-color: #f5a623; }
+  .base-modal-hint { font-family: var(--mono); font-size: var(--fs-xs); color: var(--text2); margin-top: 6px; }
+  .base-modal-actions { display: flex; gap: 8px; margin-top: 20px; align-items: center; }
+  .base-modal-btn {
+    font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: 1px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 2px; cursor: pointer; background: transparent; transition: all .15s;
+  }
+  .base-modal-btn.save { border: 1px solid #f5a623; color: #f5a623; background: rgba(245,166,35,0.1); }
+  .base-modal-btn.save:hover { background: rgba(245,166,35,0.22); }
+  .base-modal-btn.cancel { border: 1px solid var(--border2); color: var(--text2); }
+  .base-modal-btn.cancel:hover { color: var(--text); border-color: var(--text2); }
+  .base-modal-btn.remove { border: 1px solid rgba(217,79,79,0.5); color: var(--red); margin-left: auto; }
+  .base-modal-btn.remove:hover { background: var(--red-bg); }
+
   #credits-modal {
     display: none;
     position: fixed; inset: 0; z-index: 2000;
@@ -708,6 +761,13 @@ let activeView = null; // 'system' | 'rules'
 let sectorOpen = {};   // sectorName -> bool
 let resourceFilter = null; // resource name being filtered in sidebar
 
+// Resource entries are either a plain string ("Ice") or an object
+// { "name": "Ice", "dark_side": true } for a resource on the planet's dark side.
+const MOON_ICON = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTEwLjYgMS4yQTcgNyAwIDEgMCAxNC44IDExIDUuNiA1LjYgMCAwIDEgMTAuNiAxLjJ6IiBmaWxsPSIjYjljNmZmIiBzdHJva2U9IiM2ZDdmZDYiIHN0cm9rZS13aWR0aD0iMC44Ii8+PC9zdmc+Cg==';
+function resName(r) { return (r && typeof r === 'object') ? (r.name || '') : r; }
+function resDark(r) { return !!(r && typeof r === 'object' && r.dark_side); }
+function darkIcon(r) { return resDark(r) ? `<img class="dark-side-icon" src="${MOON_ICON}" alt="Dark side" title="On the dark side of the planet">` : ''; }
+
 // ── PLAYER BASES (localStorage) ──
 const BASES_KEY = 'spacecraft_atlas_player_bases';
 
@@ -719,13 +779,62 @@ function isPlayerBase(planetName) {
   return !!getPlayerBases()[planetName];
 }
 
-function togglePlayerBase(planetName) {
-  const bases = getPlayerBases();
-  if (bases[planetName]) { delete bases[planetName]; }
-  else { bases[planetName] = true; }
-  localStorage.setItem(BASES_KEY, JSON.stringify(bases));
+// Bases are stored as { "Planet Name": "Base name" }.
+// Older saves stored `true`; those (and blank names) fall back to the planet name.
+function getPlayerBaseName(planetName) {
+  const v = getPlayerBases()[planetName];
+  return (typeof v === 'string' && v.trim()) ? v.trim() : null;
+}
+function playerBaseLabel(planetName) {
+  const n = getPlayerBaseName(planetName);
+  return n ? `${n} · ${planetName}` : planetName;
+}
+function savePlayerBases(bases) {
+  try { localStorage.setItem(BASES_KEY, JSON.stringify(bases)); } catch {}
   renderSidebar();
   renderDetail();
+}
+function escHtml(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+// Safe string for a '...' argument inside an inline onclick="..." (handles names like "Fool's Rim")
+function jsArg(s) {
+  return escHtml(String(s ?? '').replace(/\\/g,'\\\\').replace(/'/g,"\\'"));
+}
+
+// Clicking ⌂ opens the dialog: name a new base, or rename / remove an existing one
+let baseModalPlanet = null;
+function togglePlayerBase(planetName) {
+  baseModalPlanet = planetName;
+  const existing = isPlayerBase(planetName);
+  document.getElementById('base-modal-title').textContent = existing ? 'Edit My Base' : 'Mark as My Base';
+  document.getElementById('base-modal-planet').textContent = planetName;
+  const inp = document.getElementById('base-modal-input');
+  inp.value = getPlayerBaseName(planetName) || '';
+  inp.placeholder = planetName;
+  document.getElementById('base-modal-remove').style.display = existing ? '' : 'none';
+  document.getElementById('base-modal-save').textContent = existing ? 'Save' : 'Mark base';
+  document.getElementById('base-modal').style.display = 'flex';
+  setTimeout(() => { inp.focus(); inp.select(); }, 0);
+}
+function closeBaseModal() {
+  document.getElementById('base-modal').style.display = 'none';
+  baseModalPlanet = null;
+}
+function saveBaseModal() {
+  if (!baseModalPlanet) return;
+  const name = document.getElementById('base-modal-input').value.trim();
+  const bases = getPlayerBases();
+  bases[baseModalPlanet] = name || true;   // no name → planet name is shown
+  closeBaseModal();
+  savePlayerBases(bases);
+}
+function removeBaseModal() {
+  if (!baseModalPlanet) return;
+  const bases = getPlayerBases();
+  delete bases[baseModalPlanet];
+  closeBaseModal();
+  savePlayerBases(bases);
 }
 
 // ── FILE LOADING ──
@@ -910,15 +1019,15 @@ function renderSidebar() {
   if (resourceFilter && !query) {
     const sources = atlasData.universe_rules[resourceFilter] ? Object.keys(atlasData.universe_rules[resourceFilter]) : [];
     const matches = getAllSystems().filter(s =>
-      s.planets.some(p =>
-        (p.resources || []).some(r => sources.includes(r)) ||
+      s.planets.concat(s.asteroids || []).some(p =>
+        (p.resources || []).some(r => sources.includes(resName(r))) ||
         (p.deposits || []).some(d => d === resourceFilter)
       )
     );
 
     html += `<div class="resource-filter-bar">
       <span class="resource-filter-bar-label">◈ ${resourceFilter}</span>
-      <button class="resource-filter-clear" onclick="setResourceFilter('${resourceFilter}')" title="Clear filter">✕</button>
+      <button class="resource-filter-clear" onclick="setResourceFilter('${jsArg(resourceFilter)}')" title="Clear filter">✕</button>
     </div>`;
 
     if (matches.length === 0) {
@@ -936,9 +1045,9 @@ function renderSidebar() {
     const matches = getAllSystems().filter(s =>
       s.name.toLowerCase().includes(query) ||
       s.code.toLowerCase().includes(query) ||
-      s.planets.some(p =>
-        p.name.toLowerCase().includes(query) ||
-        (p.resources || []).some(r => r.toLowerCase().includes(query)) ||
+      s.planets.concat(s.asteroids || []).some(p =>
+        (p.name || '').toLowerCase().includes(query) ||
+        (p.resources || []).some(r => resName(r).toLowerCase().includes(query)) ||
         (p.deposits || []).some(d => d.toLowerCase().includes(query)) ||
         (p.bases || []).some(b => b.toLowerCase().includes(query))
       ) ||
@@ -969,7 +1078,7 @@ function renderSidebar() {
       const headerClass = hasActive ? 'has-active' : '';
 
       html += `<div class="sector-group">
-        <div class="sector-header ${headerClass}" onclick="toggleSector('${sector.name}')">
+        <div class="sector-header ${headerClass}" onclick="toggleSector('${jsArg(sector.name)}')">
           <span class="sector-chevron ${chevClass}">▶</span>
           <span class="sector-name">${sector.name} Sector</span>
           <span class="sector-count">${sector.systems.length} SYS</span>
@@ -991,8 +1100,8 @@ function renderSidebar() {
         <span class="sector-count">${Object.keys(atlasData.universe_rules).length} RES</span>
       </div>
       <div class="sector-systems ${sectorOpen['__rules__'] ? 'open' : ''}">
-        ${Object.keys(atlasData.universe_rules).map(res =>
-          `<div class="resource-entry ${activeView === 'rules' && activeSystemCode === res ? 'active' : ''}" onclick="selectResource('${res}')">
+        ${Object.keys(atlasData.universe_rules).sort((x, y) => x.localeCompare(y, undefined, { sensitivity: 'base' })).map(res =>
+          `<div class="resource-entry ${activeView === 'rules' && activeSystemCode === res ? 'active' : ''}" onclick="selectResource('${jsArg(res)}')">
             <div class="resource-entry-name">${res}</div>
           </div>`
         ).join('')}
@@ -1029,18 +1138,28 @@ function sortPlanets(planets, nameKey) {
   });
 }
 
+// Asteroid belts that have any data (blank placeholder belts are ignored)
+function filledBelts(sys) {
+  return (sys.asteroids || []).filter(a =>
+    (a.name && a.name.trim()) || (a.resources || []).length || (a.deposits || []).length || (a.bases || []).length
+  );
+}
+
 function renderSysItem(sys) {
   const active = sys.code === activeSystemCode && activeView === 'system' ? 'active' : '';
-  const deposits = sys.planets.flatMap(p => p.deposits || []);
-  const bases = sys.planets.flatMap(p => p.bases || []);
+  const belts = filledBelts(sys);
+  const bodies = sys.planets.concat(belts);
+  const deposits = bodies.flatMap(p => p.deposits || []);
+  const bases = bodies.flatMap(p => p.bases || []);
   const stations = sys.stations || [];
+  const beltNames = belts.map((a, i) => a.name && a.name.trim() ? a.name : `Unnamed Belt ${i + 1}`);
 
   const planetNames = sortPlanets(sys.planets.map(p => p.name), null);
   const stationNames = stations.map(s => s.name);
   const depositNames = [...new Set(deposits)];
   const baseNames = [...new Set(bases)];
 
-  const playerBasePlanets = sys.planets.filter(p => isPlayerBase(p.name)).map(p => p.name);
+  const playerBasePlanets = sys.planets.filter(p => isPlayerBase(p.name)).map(p => escHtml(playerBaseLabel(p.name)));
 
   const tip = lines => `<span class="badge-tooltip">${lines.join('<br>')}</span>`;
 
@@ -1049,8 +1168,8 @@ function renderSysItem(sys) {
   if (resourceFilter) {
     const sources = atlasData.universe_rules[resourceFilter]
       ? Object.keys(atlasData.universe_rules[resourceFilter]) : [];
-    depositHighlight = sys.planets.some(p =>
-      (p.resources || []).some(r => sources.includes(r)) ||
+    depositHighlight = bodies.some(p =>
+      (p.resources || []).some(r => sources.includes(resName(r))) ||
       (p.deposits || []).some(d => d === resourceFilter)
     );
   }
@@ -1058,11 +1177,12 @@ function renderSysItem(sys) {
   let badges = '';
   if (sys.planets.length) badges += `<span class="mini-badge mb-planet">⬡ ${sys.planets.length}${tip(planetNames)}</span>`;
   if (stations.length)    badges += `<span class="mini-badge mb-station">▣ ${stations.length}${tip(stationNames)}</span>`;
-  if (deposits.length)    badges += `<span class="mini-badge mb-deposit${depositHighlight ? ' mb-highlight' : ''}">◈${tip(depositNames)}</span>`;
-  if (bases.length)       badges += `<span class="mini-badge mb-base">⌂${tip(baseNames)}</span>`;
-  if (playerBasePlanets.length) badges += `<span class="mini-badge mb-mybase">⌂${tip(['My Base:', ...playerBasePlanets])}</span>`;
+  if (belts.length)       badges += `<span class="mini-badge mb-asteroid">⁂ ${belts.length}${tip(beltNames)}</span>`;
+  if (deposits.length)    badges += `<span class="mini-badge mb-deposit${depositHighlight ? ' mb-highlight' : ''}">◈ ${depositNames.length}${tip(depositNames)}</span>`;
+  if (bases.length)       badges += `<span class="mini-badge mb-base">⌂ ${baseNames.length}${tip(baseNames)}</span>`;
+  if (playerBasePlanets.length) badges += `<span class="mini-badge mb-mybase">⌂ ${playerBasePlanets.length}${tip(['My Base:', ...playerBasePlanets])}</span>`;
 
-  return `<div class="sys-item ${active}" onclick="selectSystem('${sys.code}', '${sys.sectorName}')">
+  return `<div class="sys-item ${active}" onclick="selectSystem('${jsArg(sys.code)}', '${jsArg(sys.sectorName)}')">
     <div class="sys-item-name">${sys.name}</div>
     <div class="sys-item-code">${sys.code}</div>
     ${badges ? `<div class="sys-item-badges">${badges}</div>` : ''}
@@ -1139,7 +1259,7 @@ function renderDetail() {
         const filterSources = resourceFilter && atlasData.universe_rules[resourceFilter]
           ? Object.keys(atlasData.universe_rules[resourceFilter]) : [];
         const planetMatches = resourceFilter && (
-          (p.resources || []).some(r => filterSources.includes(r)) ||
+          (p.resources || []).some(r => filterSources.includes(resName(r))) ||
           (p.deposits || []).some(d => d === resourceFilter)
         );
 
@@ -1148,8 +1268,8 @@ function renderDetail() {
 
         if ((p.resources || []).length) {
           inner += `<div class="tag-group"><div class="tag-group-label">Resources</div><div class="tags">${p.resources.map(r => {
-            const isMatch = filterSources.includes(r);
-            return `<span class="tag ${isMatch ? 'tag-res-highlight' : 'tag-res'}">${r}</span>`;
+            const isMatch = filterSources.includes(resName(r));
+            return `<span class="tag ${isMatch ? 'tag-res-highlight' : 'tag-res'}${resDark(r) ? ' tag-dark' : ''}">${resName(r)}${darkIcon(r)}</span>`;
           }).join('')}</div></div>`;
         }
         if (hasDeposit) {
@@ -1164,10 +1284,10 @@ function renderDetail() {
       }
 
       html += `<div class="${cardClass}">
-        <button class="planet-base-btn ${isMyBase ? 'marked' : ''}" onclick="togglePlayerBase('${p.name.replace(/'/g,"\\'")}'); event.stopPropagation();" title="${isMyBase ? 'Remove my base' : 'Mark as my base'}">⌂</button>
+        <button class="planet-base-btn ${isMyBase ? 'marked' : ''}" onclick="togglePlayerBase('${p.name.replace(/'/g,"\\'")}'); event.stopPropagation();" title="${isMyBase ? 'Rename or remove my base' : 'Mark as my base'}">⌂</button>
         <div class="planet-name">${p.name}</div>
         <div class="planet-type">${known ? `${p.type} · ${p.conditions}` : 'Unknown'}</div>
-        ${isMyBase ? `<div class="tag-group"><div class="tags"><span class="tag player-base-tag">⌂ My Base</span></div></div>` : ''}
+        ${isMyBase ? `<div class="tag-group"><div class="tags"><span class="tag player-base-tag">⌂ ${escHtml(getPlayerBaseName(p.name) || 'My Base')}</span></div></div>` : ''}
         ${inner}
       </div>`;
     });
@@ -1189,6 +1309,38 @@ function renderDetail() {
     html += `</div>`;
   }
 
+  // Asteroid Belts (shown after Stations & Installations)
+  const belts = filledBelts(sys);
+  if (belts.length > 0) {
+    const beltFilterSources = resourceFilter && atlasData.universe_rules[resourceFilter]
+      ? Object.keys(atlasData.universe_rules[resourceFilter]) : [];
+    html += `<div class="section-head">Asteroid Belts</div><div class="asteroids-grid">`;
+    belts.forEach(a => {
+      const matches = resourceFilter && (
+        (a.resources || []).some(r => beltFilterSources.includes(resName(r))) ||
+        (a.deposits || []).some(d => d === resourceFilter)
+      );
+      let inner = '';
+      if ((a.resources || []).length) {
+        inner += `<div class="tag-group"><div class="tag-group-label">Resources</div><div class="tags">${a.resources.map(r =>
+          `<span class="tag ${beltFilterSources.includes(resName(r)) ? 'tag-res-highlight' : 'tag-res'}">${resName(r)}</span>`).join('')}</div></div>`;
+      }
+      if ((a.deposits || []).length) {
+        inner += `<div class="tag-group"><div class="tag-group-label">Deposits</div><div class="tags">${a.deposits.map(d =>
+          `<span class="tag ${resourceFilter && d === resourceFilter ? 'tag-res-highlight' : 'tag-deposit'}">◈ ${d}</span>`).join('')}</div></div>`;
+      }
+      if ((a.bases || []).length) {
+        inner += `<div class="tag-group"><div class="tag-group-label">Installations</div><div class="tags">${a.bases.map(b =>
+          `<span class="tag tag-base">${b}</span>`).join('')}</div></div>`;
+      }
+      html += `<div class="asteroid-card${matches ? ' filter-match' : ''}">
+        <div class="asteroid-name">${a.name || 'Unnamed Belt'}</div>
+        ${inner}
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
   // FTL
   if ((sys.ftl || []).length > 0) {
     html += `<div class="ftl-section"><div class="section-head">FTL Jump Network</div><div class="ftl-grid">`;
@@ -1197,7 +1349,10 @@ function renderDetail() {
       if (match) {
         const code = match[2];
         const target = getAllSystems().find(s => s.code === code);
-        html += `<span class="ftl-pill named" onclick="selectSystem('${code}','${target ? target.sectorName : ''}')" title="Jump to ${match[1]}">${f}</span>`;
+        const otherSector = target && target.sectorName !== sys.sectorName;
+        html += otherSector
+          ? `<span class="ftl-pill named other-sector" onclick="selectSystem('${jsArg(code)}','${jsArg(target.sectorName)}')" title="Jump to ${match[1]} — leaves ${sys.sectorName} for ${target.sectorName} Sector">${f}<span class="ftl-sector">${target.sectorName}</span></span>`
+          : `<span class="ftl-pill named" onclick="selectSystem('${jsArg(code)}','${jsArg(target ? target.sectorName : '')}')" title="Jump to ${match[1]}">${f}${target ? `<span class="ftl-sector">${target.sectorName}</span>` : ''}</span>`;
       } else {
         html += `<span class="ftl-pill">${f}</span>`;
       }
@@ -1228,7 +1383,7 @@ function renderRulesDetail(panel) {
   const filterLabel = isFiltered ? 'Clear filter' : 'Find planets';
   const filterActive = isFiltered ? 'active' : '';
 
-  panel.innerHTML = '<div class="sys-header"><div><div class="sys-title-code">// RESOURCE INDEX //</div><div class="sys-title">' + res + '</div></div><div class="sys-header-right"><div class="sys-sector-tag">Resource Data</div><div class="sys-ftl-count">' + Object.keys(sources).length + ' SOURCE NODE' + (Object.keys(sources).length !== 1 ? 'S' : '') + '</div></div></div><div class="section-head">Yield rates by source node</div><div class="rule-card' + (isFiltered ? ' filtered' : '') + '"><div class="rule-name">' + res + '</div>' + sourceRows + '<div class="rule-card-footer"><button class="rule-filter-btn ' + filterActive + '" onclick="setResourceFilter(\'' + res + '\')" title="' + filterLabel + '"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ' + filterLabel + '</button></div></div>';
+  panel.innerHTML = '<div class="sys-header"><div><div class="sys-title-code">// RESOURCE INDEX //</div><div class="sys-title">' + res + '</div></div><div class="sys-header-right"><div class="sys-sector-tag">Resource Data</div><div class="sys-ftl-count">' + Object.keys(sources).length + ' SOURCE NODE' + (Object.keys(sources).length !== 1 ? 'S' : '') + '</div></div></div><div class="section-head">Yield rates by source node</div><div class="rule-card' + (isFiltered ? ' filtered' : '') + '"><div class="rule-name">' + res + '</div>' + sourceRows + '<div class="rule-card-footer"><button class="rule-filter-btn ' + filterActive + '" onclick="setResourceFilter(\'' + jsArg(res) + '\')" title="' + filterLabel + '"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ' + filterLabel + '</button></div></div>';
 }
 
 // ── TOOLTIP POSITIONING ──
@@ -1271,6 +1426,23 @@ document.addEventListener('mouseout', e => {
 });
 </script>
 <!-- CREDITS MODAL -->
+<div id="base-modal" onclick="if(event.target===this)closeBaseModal()">
+  <div class="credits-box" onkeydown="if(event.key==='Escape')closeBaseModal()">
+    <button class="credits-close" onclick="closeBaseModal()" title="Close">✕</button>
+    <div class="credits-title" id="base-modal-title">Mark as My Base</div>
+    <div class="base-modal-planet">⌂ <span id="base-modal-planet"></span></div>
+    <div class="base-modal-label">Base name</div>
+    <input class="base-modal-input" id="base-modal-input" maxlength="60" autocomplete="off"
+      onkeydown="if(event.key==='Enter'){event.preventDefault();saveBaseModal();}">
+    <div class="base-modal-hint">Use the name you gave the base in game. Leave blank to use the planet name.</div>
+    <div class="base-modal-actions">
+      <button class="base-modal-btn save" id="base-modal-save" onclick="saveBaseModal()">Mark base</button>
+      <button class="base-modal-btn cancel" onclick="closeBaseModal()">Cancel</button>
+      <button class="base-modal-btn remove" id="base-modal-remove" onclick="removeBaseModal()">Remove base</button>
+    </div>
+  </div>
+</div>
+
 <div id="credits-modal" onclick="if(event.target===this)this.style.display='none'">
   <div class="credits-box">
     <button class="credits-close" onclick="document.getElementById('credits-modal').style.display='none'" title="Close">✕</button>

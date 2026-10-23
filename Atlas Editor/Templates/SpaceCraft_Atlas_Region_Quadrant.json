@@ -3,6 +3,9 @@
     "region": "",
     "quadrant": ""
   },
+  "MapContributors": {
+    "Contributor Name": "https://github.com/username"
+  },
   "universe_rules": {
     "Resource Name": {
       "Source Name": "yield"
@@ -31,6 +34,14 @@
               "owner": "Faction",
               "exploration_level": 0,
               "floors": []
+            }
+          ],
+          "asteroids": [
+            {
+              "name": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
             }
           ],
           "ftl": [

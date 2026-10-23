@@ -14,7 +14,9 @@
       "Ferrous Outcrop": "<1"
     },
     "Iron Nugget": {
-      "Ferrous Outcrop": "4.6"
+      "Magnetite": "19.03",
+      "Ferrous Outcrop": "4.6",
+      "Iron Spherule": "2.0"
     },
     "Copper Ore": {
       "Copper Deposit": "60.0/h",
@@ -29,8 +31,8 @@
       "Brassy Outcrop": "4.5"
     },
     "Aluminum Ore": {
-      "White Feldspar Mound": "4.7",
-      "Aluminum Deposit": "60.0/h"
+      "Aluminum Deposit": "60.0/h",
+      "White Feldspar Mound": "4.7"
     },
     "Aluminum Nugget": {
       "Aluminum Reduction": "20.02",
@@ -43,15 +45,17 @@
       "Hollow Outcrop": "1.8"
     },
     "a-Carbon": {
+      "Coal Deposit": "40.0/h",
       "Coal Clump": "3.6",
       "Siderite": "1.6"
     },
     "Silicate": {
+      "Sandstone Deposit": "100.0/h",
       "Sandstone Mound": "3.4",
+      "Chalcedony Shell": "1.0",
       "Hollow Outcrop": "<1",
       "White Feldspar Mound": "<1",
-      "Chalcopyrite": "<1",
-      "Sandstone Deposit": "100.0/h"
+      "Chalcopyrite": "<1"
     },
     "Kaolinite": {
       "Clay Shell": "2.7"
@@ -67,6 +71,8 @@
       "Graphite": "2.5"
     },
     "Quartz": {
+      "White Quartz": "2.2",
+      "Chalcedony Shell": "1.3",
       "Gray Quartz": "1.0"
     },
     "Aquamarine": {
@@ -77,7 +83,9 @@
       "Chalcopyrite": "1.2",
       "Pyrite Formation": "1.0"
     },
-    "Titanium Nugget": {},
+    "Titanium Nugget": {
+      "Titanite": "20.02"
+    },
     "Turquoise": {
       "Turquoise Clump": "8.6",
       "Turquoise Stone": "3.6"
@@ -91,10 +99,30 @@
     "Vanadium Ore": {},
     "Diamond": {},
     "Beautiful Gemstone": {
-      "Clay Shell": "<1"
+      "Clay Shell": "<1",
+      "Chalcedony Shell": "<1"
     },
     "Marvelous Gemstone": {
+      "Clay Shell": "<1",
+      "Chalcedony Shell": "<1"
+    },
+    "Quartz Powder": {
+      "Chalcedony Shell": "6.5"
+    },
+    "Calcified Invariant": {
+      "Chalcedony Shell": "<1"
+    },
+    "Hematite": {
+      "Iron Spherule": "3.2"
+    },
+    "Emerald": {
       "Clay Shell": "<1"
+    },
+    "Fair Gemstone": {
+      "Chalcedony Shell": "1.2"
+    },
+    "Cinnabar": {
+      "Cinnabar": "1.0"
     }
   },
   "sectors": [
@@ -140,6 +168,16 @@
                 "Shipyard",
                 "Debt Quarter"
               ]
+            }
+          ],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
             }
           ],
           "ftl": [
@@ -240,6 +278,16 @@
               ]
             }
           ],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Vishoni (HN-133K)",
             "Retaco (RM-533U)",
@@ -331,6 +379,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Cashax (IN-3080)",
             "Sisheda (RY-963R)",
@@ -393,6 +451,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Janus (YI-960A)",
             "Vishoni (HN-133K)",
@@ -424,22 +492,48 @@
             },
             {
               "name": "Sisheda I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Siderite",
+                "Sandstone Mound",
+                "Ferric Stone",
+                "Ferrous Outcrop",
+                "Gray Quartz"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Sisheda II",
-              "type": "Unknown",
-              "conditions": "Unknown",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferric Stone",
+                "Siderite",
+                "Ferrous Outcrop",
+                "Sandstone Mound",
+                "Gray Quartz"
+              ],
+              "deposits": [
+                "Iron Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
               "resources": [],
               "deposits": [],
               "bases": []
             }
           ],
-          "stations": [],
           "ftl": [
             "Delphuni (DG-132G)",
             "Syllion (RP-907S)",
@@ -470,6 +564,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Sisheda (RY-963R)",
             "Janus (YI-960A)",
@@ -519,6 +623,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Hydo (EN-956Q)",
             "Pego (MS-838N)",
@@ -546,7 +660,9 @@
               "deposits": [
                 "Copper Deposit"
               ],
-              "bases": []
+              "bases": [
+                "The Company's Processing Plant"
+              ]
             },
             {
               "name": "Vishoni II",
@@ -566,6 +682,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Hydo (EN-956Q)",
             "Janus (YI-960A)",
@@ -614,6 +740,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Janus (YI-960A)",
             "Relor Cephyx (VS-556I)",
@@ -652,6 +788,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Janus (YI-960A)",
             "Pego (MS-838N)",
@@ -699,6 +845,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Rushion (XG-146V)",
             "Cyvyx Coxaco (CR-371Y)",
@@ -745,6 +901,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Tilalis (GR-867M)",
             "Pego (MS-838N)",
@@ -775,6 +941,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Janus (YI-960A)",
             "Syllion (RP-907S)",
@@ -821,6 +997,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Delphuni (DG-132G)",
             "Sisheda (RY-963R)",
@@ -860,6 +1046,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Cashax (IN-3080)",
             "Retaco (RM-533U)",
@@ -889,7 +1085,10 @@
                 "Ferric Stone",
                 "Brassy Outcrop",
                 "Coal Clump",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Siderite",
                 "Unknown Resource"
               ],
@@ -904,7 +1103,10 @@
                 "Sulphuric Stone",
                 "Cupric Stone",
                 "Brassy Outcrop",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Hollow Outcrop",
                 "Malachite",
                 "Tenorite",
@@ -923,13 +1125,26 @@
                 "Cupric Stone",
                 "Sulphuric Stone",
                 "Pyrite Formation",
-                "Elmerite"
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                }
               ],
               "deposits": [],
               "bases": []
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Vishoni (HN-133K)",
             "Hydo (EN-956Q)",
@@ -986,6 +1201,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Sallion (OR-335C)",
             "Relor Cephyx (VS-556I)",
@@ -1001,30 +1226,77 @@
           "planets": [
             {
               "name": "Phoshex I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Sulphuric Stone",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Pyrite Formation",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Phoshex II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Unknown Resource",
+                "Zircon",
+                "Unknown Resource",
+                "Sandstone Mound",
+                "Unknown Resource",
+                "Chalcedony Shell",
+                "Unknown Resource"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Phoshex III",
-              "type": "Unknown",
-              "conditions": "Unknown",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Siderite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Sandstone Mound",
+                "Chalcedony Shell",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
               "resources": [],
               "deposits": [],
               "bases": []
             }
           ],
-          "stations": [],
           "ftl": [
             "Octaco Lytion (TQ-284T)",
             "Xileda (CK-584I)",
@@ -1081,11 +1353,21 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "GS-177W",
             "Phoshex (RF-915V)",
             "HN-982Q",
-            "NV-701U",
+            "Roreia (NV-701U)",
             "Soceda (EK-751A)",
             "Relor Cephyx (VS-556I)",
             "Octaco Lytion (TQ-284T)"
@@ -1097,45 +1379,96 @@
           "planets": [
             {
               "name": "Soceda I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Brassy Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Cupric Stone",
+                "Hollow Outcrop",
+                "Pyrite Formation"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Soceda II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Coal Clump",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Soceda III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Siderite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "Ferric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Soceda IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Ferrous",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Sandstone Mound",
+                "Coal Clump",
+                "Siderite",
+                "Graphite"
+              ],
               "deposits": [],
               "bases": []
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Hypatia (ZJ-353S)",
             "Phura (VC-7270)",
             "Phoshex (RF-915V)",
-            "NV-701U",
-            "ZM-548G",
-            "WE-648N"
+            "Roreia (NV-701U)",
+            "Vaseia Beta (ZM-548G)",
+            "Loshalis (WE-648N)"
           ]
         },
         {
@@ -1185,9 +1518,18 @@
                 "Chalcedony Shell",
                 "Brassy Outcrop",
                 "Pyrite Formation",
-                "Unknown Resource",
-                "Unknown Resource",
-                "Unknown Resource"
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
               ],
               "deposits": [],
               "bases": []
@@ -1237,12 +1579,22 @@
               ]
             }
           ],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Phoshex (RF-915V)",
             "Soceda (EK-751A)",
             "Arices (CT-403R)",
             "Simutes (XN-481M)",
-            "WE-648N"
+            "Loshalis (WE-648N)"
           ]
         },
         {
@@ -1295,6 +1647,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Hypatia (ZJ-353S)",
             "Phoshex (RF-915V)",
@@ -1325,10 +1687,27 @@
             },
             {
               "name": "Xileda III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Siderite",
+                "Ferric Stone",
+                "Coal Clump",
+                "Ferrous Outcrop",
+                "Pyrite Formation",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
@@ -1349,6 +1728,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Ricax (XW-535D)",
             "Sallion (OR-335C)",
@@ -1365,9 +1754,25 @@
           "planets": [
             {
               "name": "Xephites I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Outcrop",
+                "Coal Clump",
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "Ferric Stone",
+                "Siderite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
               "deposits": [],
               "bases": []
             },
@@ -1381,35 +1786,78 @@
             },
             {
               "name": "Xephites III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Ferrous Outcrop",
+                "Siderite",
+                "Coal Clump",
+                "Ferric Stone",
+                "Brassy Outcrop",
+                "Pyrite Formation"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Xephites IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Siderite",
+                "Coal Clump",
+                "Gray Quartz",
+                "Ferric Stone",
+                "Unknown Resource",
+                "Chalcedony Shell",
+                "Cupric Stone",
+                "Unknown Resource"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Xephites V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Zircon",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop"
+              ],
               "deposits": [],
               "bases": []
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xileda (CK-584I)",
             "Xulices (YZ-663H)",
             "Sucor Theta (HJ-934B)",
-            "XU-499D",
+            "Tymala (XU-499D)",
             "Ricax (XW-535D)",
             "Ophites Delta (QK-751F)",
             "TH-4341Q",
@@ -1463,11 +1911,21 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xephites (GP-395F)",
             "Xulices (YZ-663H)",
-            "LB-437K",
-            "XU-499D"
+            "Opheda (LB-437K)",
+            "Tymala (XU-499D)"
           ]
         },
         {
@@ -1500,11 +1958,21 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xephites (GP-395F)",
             "Sucor Theta (HJ-934B)",
             "Xileda (CK-584I)",
-            "LB-437K",
+            "Opheda (LB-437K)",
             "Simutes (XN-481M)"
           ]
         },
@@ -1514,39 +1982,659 @@
           "planets": [
             {
               "name": "Simutes I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Coal Clump",
+                "Chalcedony Shell",
+                "Pyrite Formation",
+                "Gray Quartz",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Simutes II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "Ferric Stone",
+                "Sulphuric Stone",
+                "Pyrite Formation",
+                "Siderite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Simutes III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Sulphuric Stone",
+                "Ferric Stone",
+                "Pyrite Formation",
+                "Brassy Outcrop",
+                "Malachite",
+                "Cupric Outcrop",
+                "Azurite",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Simutes IV",
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Sandstone Mound",
+                "Brassy Outcrop",
+                "Cupric Outcrop",
+                "Brine Water Geyser",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Cooperite",
+                "Tenorite",
+                "Azurite"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Hypatia (ZJ-353S)",
+            "Arices (CT-403R)",
+            "Xulices (YZ-663H)",
+            "Loshalis (WE-648N)",
+            "Opheda (LB-437K)"
+          ]
+        },
+        {
+          "name": "Loshalis",
+          "code": "WE-648N",
+          "planets": [
+            {
+              "name": "Loshalis II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Brassy Outcrop",
+                "Coal Clump",
+                "Siderite",
+                "Ferrous Outcrop"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Loshalis V",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferric Stone",
+                "Siderite",
+                "Brassy Outcrop",
+                "Cupric Outcrop",
+                "Ferrous Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Loshalis III",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Chalcedony Shell",
+                "Pyrite Formation",
+                "Siderite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Loshalis I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Chalcedony Shell",
+                "Coal Clump",
+                "Sandstone Mound",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Loshalis IV",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Cupric Stone",
+                "Elmerite",
+                "Hollow Outcrop",
+                "Brassy Outcrop",
+                "Malachite",
+                "Tenorite",
+                "Azurite"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Hypatia (ZJ-353S)",
+            "Soceda (EK-751A)",
+            "Simutes (XN-481M)",
+            "Vollo (KG-696Z)",
+            "Catices (OZ-704Y)",
+            "Vaseia Beta (ZM-548G)",
+            "Opheda (LB-437K)"
+          ]
+        },
+        {
+          "name": "Vaseia Beta",
+          "code": "ZM-548G",
+          "planets": [
+            {
+              "name": "Vaseia Beta IV",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Siderite",
+                "Ferric Stone",
+                "Pyrite Formation",
+                "Sulphuric Stone",
+                {
+                  "name": "Coal Clump",
+                  "dark_side": true
+                },
+                "Sandstone Mound"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Vaseia Beta III",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Coal Clump",
+                "Sandstone Mound",
+                "Chalcedony Shell",
+                "Sulphuric Stone",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Wolframite",
+                {
+                  "name": "Siderite",
+                  "dark_side": true
+                },
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Vaseia Beta II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Siderite",
+                "Ferric Stone",
+                "Coal Clump",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Vaseia Beta I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Chalcedony Shell",
+                "Gray Quartz",
+                "Ferrous Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Ferric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "VAS-DH4",
               "type": "Unknown",
+              "conditions": "Unknown",
+              "resources": [
+                "White Quartz",
+                "Iron Spherule"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Roreia (NV-701U)",
+            "Soceda (EK-751A)",
+            "Catices (OZ-704Y)",
+            "Loshalis (WE-648N)"
+          ]
+        },
+        {
+          "name": "Opheda",
+          "code": "LB-437K",
+          "planets": [
+            {
+              "name": "Opheda I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Coal Clump",
+                "Ferric Stone",
+                "Sandstone Mound",
+                "Malachite",
+                "Siderite",
+                "Chalcedony Shell",
+                "Azurite",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Opheda II",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Spacekorn Root",
+                "Coal Clump",
+                "Sulphuric Stone",
+                "Water Geyser",
+                "Graphite"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [],
+          "ftl": [
+            "Simutes (XN-481M)",
+            "Loshalis (WE-648N)",
+            "Sucor Theta (HJ-934B)",
+            "Xulices (YZ-663H)",
+            "Tymala (XU-499D)",
+            "Ceteia Sigma (KK-98OJ)",
+            "Vollo (KG-696Z)"
+          ]
+        },
+        {
+          "name": "Tymala",
+          "code": "XU-499D",
+          "planets": [
+            {
+              "name": "Tymala I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Ferric Stone",
+                "Siderite",
+                "Coal Clump",
+                "Brassy Outcrop",
+                "Ferrous Outcrop",
+                "Chalcedony Shell",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Tymala II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Malachite",
+                "Tenorite",
+                "Azurite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Tymala III",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                "Ferric Stone",
+                "Siderite",
+                "Cupric Outcrop",
+                {
+                  "name": "Malachite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Coal Clump",
+                  "dark_side": true
+                },
+                {
+                  "name": "Tenorite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Azurite",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Tymala IV",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Sulphuric Stone",
+                "Elmerite",
+                "Chalcedony Shell",
+                "Hollow Outcrop",
+                "Pyrite Formation",
+                {
+                  "name": "Graphite",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "TYM-DG7",
+              "resources": [
+                "Titanite",
+                "White Quartz"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Opheda (LB-437K)",
+            "Sucor Theta (HJ-934B)",
+            "Ceteia Sigma (KK-98OJ)",
+            "Xephites (GP-395F)",
+            "ZH-6596Y",
+            "KO-1853Q",
+            "PH-7569U",
+            "QU-8348A"
+          ]
+        },
+        {
+          "name": "Ceteia Sigma",
+          "code": "KK-98OJ",
+          "planets": [
+            {
+              "name": "Ceteia Sigma I",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Sulphuric Stone",
+                "Pyrite Formation",
+                "Coal Clump",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Siderite",
+                "Wolframite",
+                "Ferrous Outcrop",
+                "Graphite",
+                "Ferric Stone"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Brine Pool",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Ceteia Sigma II",
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Cooperite",
+                "Tenorite",
+                "Chalcedony Shell",
+                "Brine Water Geyser",
+                "Azurite",
+                "Unknown Resource",
+                "Unknown Resource",
+                "Cupric Stone",
+                "Unknown Resource",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "CET-9G1",
+              "resources": [
+                "Titanite",
+                "Iron Spherule"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Tymala (XU-499D)",
+            "Opheda (LB-437K)",
+            "Vollo (KG-696Z)",
+            "Catices (OZ-704Y)",
+            "XY-295O",
+            "QU-8348A",
+            "EF-9746A",
+            "RR-8281N",
+            "HB-6994N"
+          ]
+        },
+        {
+          "name": "Vollo",
+          "code": "KG-696Z",
+          "planets": [
+            {
+              "name": "Vollo I",
+              "type": "Terrestrial",
               "conditions": "Unknown",
               "resources": [],
               "deposits": [],
               "bases": []
             },
             {
-              "name": "Simutes V",
-              "type": "Unknown",
+              "name": "Vollo II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Ferrous Outcrop",
+                "Unknown Resource",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Unknown Resource",
+                "Malachite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Unknown Resource",
+                "Azurite",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Vollo III",
+              "type": "Terrestrial",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Vollo IV",
+              "type": "Terrestrial",
+              "conditions": "Unknown",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Vollo V",
+              "type": "Terrestrial",
               "conditions": "Unknown",
               "resources": [],
               "deposits": [],
@@ -1554,12 +2642,146 @@
             }
           ],
           "stations": [],
+          "asteroids": [],
           "ftl": [
-            "Hypatia (ZJ-353S)",
-            "Arices (CT-403R)",
-            "Xulices (YZ-663H)",
-            "WE-648N",
-            "LB-437K"
+            "Loshalis (WE-648N)",
+            "Ceteia Sigma (KK-98OJ)",
+            "Catices (OZ-704Y)",
+            "Opheda (LB-437K)"
+          ]
+        },
+        {
+          "name": "Catices",
+          "code": "OZ-704Y",
+          "planets": [
+            {
+              "name": "Catices II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Sulphuric Stone",
+                "Chalcedony Shell",
+                "Ferric Stone",
+                "Gray Quartz",
+                "Coal Clump"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Catices I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Zircon",
+                "Brassy Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [],
+          "ftl": [
+            "Vaseia Beta (ZM-548G)",
+            "Loshalis (WE-648N)",
+            "HN-982Q",
+            "Roreia (NV-701U)",
+            "Ceteia Sigma (KK-98OJ)",
+            "XY-2950"
+          ]
+        },
+        {
+          "name": "Roreia",
+          "code": "NV-701U",
+          "planets": [
+            {
+              "name": "Roreia I",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Ferrous Outcrop",
+                "Siderite",
+                "Unknown Resource",
+                "Wolframite",
+                "Ferric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            },
+            {
+              "name": "Roreia II",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Coal Clump",
+                "Sandstone Mound",
+                "Chalcedony Shell",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Roreia III",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Siderite",
+                "Brine Water Geyser",
+                "Coal Clump",
+                "Wolframite",
+                "Ferrous Outcrop",
+                "Sandstone Mound",
+                {
+                  "name": "Ferric Stone",
+                  "dark_side": true
+                },
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [],
+          "ftl": [
+            "Vaseia Beta (ZM-548G)",
+            "Catices (OZ-704Y)",
+            "Phura (VC-7270)",
+            "HN-982Q",
+            "Soceda (EK-751A)"
           ]
         }
       ]
@@ -1619,6 +2841,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Vishoni (HN-133K)",
             "Sallion (OR-335C)",
@@ -1659,6 +2891,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Dracion Sigma (TP-897J)",
             "LO-66OK",
@@ -1673,17 +2915,50 @@
           "planets": [
             {
               "name": "Tucyx Alpha I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Clay Shell",
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Cupric Stone",
+                {
+                  "name": "White Feldspar Mound",
+                  "dark_side": true
+                },
+                "Chalcedony Shell",
+                {
+                  "name": "Malachite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Tenorite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Azurite",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit",
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Tucyx Alpha II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Aluminum Reduction",
+                "Zircon",
+                "Turquoise Clump",
+                "Sandstone Mound",
+                "Turquoise Stone",
+                "Chalcedony Shell"
+              ],
               "deposits": [],
               "bases": []
             },
@@ -1693,7 +2968,10 @@
               "conditions": "Temperate",
               "resources": [
                 "Sandstone Mound",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Chalcedony Shell",
                 "Hollow Outcrop"
               ],
@@ -1704,14 +2982,34 @@
             },
             {
               "name": "Tucyx Alpha IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Chalcopyrite",
+                "Sulphuric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "Cupric Stone"
+              ],
               "deposits": [],
               "bases": []
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Silleia (NP-667V)",
             "Xutus (WM-180H)",
@@ -1751,7 +3049,10 @@
               "resources": [
                 "Chalcocite",
                 "Chalcopyrite",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Hollow Outcrop",
                 "Cupric Stone",
                 "Sulphuric Stone"
@@ -1818,6 +3119,16 @@
               ]
             }
           ],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Silleia (NP-667V)",
             "Tucyx Alpha (QP-441R)",
@@ -1858,7 +3169,10 @@
                 "Chalcocite",
                 "Sulphuric Stone",
                 "Chalcopyrite",
-                "Unknown Resource",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
                 "Hollow Outcrop",
                 "Cupric Stone"
               ],
@@ -1875,7 +3189,10 @@
                 "Clay Shell",
                 "Brassy Outcrop",
                 "Malachite",
-                "Chalcedony Shell",
+                {
+                  "name": "Chalcedony Shell",
+                  "dark_side": true
+                },
                 "Tenorite",
                 "Azurite"
               ],
@@ -1923,6 +3240,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Silleia (NP-667V)",
             "Tucyx Alpha (QP-441R)",
@@ -1943,7 +3270,10 @@
               "conditions": "Temperate",
               "resources": [
                 "Turquoise Clump",
-                "Unknown Resource",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
                 "Sandstone Mound",
                 "Turquoise Stone",
                 "Hollow Outcrop"
@@ -1975,7 +3305,10 @@
               "resources": [
                 "Brassy Outcrop",
                 "White Feldspar Mound",
-                "Unknown Resource",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
                 "Hollow Outctop",
                 "Cupric Stone",
                 "Aquamarine"
@@ -1988,6 +3321,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Maphax (JJ-129Q)",
             "Sawma (XK-405A)",
@@ -2007,7 +3350,10 @@
               "resources": [
                 "Water Geyser",
                 "Brassy Outcrop",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Clay Shell",
                 "Hollow Outcrop",
                 "Cupric Stone",
@@ -2048,7 +3394,10 @@
                 "Chalcocite",
                 "Sulphuric Stone",
                 "Chalcopyrite",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Hollow Outcrop",
                 "Cupric Stone"
               ],
@@ -2064,11 +3413,26 @@
                 "Water Geyser",
                 "Brassy Outcrop",
                 "White Feldspar Mound",
-                "Clay Shell",
-                "Elmerite",
-                "Unknown Resource",
-                "Unknown Resource",
-                "Unknown Resource"
+                {
+                  "name": "Clay Shell",
+                  "dark_side": true
+                },
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
               ],
               "deposits": [
                 "Aluminum Deposit",
@@ -2078,6 +3442,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xetalis (KD-339Y)",
             "Vura (EU-812G)",
@@ -2121,6 +3495,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Ophices (PI-445C)",
             "Tucyx Alpha (QP-441R)",
@@ -2169,6 +3553,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Sawma (XK-405A)",
             "Rello (SO-870S)",
@@ -2183,22 +3577,55 @@
           "planets": [
             {
               "name": "Toseda Delta I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Chalcedony Shell",
+                "Chalcocite",
+                "Chalcopyrite"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Toseda Delta II",
-              "type": "Unknown",
-              "conditions": "Unknown",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Water Geyser",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "White Feldspar Mound",
+                "Malachite",
+                "Cupric Stone",
+                "Azurite",
+                "Brassy Outcrop",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
               "resources": [],
               "deposits": [],
               "bases": []
             }
           ],
-          "stations": [],
           "ftl": [
             "Rulla (LO-328N)",
             "Sawma (XK-405A)",
@@ -2238,6 +3665,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Toseda Delta (YB-320B)",
             "Rulla (LO-328N)",
@@ -2276,6 +3713,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xetalis (KD-339Y)",
             "Rello (SO-870S)",
@@ -2308,6 +3755,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xetalis (KD-339Y)",
             "Xutus (WM-180H)",
@@ -2363,6 +3820,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Ophices (PI-445C)",
             "Tucyx Alpha (QP-441R)",
@@ -2393,6 +3860,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Xutus (WM-180H)",
             "Dracion Sigma (TP-897J)",
@@ -2439,6 +3916,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Maphax (JJ-129Q)",
             "Dracion Sigma (TP-897J)",
@@ -2495,6 +3982,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Ricax (XW-535D)",
             "Maphax (JJ-129Q)",
@@ -2526,6 +4023,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Savana (SW-315U)",
             "Sypha (ZM-162W)",
@@ -2555,6 +4062,16 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Phellax Vusa (UD-6960)",
             "Sypha (ZM-162W)",
@@ -2585,12 +4102,22 @@
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Comeus (LC-308M)",
             "Sypha (ZM-162W)",
             "Ricax (XW-535D)",
             "Ratex Silleia (WM-682Z)",
-            "DO-5332Q",
+            "Philula (DO-5332Q)",
             "Xephites (GP-395F)",
             "TH-4341Q",
             "BG-2808N"
@@ -2602,37 +4129,78 @@
           "planets": [
             {
               "name": "Ratex Silleia I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Chalcocite",
+                "Chalcopyrite",
+                "Chalcedony Shell",
+                "Cupric Stone",
+                {
+                  "name": "Sulphuric Stone",
+                  "dark_side": true
+                }
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Ratex Silleia II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Turquoise Clump",
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Turquoise Stone",
+                "Cupric Stone"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Ratex Silleia III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Cooperite",
+                "Brassy Outcrop",
+                "Clay Shell",
+                "Unknown Resource",
+                "Cupric Stone",
+                "White Feldspar Mound",
+                "Tenorite",
+                "Malachite",
+                "Azurite"
+              ],
               "deposits": [],
               "bases": []
             }
           ],
           "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
+            }
+          ],
           "ftl": [
             "Ophites Delta (QK-751F)",
             "Comeus (LC-308M)",
             "Toseda Delta (YB-320B)",
             "Rushana Resheia (JU-985I)",
             "Peryni (FO-384T)",
-            "DO-5332Q"
+            "Philula (DO-5332Q)"
           ]
         },
         {
@@ -2641,46 +4209,212 @@
           "planets": [
             {
               "name": "Peryni I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
-              "bases": []
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Water Geyser",
+                "Brassy Outcrop",
+                "White Feldspar Mound",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Clay Shell",
+                "Malachite",
+                "Azurite",
+                "Tenorite"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": [
+                "Local Intelligence Center"
+              ]
             },
             {
               "name": "Peryni II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "White Feldspar Mound",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Clay Shell",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Peryni III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Clay Shell",
+                "Hollow Outcrop",
+                "White Feldspar Mound",
+                "Cupric Stone",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Peryni IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "White Feldspar Mound",
+                "Cupric Stone",
+                "Chalcocite",
+                "Chalcopyrite",
+                "Brassy Outcrop"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "",
+              "type": "",
+              "conditions": "",
               "resources": [],
               "deposits": [],
               "bases": []
             }
           ],
-          "stations": [],
           "ftl": [
             "Ratex Silleia (WM-682Z)",
             "Rushana Resheia (JU-985I)",
             "Vura (EU-812G)",
-            "DO-5332Q",
+            "Philula (DO-5332Q)",
             "MJ-3835V",
             "KG-87800",
             "UQ-9043V"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fool's Rim",
+      "systems": [
+        {
+          "name": "Philula",
+          "code": "DO-5332Q",
+          "planets": [
+            {
+              "name": "Philula II",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Sandstone Mound",
+                "Coal Clump",
+                "Brine Water Geyser",
+                "Ferrous Outcrop",
+                "Ferric Stone",
+                "Chalcedony Shell",
+                "Wolframite",
+                "Cinnabar"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Philula I",
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sulphuric Stone",
+                "Chalcedony Shell",
+                "Vitriol Geyser",
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Brassy Outcrop",
+                "Coal Clump",
+                "Graphite",
+                "Chalcopyrite"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "Philula III",
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Ferrous Outcrop",
+                "Brine Water Geyser",
+                "Ferric Stone",
+                "Wolframite",
+                "Cinnabar"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "stations": [],
+          "asteroids": [
+            {
+              "name": "PHI-BIO",
+              "resources": [
+                "Magnetite",
+                "Iron Spherule"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "PHI-DU3",
+              "resources": [
+                "Vitreous Carbon",
+                "Iron Spherule"
+              ],
+              "deposits": [],
+              "bases": []
+            },
+            {
+              "name": "PHI-CA3",
+              "resources": [
+                "Magnetite",
+                "Titanite"
+              ],
+              "deposits": [],
+              "bases": []
+            }
+          ],
+          "ftl": [
+            "Peryni (FO-384T)",
+            "Ratex Silleia (WM-682Z)",
+            "Ophites Delta (QK-751F)",
+            "UQ-9043V",
+            "MN-7204Y",
+            "VM-4804Q",
+            "NK-636E",
+            "BG-2808N"
           ]
         }
       ]

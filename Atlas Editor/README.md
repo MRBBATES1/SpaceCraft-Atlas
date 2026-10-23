@@ -102,6 +102,9 @@ Before submitting, make sure your map meets the following requirements:
     "region": "",
     "quadrant": ""
   },
+  "MapContributors": {
+    "Contributor Name": "https://github.com/username"
+  },
   "universe_rules": {
     "Resource Name": {
       "Source Name": "yield"
@@ -130,6 +133,14 @@ Before submitting, make sure your map meets the following requirements:
               "owner": "Faction",
               "exploration_level": 0,
               "floors": []
+            }
+          ],
+          "asteroids": [
+            {
+              "name": "",
+              "resources": [],
+              "deposits": [],
+              "bases": []
             }
           ],
           "ftl": [

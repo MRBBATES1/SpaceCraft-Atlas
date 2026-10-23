@@ -91,7 +91,7 @@ button:disabled{opacity:0.35;cursor:not-allowed;}
 .del-no{border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);}
 .del-no:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
 
-/* ── Tag list (resources, deposits, bases, floors) ── */
+/* ── Tag list (resources, deposits, bases, floors, asteroid fields) ── */
 .tag-list{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;padding:6px 8px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;}
 .tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:2px;background:var(--sc-bg2);border:1px solid var(--sc-border2);font-family:var(--sc-mono);font-size:11px;color:var(--sc-text);}
 .tag-x{cursor:pointer;color:var(--sc-text3);font-size:13px;line-height:1;padding:0 1px;}
@@ -100,6 +100,45 @@ button:disabled{opacity:0.35;cursor:not-allowed;}
 .tag-add-row input{flex:1;}
 .tag-add-btn{font-family:var(--sc-mono);font-size:10px;padding:4px 10px;border:1px solid var(--sc-border2);background:transparent;color:var(--sc-text2);border-radius:2px;cursor:pointer;white-space:nowrap;text-transform:uppercase;}
 .tag-add-btn:hover{border-color:var(--sc-accent2);color:var(--sc-accent);}
+
+/* ── Reorderable row list (resources, deposits) ── */
+.tag-rows{display:flex;flex-direction:column;gap:3px;min-height:28px;padding:6px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;}
+.tag-row{display:flex;align-items:center;gap:8px;padding:5px 8px;background:var(--sc-bg2);border:1px solid var(--sc-border2);border-radius:2px;font-family:var(--sc-mono);font-size:11px;color:var(--sc-text);cursor:grab;user-select:none;transition:border-color .1s,opacity .1s;}
+.tag-row:hover{border-color:var(--sc-accent2);}
+.tag-row:active{cursor:grabbing;}
+.tag-row.dragging{opacity:.35;}
+.tag-row.drop-before{box-shadow:inset 0 2px 0 var(--sc-accent);}
+.tag-row.drop-after{box-shadow:inset 0 -2px 0 var(--sc-accent);}
+.drag-handle{color:var(--sc-text3);font-size:13px;line-height:1;}
+.tag-row:hover .drag-handle{color:var(--sc-accent);}
+.row-num{color:var(--sc-text3);min-width:16px;text-align:right;}
+.row-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tag-row .tag-x{font-size:15px;padding:0 3px;cursor:pointer;}
+.tag-empty{color:var(--sc-text3);font-family:var(--sc-mono);font-size:11px;padding:2px 4px;}
+
+/* ── Dark side tick box (planet resources) ── */
+.dark-chk{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--sc-text3);letter-spacing:.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;user-select:none;padding:1px 6px;border:1px solid transparent;border-radius:2px;flex-shrink:0;}
+.dark-chk:hover{color:var(--sc-text2);border-color:var(--sc-border2);}
+.dark-chk input{margin:0;cursor:pointer;accent-color:#8f9fe8;}
+.dark-chk img{width:12px;height:12px;opacity:.35;}
+.dark-chk.on{color:#b9c6ff;border-color:rgba(143,159,232,.45);background:rgba(143,159,232,.10);}
+.dark-chk.on img{opacity:1;}
+
+/* ── Rule source rows (name + editable value) ── */
+.src-val{width:110px;flex:0 0 110px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:2px;color:var(--sc-gold);font-family:var(--sc-mono);font-size:11px;padding:3px 7px;outline:none;cursor:text;}
+.src-val:focus{border-color:var(--sc-accent2);}
+.src-val::placeholder{color:var(--sc-text3);}
+.tag-row.flash{border-color:var(--sc-gold);}
+.src-add-row{display:grid;grid-template-columns:1fr 130px auto;gap:6px;align-items:center;margin-top:4px;}
+.src-col-head{display:grid;grid-template-columns:1fr 130px auto;gap:6px;font-family:var(--sc-mono);font-size:10px;color:var(--sc-text3);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+/* ── Type-ahead suggestions ── */
+.sc-suggest{position:fixed;z-index:9999;display:none;max-height:240px;overflow-y:auto;background:var(--sc-bg2);border:1px solid var(--sc-accent2);border-radius:3px;box-shadow:0 8px 24px rgba(0,0,0,.55);font-family:var(--sc-mono);font-size:11px;}
+.sc-suggest.open{display:block;}
+.sug-item{padding:5px 10px;color:var(--sc-text2);cursor:pointer;white-space:nowrap;}
+.sug-item b{color:var(--sc-accent);font-weight:700;}
+.sug-item.active,.sug-item:hover{background:var(--sc-glow);color:var(--sc-text);}
+.sug-hint{position:sticky;bottom:0;padding:4px 10px;background:var(--sc-bg2);color:var(--sc-text3);font-size:10px;border-top:1px solid var(--sc-border);}
 
 /* ── FTL list ── */
 .ftl-list{display:flex;flex-direction:column;gap:4px;padding:6px 8px;background:var(--sc-bg3);border:1px solid var(--sc-border2);border-radius:3px;min-height:28px;}
@@ -168,6 +207,7 @@ button:disabled{opacity:0.35;cursor:not-allowed;}
           <button class="sc-tab" data-t="system">Systems</button>
           <button class="sc-tab" data-t="planet">Planets</button>
           <button class="sc-tab" data-t="station">Space Stations</button>
+          <button class="sc-tab" data-t="asteroid">Asteroid Belts</button>
           <button class="sc-tab" data-t="rule">Resources</button>
         </div>
       </div>
@@ -203,7 +243,7 @@ let loadedFileName = 'SpaceCraft_Atlas.json';
 let sessionChanges = [];
 let mode = 'sector';
 
-const TYPE_LABELS = {sector:'SECTOR',system:'SYSTEM',planet:'PLANET',station:'STATION',rule:'RULE'};
+const TYPE_LABELS = {sector:'SECTOR',system:'SYSTEM',planet:'PLANET',station:'STATION',asteroid:'ASTEROID',rule:'RULE'};
 
 // ─── File loading ─────────────────────────────────────────────────────────────
 const dropZone = document.getElementById('drop-zone');
@@ -274,6 +314,7 @@ function renderForm() {
   if (mode === 'system')  area.innerHTML = buildSystemForm();
   if (mode === 'planet')  area.innerHTML = buildPlanetForm();
   if (mode === 'station') area.innerHTML = buildStationForm();
+  if (mode === 'asteroid') area.innerHTML = buildAsteroidForm();
   if (mode === 'rule')    area.innerHTML = buildRuleForm();
   bindFormEvents();
 }
@@ -299,17 +340,244 @@ function tagsHtml(id, items){
 // ─── Tag state ────────────────────────────────────────────────────────────────
 // Each tag list is stored by a string key; rebuilt on form render
 const tagState = {};
-function initTags(id, arr){ tagState[id] = [...(arr||[])]; renderTags(id); }
+// Which suggestion pool each tag field draws from
+const TAG_KIND = {
+  resources:'resources', deposits:'deposits', bases:'bases',
+  'ast-resources':'resources', 'ast-deposits':'deposits', 'ast-bases':'bases',
+  floors:'floors'
+};
+// Fields shown as a one-per-row list that can be dragged to reorder.
+// The order is saved as the order of the array in the JSON.
+const LIST_TAGS = new Set(['resources','deposits','ast-resources','ast-deposits']);
+
+// Fields whose rows get a "Dark side" tick box (planet resources only).
+// tagDark[id] is a list of true/false values, one per row, kept in step with tagState[id].
+// In the JSON each resource entry carries its own flag:
+//   normal resource    → "Ice"
+//   dark-side resource → { "name": "Ice", "dark_side": true }
+const DARK_TAGS = new Set(['resources']);
+const tagDark = {};
+// Helpers for resource entries that may be a plain string or a {name, dark_side} object
+function resName(r){ return (r && typeof r === 'object') ? (r.name ?? '') : r; }
+function resDark(r){ return !!(r && typeof r === 'object' && r.dark_side); }
+// Half-crescent moon icon (SVG, base64-embedded) — same image the Atlas uses
+const MOON_ICON = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTEwLjYgMS4yQTcgNyAwIDEgMCAxNC44IDExIDUuNiA1LjYgMCAwIDEgMTAuNiAxLjJ6IiBmaWxsPSIjYjljNmZmIiBzdHJva2U9IiM2ZDdmZDYiIHN0cm9rZS13aWR0aD0iMC44Ii8+PC9zdmc+Cg==';
+
+function initTags(id, arr){
+  const src = arr || [];
+  tagState[id] = src.map(resName);
+  if(DARK_TAGS.has(id)) tagDark[id] = src.map(resDark);
+  renderTags(id); bindTagInput(id);
+}
 function renderTags(id){
   const el = document.getElementById('tags-'+id); if(!el) return;
+  if(LIST_TAGS.has(id)){ renderTagRows(id, el); return; }
   el.innerHTML = tagState[id].map((t,i)=>`<span class="tag">${esc(t)}<span class="tag-x" onclick="removeTag('${id}',${i})">×</span></span>`).join('');
 }
-function addTag(id){
-  const inp = document.getElementById('tag-inp-'+id); if(!inp) return;
-  const val = inp.value.trim(); if(!val) return;
-  tagState[id].push(val); inp.value=''; renderTags(id);
+function addTag(id, value){
+  const inp = document.getElementById('tag-inp-'+id);
+  const raw = String(value ?? inp?.value ?? '').trim(); if(!raw) return;
+  const kind = TAG_KIND[id];
+  const val = kind ? canonicalValue(kind, raw) : raw;
+  tagState[id].push(val);
+  if(DARK_TAGS.has(id)) tagDark[id].push(false);
+  if(inp){ inp.value=''; inp.focus(); }
+  closeSug();
+  renderTags(id);
 }
-function removeTag(id,i){ tagState[id].splice(i,1); renderTags(id); }
+function removeTag(id,i){
+  tagState[id].splice(i,1);
+  if(DARK_TAGS.has(id)) tagDark[id].splice(i,1);
+  renderTags(id);
+}
+
+// ─── Reorderable rows (drag & drop) ──────────────────────────────────────────
+let rowDrag = { id:null, from:-1 };
+function renderTagRows(id, el){
+  const items = tagState[id];
+  const dark = DARK_TAGS.has(id) ? tagDark[id] : null;
+  el.innerHTML = items.length
+    ? items.map((t,i)=>`<div class="tag-row" draggable="true" data-i="${i}" title="Drag to reorder">
+        <span class="drag-handle">⠿</span><span class="row-num">${i+1}.</span>
+        <span class="row-text">${esc(t)}</span>
+        ${dark ? `<label class="dark-chk${dark[i]?' on':''}" title="Tick if this resource is on the dark side of the planet"><input type="checkbox" data-dark="${i}"${dark[i]?' checked':''}><img src="${MOON_ICON}" alt="">Dark side</label>` : ''}
+        <span class="tag-x" title="Remove" onclick="removeTag('${id}',${i})">×</span>
+      </div>`).join('')
+    : `<div class="tag-empty">None yet — add below</div>`;
+
+  if(dark){
+    el.querySelectorAll('[data-dark]').forEach(cb=>{
+      const row = cb.closest('.tag-row'), lab = cb.closest('.dark-chk');
+      // Stop the row from starting a drag while the tick box is being clicked
+      lab.addEventListener('mousedown', ()=>{ row.draggable=false; });
+      lab.addEventListener('mouseup', ()=>{ row.draggable=true; });
+      lab.addEventListener('mouseleave', ()=>{ row.draggable=true; });
+      cb.addEventListener('change', ()=>{
+        tagDark[id][+cb.dataset.dark] = cb.checked;
+        lab.classList.toggle('on', cb.checked);
+      });
+    });
+  }
+
+  enableRowDrag(el, id, ()=>tagState[id], ()=>renderTags(id), dark ? ()=>tagDark[id] : null);
+}
+
+// Makes the .tag-row children of `el` draggable to reorder the array from getArr().
+// getCompanion (optional) returns a parallel array that is moved in step (e.g. dark-side flags).
+function enableRowDrag(el, id, getArr, rerender, getCompanion){
+  const clearMarks = ()=>el.querySelectorAll('.tag-row').forEach(r=>r.classList.remove('drop-before','drop-after'));
+  const moveTo = (to)=>{
+    const from = rowDrag.from; rowDrag = {id:null, from:-1};
+    if(from<0) return;
+    let ins = to; if(from < ins) ins--;
+    if(ins===from){ rerender(); return; }
+    const arr = getArr();
+    const [item] = arr.splice(from,1);
+    arr.splice(ins,0,item);
+    if(getCompanion){
+      const comp = getCompanion();
+      const [c] = comp.splice(from,1);
+      comp.splice(ins,0,c);
+    }
+    rerender();
+  };
+
+  el.querySelectorAll('.tag-row').forEach(row=>{
+    const i = +row.dataset.i;
+    row.addEventListener('dragstart', e=>{
+      rowDrag = {id, from:i};
+      e.dataTransfer.effectAllowed='move';
+      e.dataTransfer.setData('text/plain', String(i));
+      row.classList.add('dragging');
+    });
+    row.addEventListener('dragend', ()=>{ row.classList.remove('dragging'); clearMarks(); });
+    row.addEventListener('dragover', e=>{
+      if(rowDrag.id!==id) return;
+      e.preventDefault(); e.stopPropagation();
+      const r = row.getBoundingClientRect();
+      const after = e.clientY > r.top + r.height/2;
+      clearMarks(); row.classList.add(after?'drop-after':'drop-before');
+    });
+    row.addEventListener('drop', e=>{
+      if(rowDrag.id!==id) return;
+      e.preventDefault(); e.stopPropagation();
+      const r = row.getBoundingClientRect();
+      moveTo(e.clientY > r.top + r.height/2 ? i+1 : i);
+    });
+  });
+  // Dropping on empty space below the last row moves the item to the end
+  el.ondragover = e=>{ if(rowDrag.id===id) e.preventDefault(); };
+  el.ondrop = e=>{ if(rowDrag.id!==id) return; e.preventDefault(); moveTo(getArr().length); };
+}
+
+// ─── Type-ahead suggestions ──────────────────────────────────────────────────
+// Suggestions come from the loaded JSON: every value already used on planets,
+// asteroid belts and stations, plus the source names in universe_rules.
+function suggestionPool(kind){
+  const set = new Set(); if(!atlas) return [];
+  atlas.sectors.forEach(sc=>sc.systems.forEach(sy=>{
+    const bodies = [...(sy.planets||[]), ...(sy.asteroids||[])];
+    if(kind==='floors') (sy.stations||[]).forEach(st=>(st.floors||[]).forEach(f=>set.add(f)));
+    else bodies.forEach(b=>(b[kind]||[]).forEach(x=>set.add(resName(x))));
+  }));
+  if(kind==='resources' || kind==='deposits'){
+    Object.values(atlas.universe_rules||{}).forEach(src=>Object.keys(src||{}).forEach(k=>{
+      const isDeposit = /\bdeposit$/i.test(k.trim());
+      if((kind==='deposits') === isDeposit) set.add(k);
+    }));
+  }
+  return [...set].filter(x=>x && String(x).trim()).sort((a,b)=>a.localeCompare(b));
+}
+// Use the existing spelling/casing if the typed value matches a known one
+function canonicalValue(kind, val){
+  const l = val.toLowerCase();
+  return suggestionPool(kind).find(x=>x.toLowerCase()===l) || val;
+}
+function rankMatches(pool, q, exclude){
+  const ql = q.toLowerCase();
+  return pool.filter(x=>!exclude(x)).map(x=>{
+    const l = x.toLowerCase();
+    const score = !ql || l.startsWith(ql) ? 0
+      : l.split(/[\s\-()]+/).some(w=>w.startsWith(ql)) ? 1
+      : l.includes(ql) ? 2 : -1;
+    return {x, score};
+  }).filter(o=>o.score>=0).sort((a,b)=>a.score-b.score || a.x.localeCompare(b.x)).map(o=>o.x);
+}
+function highlightMatch(x, q){
+  const i = q ? x.toLowerCase().indexOf(q.toLowerCase()) : -1;
+  if(i<0) return esc(x);
+  return esc(x.slice(0,i)) + '<b>' + esc(x.slice(i,i+q.length)) + '</b>' + esc(x.slice(i+q.length));
+}
+
+const sug = { el:null, input:null, items:[], idx:-1, onPick:null };
+function sugEl(){
+  if(!sug.el){
+    sug.el = document.createElement('div');
+    sug.el.className = 'sc-suggest';
+    document.body.appendChild(sug.el);
+    sug.el.addEventListener('mousedown', e=>{
+      e.preventDefault(); // keep focus in the input
+      const it = e.target.closest('.sug-item'); if(it) pickSug(+it.dataset.i);
+    });
+    window.addEventListener('resize', closeSug);
+    window.addEventListener('scroll', e=>{ if(!sug.el.contains(e.target)) closeSug(); }, true);
+  }
+  return sug.el;
+}
+function openSug(input, items, q, onPick){
+  const el = sugEl();
+  sug.input = input; sug.items = items.slice(0,60); sug.idx = -1; sug.onPick = onPick;
+  if(!sug.items.length){ closeSug(); return; }
+  el.innerHTML = sug.items.map((x,i)=>`<div class="sug-item" data-i="${i}">${highlightMatch(x,q)}</div>`).join('')
+    + `<div class="sug-hint">↑↓ choose · Enter add · Esc close</div>`;
+  const r = input.getBoundingClientRect();
+  el.style.left = r.left+'px';
+  el.style.width = Math.max(r.width, 200)+'px';
+  el.classList.add('open');
+  el.scrollTop = 0;
+  const h = el.offsetHeight, below = window.innerHeight - r.bottom;
+  el.style.top = (below < h+8 && r.top > below) ? (r.top-h-2)+'px' : (r.bottom+2)+'px';
+}
+function closeSug(){ if(sug.el) sug.el.classList.remove('open'); sug.input=null; sug.idx=-1; }
+function moveSug(d){
+  const n = sug.items.length; if(!n) return;
+  sug.idx = sug.idx<0 ? (d>0?0:n-1) : (sug.idx+d+n)%n;
+  sug.el.querySelectorAll('.sug-item').forEach((it,i)=>it.classList.toggle('active', i===sug.idx));
+  sug.el.querySelector('.sug-item.active')?.scrollIntoView({block:'nearest'});
+}
+function pickSug(i){ const v = sug.items[i], cb = sug.onPick; closeSug(); if(v!=null && cb) cb(v); }
+
+// cfg: { pool:()=>[], exclude:(x)=>bool, onPick:(value)=>{}, onEnter:()=>{} }
+function attachSuggest(input, cfg){
+  if(!input || input.dataset.sug) return;
+  input.dataset.sug = '1';
+  input.setAttribute('autocomplete','off');
+  const show = ()=>{ const q = input.value.trim(); openSug(input, rankMatches(cfg.pool(), q, cfg.exclude), q, cfg.onPick); };
+  input.addEventListener('input', ()=>{ input.value.trim() ? show() : closeSug(); });
+  input.addEventListener('keydown', e=>{
+    const open = sug.input===input && sug.el?.classList.contains('open');
+    if(e.key==='ArrowDown'){ e.preventDefault(); open ? moveSug(1) : show(); }
+    else if(e.key==='ArrowUp' && open){ e.preventDefault(); moveSug(-1); }
+    else if(e.key==='Enter'){
+      e.preventDefault();
+      if(open && sug.idx>=0) pickSug(sug.idx);
+      else { closeSug(); cfg.onEnter(); }
+    }
+    else if(e.key==='Escape' && open){ e.preventDefault(); closeSug(); }
+  });
+  input.addEventListener('blur', ()=>setTimeout(()=>{ if(sug.input===input) closeSug(); }, 120));
+}
+function bindTagInput(id){
+  const inp = document.getElementById('tag-inp-'+id); if(!inp) return;
+  const kind = TAG_KIND[id];
+  attachSuggest(inp, {
+    pool: ()=> kind ? suggestionPool(kind) : [],
+    // Hide values already in this list (except "Unknown …" placeholders, which repeat)
+    exclude: x => !/^unknown\b/i.test(x) && (tagState[id]||[]).some(t=>t.toLowerCase()===x.toLowerCase()),
+    onPick: v => addTag(id, v),
+    onEnter: () => addTag(id)
+  });
+}
 
 // ─── FTL state ────────────────────────────────────────────────────────────────
 let ftlItems = [];
@@ -446,7 +714,7 @@ function buildSystemForm(){
 <div class="sc-btn-row" style="margin-top:6px;">
   <button class="btn-save" id="btn-sys-save">Save System</button>
   <div class="del-confirm" id="del-confirm-system">
-    <span>Delete this system and all its planets/stations?</span>
+    <span>Delete this system and all its planets/stations/asteroid belts?</span>
     <button class="del-yes" id="del-yes-system">Yes, delete</button>
     <button class="del-no" onclick="hideDelConfirm('system')">Cancel</button>
   </div>
@@ -461,6 +729,16 @@ function bindSystemForm(){
   const delBtn = document.getElementById('btn-sys-del');
 
   initFtl([]);
+  const ftlInp = document.getElementById('ftl-inp');
+  attachSuggest(ftlInp, {
+    pool: ()=> allSystems().filter(s=>s.code).map(s=>`${s.name} (${s.code})`),
+    exclude: x => {
+      const l = x.toLowerCase(), self = v('inp-sys-name').toLowerCase();
+      return (self && l.startsWith(self+' (')) || ftlItems.some(t=>t.toLowerCase()===l);
+    },
+    onPick: val => { ftlItems.push(val); ftlInp.value=''; ftlInp.focus(); renderFtl(); },
+    onEnter: () => addFtl()
+  });
 
   secSel.addEventListener('change', ()=>{
     const secName = secSel.value;
@@ -511,7 +789,7 @@ function bindSystemForm(){
       const sec = c.sectors.find(s=>s.name===secName);
       if(isNew){
         if(sec.systems.find(s=>s.name.toLowerCase()===name.toLowerCase())) throw new Error(`System "${name}" already exists in "${secName}".`);
-        sec.systems.push({name,code,planets:[],stations:[],ftl:ftlItems.slice()});
+        sec.systems.push({name,code,planets:[],stations:[],asteroids:[],ftl:ftlItems.slice()});
       } else {
         const sys = sec.systems.find(s=>s.name===originalName);
         sys.name=name; sys.code=code; sys.ftl=ftlItems.slice();
@@ -613,19 +891,19 @@ function buildPlanetForm(){
   <div class="lbl">Conditions</div>
   <input class="sc-inp" id="inp-planet-cond" placeholder="e.g. Temperate, Toxic Atmosphere…">
 </div>
-<div class="sc-row col3" style="margin-top:4px;">
+<div class="sc-row col2" style="margin-top:4px;align-items:start;">
   <div class="sc-field">
-    <div class="lbl">Resources</div>
+    <div class="lbl">Resources <span style="text-transform:none;letter-spacing:0;">· drag to reorder · tick “Dark side” if on the dark side</span></div>
     <div id="tags-resources-wrap"></div>
   </div>
   <div class="sc-field">
-    <div class="lbl">Deposits</div>
+    <div class="lbl">Deposits <span style="text-transform:none;letter-spacing:0;">· drag to reorder</span></div>
     <div id="tags-deposits-wrap"></div>
   </div>
-  <div class="sc-field">
-    <div class="lbl">Bases</div>
-    <div id="tags-bases-wrap"></div>
-  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Bases</div>
+  <div id="tags-bases-wrap"></div>
 </div>
 <div class="sc-btn-row" style="margin-top:6px;">
   <button class="btn-save" id="btn-planet-save">Save Planet</button>
@@ -714,11 +992,15 @@ function bindPlanetForm(){
     if(!name){ showMsg('Planet name is required.','err'); return; }
     const isNew = sel('sel-planet')==='__new__';
     const originalName = isNew ? null : sel('sel-planet');
+    // Each ticked row is saved as {name, dark_side:true}; the rest stay plain strings
+    const resources = tagState['resources'].map((r,i)=>
+      tagDark['resources'][i] ? { name: r, dark_side: true } : r);
+    const darkCount = resources.filter(resDark).length;
     const obj = {
       name,
       type: v('inp-planet-type')||'Unknown',
       conditions: v('inp-planet-cond')||'Unknown',
-      resources: tagState['resources'].slice(),
+      resources,
       deposits: tagState['deposits'].slice(),
       bases: tagState['bases'].slice()
     };
@@ -731,7 +1013,8 @@ function bindPlanetForm(){
       if(isNew&&idx>=0) throw new Error(`Planet "${name}" already exists in "${sysName}".`);
       if(idx>=0) sys.planets[idx]=obj;
       else sys.planets.push(obj);
-      return{atlas:c,summary:`Planet "${name}" ${isNew?'added to':'updated in'} "${sysName}"`,type:'planet'};
+      const darkNote = darkCount ? ` (${darkCount} dark-side resource${darkCount===1?'':'s'})` : '';
+      return{atlas:c,summary:`Planet "${name}" ${isNew?'added to':'updated in'} "${sysName}"${darkNote}`,type:'planet'};
     });
   });
 
@@ -751,9 +1034,10 @@ function bindPlanetForm(){
 
 // tag widget builder (just the HTML — state managed separately via tagState)
 function buildTagsWidget(id, items){
-  return `<div class="tag-list" id="tags-${id}"></div>
+  const cls = LIST_TAGS.has(id) ? 'tag-rows' : 'tag-list';
+  return `<div class="${cls}" id="tags-${id}"></div>
 <div class="tag-add-row">
-  <input class="sc-inp" id="tag-inp-${id}" placeholder="Add…" style="padding:4px 8px;font-size:11px;" onkeydown="if(event.key==='Enter')addTag('${id}')">
+  <input class="sc-inp" id="tag-inp-${id}" placeholder="Start typing for suggestions…" style="padding:4px 8px;font-size:11px;">
   <button class="tag-add-btn" onclick="addTag('${id}')">+ Add</button>
 </div>`;
 }
@@ -906,9 +1190,174 @@ function bindStationForm(){
   });
 }
 
+// ─── ASTEROID BELT FORM ───────────────────────────────────────────────────────
+// Asteroid belt fields: name, resources, deposits and bases.
+// Stored per system under "asteroids".
+// Belts are selected by index so blank placeholder entries can still be edited.
+function asteroidLabel(a,i){ return (a && a.name) ? a.name : `(Unnamed belt ${i+1})`; }
+
+function buildAsteroidForm(){
+  const secOpts = allSectors().map(n=>opt(n,n)).join('');
+  return `
+<div class="sc-row col3">
+  <div class="sc-field">
+    <div class="lbl">Sector</div>
+    <select class="sc-sel" id="sel-ast-sector"><option value="">— Select sector —</option>${secOpts}</select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">System</div>
+    <select class="sc-sel" id="sel-ast-sys" disabled><option value="">— Select system —</option></select>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Asteroid Belt <span id="ast-mode-badge" class="mode-badge new-mode" style="margin-left:6px;">NEW</span></div>
+    <select class="sc-sel" id="sel-asteroid" disabled><option value="__new__">— New asteroid belt —</option></select>
+  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Asteroid Belt Name</div>
+  <input class="sc-inp" id="inp-ast-name" placeholder="Asteroid belt name…">
+</div>
+<div class="sc-row col2" style="margin-top:4px;align-items:start;">
+  <div class="sc-field">
+    <div class="lbl">Resources <span style="text-transform:none;letter-spacing:0;">· drag to reorder</span></div>
+    <div id="tags-ast-resources-wrap"></div>
+  </div>
+  <div class="sc-field">
+    <div class="lbl">Deposits <span style="text-transform:none;letter-spacing:0;">· drag to reorder</span></div>
+    <div id="tags-ast-deposits-wrap"></div>
+  </div>
+</div>
+<div class="sc-field" style="margin-top:4px;">
+  <div class="lbl">Bases</div>
+  <div id="tags-ast-bases-wrap"></div>
+</div>
+<div class="sc-btn-row" style="margin-top:6px;">
+  <button class="btn-save" id="btn-ast-save">Save Asteroid Belt</button>
+  <div class="del-confirm" id="del-confirm-asteroid">
+    <span>Delete this asteroid belt permanently?</span>
+    <button class="del-yes" id="del-yes-asteroid">Yes, delete</button>
+    <button class="del-no" onclick="hideDelConfirm('asteroid')">Cancel</button>
+  </div>
+  <button class="btn-del" id="btn-ast-del" style="display:none;">Delete Asteroid Belt</button>
+</div>`;
+}
+
+function bindAsteroidForm(){
+  document.getElementById('tags-ast-resources-wrap').innerHTML = buildTagsWidget('ast-resources',[]);
+  document.getElementById('tags-ast-deposits-wrap').innerHTML = buildTagsWidget('ast-deposits',[]);
+  document.getElementById('tags-ast-bases-wrap').innerHTML = buildTagsWidget('ast-bases',[]);
+  initTags('ast-resources',[]); initTags('ast-deposits',[]); initTags('ast-bases',[]);
+
+  const secSel = document.getElementById('sel-ast-sector');
+  const sysSel = document.getElementById('sel-ast-sys');
+  const astSel = document.getElementById('sel-asteroid');
+  const badge  = document.getElementById('ast-mode-badge');
+  const delBtn = document.getElementById('btn-ast-del');
+
+  function currentSystem(){
+    const sec = atlas.sectors.find(s=>s.name===secSel.value);
+    return sec?.systems.find(s=>s.name===sysSel.value);
+  }
+
+  // Sector → populate systems
+  secSel.addEventListener('change', ()=>{
+    const secName = secSel.value;
+    sysSel.innerHTML = '<option value="">— Select system —</option>';
+    sysSel.disabled = !secName;
+    astSel.innerHTML = '<option value="__new__">— New asteroid belt —</option>';
+    astSel.disabled = true;
+    if(secName){
+      const sec = atlas.sectors.find(s=>s.name===secName);
+      if(sec) sec.systems.forEach(sy=>sysSel.innerHTML+=opt(sy.name,sy.name));
+    }
+    clearAsteroidFields();
+  });
+
+  // System → populate asteroid belts
+  sysSel.addEventListener('change', ()=>{
+    const sysName = sysSel.value;
+    astSel.innerHTML = '<option value="__new__">— New asteroid belt —</option>';
+    astSel.disabled = !sysName;
+    if(sysName){
+      const sys = currentSystem();
+      (sys?.asteroids||[]).forEach((a,i)=>astSel.innerHTML+=opt(String(i),asteroidLabel(a,i)));
+    }
+    clearAsteroidFields();
+  });
+
+  astSel.addEventListener('change', loadAsteroid);
+
+  function clearAsteroidFields(){
+    document.getElementById('inp-ast-name').value='';
+    initTags('ast-resources',[]); initTags('ast-deposits',[]); initTags('ast-bases',[]);
+    badge.textContent='NEW'; badge.className='mode-badge new-mode';
+    delBtn.style.display='none'; hideDelConfirm('asteroid');
+  }
+
+  function loadAsteroid(){
+    const idxVal = astSel.value;
+    if(idxVal==='__new__'){ clearAsteroidFields(); return; }
+    const ast = currentSystem()?.asteroids?.[parseInt(idxVal)];
+    if(!ast) return;
+    document.getElementById('inp-ast-name').value=ast.name||'';
+    initTags('ast-resources',ast.resources||[]);
+    initTags('ast-deposits',ast.deposits||[]);
+    initTags('ast-bases',ast.bases||[]);
+    badge.textContent='EDITING'; badge.className='mode-badge';
+    delBtn.style.display='';
+  }
+
+  document.getElementById('btn-ast-save').addEventListener('click',()=>{
+    const secName = sel('sel-ast-sector');
+    const sysName = sel('sel-ast-sys');
+    if(!secName){ showMsg('Select a sector first.','err'); return; }
+    if(!sysName){ showMsg('Select a system first.','err'); return; }
+    const name = v('inp-ast-name');
+    if(!name){ showMsg('Asteroid belt name is required.','err'); return; }
+    const isNew = sel('sel-asteroid')==='__new__';
+    const editIdx = isNew ? -1 : parseInt(sel('sel-asteroid'));
+    const obj = {
+      name,
+      resources: tagState['ast-resources'].slice(),
+      deposits: tagState['ast-deposits'].slice(),
+      bases: tagState['ast-bases'].slice()
+    };
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      if(!sys) throw new Error(`System "${sysName}" not found.`);
+      if(!Array.isArray(sys.asteroids)) sys.asteroids=[];
+      const dupIdx=sys.asteroids.findIndex(x=>x.name && x.name.toLowerCase()===name.toLowerCase());
+      if(dupIdx>=0 && dupIdx!==editIdx) throw new Error(`Asteroid belt "${name}" already exists in "${sysName}".`);
+      if(editIdx>=0 && sys.asteroids[editIdx]) sys.asteroids[editIdx]=obj;
+      else {
+        // Fill a blank placeholder belt first, if one exists
+        const blankIdx=sys.asteroids.findIndex(x=>!x.name);
+        if(blankIdx>=0) sys.asteroids[blankIdx]=obj; else sys.asteroids.push(obj);
+      }
+      return{atlas:c,summary:`Asteroid belt "${name}" ${isNew?'added to':'updated in'} "${sysName}"`,type:'asteroid'};
+    });
+  });
+
+  document.getElementById('btn-ast-del').addEventListener('click',()=>showDelConfirm('asteroid'));
+  document.getElementById('del-yes-asteroid').addEventListener('click',()=>{
+    const secName=sel('sel-ast-sector'), sysName=sel('sel-ast-sys'), idx=parseInt(sel('sel-asteroid'));
+    commitChange(a=>{
+      const c=clone(a);
+      const sec=c.sectors.find(s=>s.name===secName);
+      const sys=sec?.systems.find(s=>s.name===sysName);
+      const label=asteroidLabel(sys.asteroids[idx],idx);
+      sys.asteroids.splice(idx,1);
+      return{atlas:c,summary:`Asteroid belt "${label}" deleted from "${sysName}"`,type:'asteroid'};
+    });
+    hideDelConfirm('asteroid');
+  });
+}
+
 // ─── RULE FORM ────────────────────────────────────────────────────────────────
 function buildRuleForm(){
-  const rules = Object.keys(atlas.universe_rules||{});
+  const rules = Object.keys(atlas.universe_rules||{}).sort((a,b)=>a.localeCompare(b));
   const ruleOpts = `<option value="__new__">— New rule —</option>` + rules.map(r=>opt(r,r)).join('');
   return `
 <div class="sc-field">
@@ -920,8 +1369,14 @@ function buildRuleForm(){
   <input class="sc-inp" id="inp-rule-name" placeholder="e.g. random">
 </div>
 <div class="sc-field" style="margin-top:4px;">
-  <div class="lbl">Sources &nbsp;<span style="color:var(--sc-text3);font-size:10px;">one per line — format: key value</span></div>
-  <textarea class="sc-ta" id="inp-rule-sources" rows="8" placeholder="box 1.2&#10;iron 0.8&#10;titanium 0.4"></textarea>
+  <div class="lbl">Sources <span style="text-transform:none;letter-spacing:0;">· drag to reorder · edit a value in place</span></div>
+  <div class="tag-rows" id="rule-src-rows"></div>
+  <div class="src-col-head"><span>Source name</span><span>Value</span><span></span></div>
+  <div class="src-add-row">
+    <input class="sc-inp" id="inp-src-name" placeholder="Start typing for suggestions…" style="padding:4px 8px;font-size:11px;">
+    <input class="sc-inp" id="inp-src-val" placeholder="e.g. 2.4 or 60.0/h" style="padding:4px 8px;font-size:11px;">
+    <button class="tag-add-btn" id="btn-src-add">+ Add</button>
+  </div>
 </div>
 <div class="sc-btn-row" style="margin-top:6px;">
   <button class="btn-save" id="btn-rule-save">Save Rule</button>
@@ -937,26 +1392,84 @@ function buildRuleForm(){
 function bindRuleForm(){
   const ruleSel = document.getElementById('sel-rule');
   const nameEl = document.getElementById('inp-rule-name');
-  const srcEl = document.getElementById('inp-rule-sources');
   const badge = document.getElementById('rule-mode-badge');
   const delBtn = document.getElementById('btn-rule-del');
+  const rowsEl = document.getElementById('rule-src-rows');
+  const srcName = document.getElementById('inp-src-name');
+  const srcVal = document.getElementById('inp-src-val');
 
-  function ruleToText(obj){
-    return Object.entries(obj).map(([k,v])=>`${k} ${v}`).join('\n');
+  // Sources as an ordered list of {name, value}; saved back in this order
+  let sources = [];
+
+  function renderSources(flashIdx){
+    rowsEl.innerHTML = sources.length
+      ? sources.map((s,i)=>`<div class="tag-row${i===flashIdx?' flash':''}" draggable="true" data-i="${i}" title="Drag to reorder">
+          <span class="drag-handle">⠿</span><span class="row-num">${i+1}.</span>
+          <span class="row-text">${esc(s.name)}</span>
+          <input class="src-val" data-i="${i}" value="${esc(s.value)}" placeholder="value" draggable="false">
+          <span class="tag-x" title="Remove" data-x="${i}">×</span>
+        </div>`).join('')
+      : `<div class="tag-empty">No sources yet — add below</div>`;
+    rowsEl.querySelectorAll('.src-val').forEach(inp=>{
+      const row = inp.closest('.tag-row');
+      inp.addEventListener('mousedown', ()=>{ row.draggable=false; });
+      inp.addEventListener('blur', ()=>{ row.draggable=true; });
+      inp.addEventListener('input', ()=>{ sources[+inp.dataset.i].value = inp.value.trim(); });
+      inp.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); inp.blur(); } });
+    });
+    rowsEl.querySelectorAll('[data-x]').forEach(x=>x.addEventListener('click', ()=>{
+      sources.splice(+x.dataset.x,1); renderSources();
+    }));
+    enableRowDrag(rowsEl, 'rule-sources', ()=>sources, ()=>renderSources());
+    if(flashIdx!=null) setTimeout(()=>rowsEl.querySelector('.tag-row.flash')?.classList.remove('flash'), 700);
   }
+
+  // Every source name already in the Atlas: rule sources plus planet/belt resources and deposits
+  function sourcePool(){
+    const set = new Set();
+    Object.values(atlas.universe_rules||{}).forEach(src=>Object.keys(src||{}).forEach(k=>set.add(k)));
+    suggestionPool('resources').forEach(x=>set.add(x));
+    suggestionPool('deposits').forEach(x=>set.add(x));
+    return [...set].filter(x=>x && x.trim()).sort((a,b)=>a.localeCompare(b));
+  }
+
+  function addSource(){
+    let name = srcName.value.trim();
+    if(!name){ srcName.focus(); return; }
+    name = sourcePool().find(x=>x.toLowerCase()===name.toLowerCase()) || name;
+    const value = srcVal.value.trim();
+    const existing = sources.findIndex(s=>s.name.toLowerCase()===name.toLowerCase());
+    if(existing>=0){ sources[existing].value = value; }   // same source → just update its value
+    else sources.push({name, value});
+    srcName.value=''; srcVal.value='';
+    closeSug();
+    renderSources(existing>=0 ? existing : sources.length-1);
+    srcName.focus();
+  }
+
+  attachSuggest(srcName, {
+    pool: sourcePool,
+    exclude: x => sources.some(s=>s.name.toLowerCase()===x.toLowerCase()),
+    onPick: v => { srcName.value = v; srcVal.focus(); },
+    onEnter: () => { if(srcName.value.trim()) srcVal.focus(); }
+  });
+  srcVal.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); addSource(); } });
+  document.getElementById('btn-src-add').addEventListener('click', addSource);
 
   function load(){
     const r=ruleSel.value;
+    srcName.value=''; srcVal.value='';
     if(r==='__new__'){
-      nameEl.value=''; srcEl.value='';
+      nameEl.value=''; sources=[];
       badge.textContent='NEW'; badge.className='mode-badge new-mode';
       delBtn.style.display='none'; hideDelConfirm('rule');
     } else {
       nameEl.value=r;
-      srcEl.value=ruleToText(atlas.universe_rules[r]||{});
+      sources=Object.entries(atlas.universe_rules[r]||{}).map(([k,v])=>({name:k, value:String(v??'')}));
       badge.textContent='EDITING'; badge.className='mode-badge';
       delBtn.style.display='';
     }
+    renderSources();
   }
   ruleSel.addEventListener('change',load);
   load();
@@ -967,23 +1480,25 @@ function bindRuleForm(){
     const isNew=sel('sel-rule')==='__new__';
     const originalName=isNew?null:sel('sel-rule');
 
-    // Parse sources textarea
-    const sources={};
-    srcEl.value.split('\n').forEach(line=>{
-      const t=line.trim(); if(!t) return;
-      const sp=t.lastIndexOf(' ');
-      if(sp===-1){ sources[t]=''; return; }
-      sources[t.slice(0,sp).trimEnd()]=t.slice(sp+1).trim();
-    });
+    // Pick up a source typed into the add boxes but not yet added
+    if(srcName.value.trim()) addSource();
+
+    // Build the sources object in the listed order
+    const srcObj={};
+    sources.forEach(s=>{ srcObj[s.name]=s.value; });
 
     commitChange(a=>{
       const c=clone(a);
       if(isNew&&c.universe_rules[name]) throw new Error(`Rule "${name}" already exists.`);
+      if(!isNew&&originalName!==name&&c.universe_rules[name]) throw new Error(`Rule "${name}" already exists.`);
       if(!isNew&&originalName!==name){
-        delete c.universe_rules[originalName];
+        // Rename in place so the rule keeps its position in the file
+        const renamed={};
+        Object.entries(c.universe_rules).forEach(([k,v])=>{ renamed[k===originalName?name:k]=v; });
+        c.universe_rules=renamed;
       }
-      c.universe_rules[name]=sources;
-      return{atlas:c,summary:`Rule "${name}" ${isNew?'added':'updated'} (${Object.keys(sources).length} source(s))`,type:'rule'};
+      c.universe_rules[name]=srcObj;
+      return{atlas:c,summary:`Rule "${name}" ${isNew?'added':'updated'} (${sources.length} source(s))`,type:'rule'};
     });
   });
 
@@ -1005,6 +1520,7 @@ function bindFormEvents(){
   if(mode==='system')  bindSystemForm();
   if(mode==='planet')  bindPlanetForm();
   if(mode==='station') bindStationForm();
+  if(mode==='asteroid') bindAsteroidForm();
   if(mode==='rule')    bindRuleForm();
 }
 
