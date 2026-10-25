@@ -56,6 +56,8 @@ At the bottom of the sidebar is the **Resource Index**, listing every resource t
 - Which source nodes produce it and their yield rates
 - A **Find Planets** button that filters the entire sidebar to show only systems containing planets where that resource can be harvested
 
+When **I am here** is set (see *Setting Your Location* below), the filtered systems are sorted by how close they are to you, nearest first, so the first result is the shortest trip to that resource. Each result shows how many FTL jumps away it is. If no location is set, the results are listed alphabetically.
+
 Click **Clear filter** or click the resource again to remove the filter.
 
 ---
@@ -65,6 +67,23 @@ Click **Clear filter** or click the resource again to remove the filter.
 On any planet card, click the **⌂** icon to mark it as your base. You'll be asked for a base name — use the name you gave the base in game, or leave it blank to use the planet name. Marked planets are highlighted across the Atlas — in system detail views and in the sidebar badges — so you can always find your way home. Hover the orange **⌂** badge in the sidebar to see each base's name and the planet it's on.
 
 Your bases are saved in this browser. To rename or remove a base, click its **⌂** icon again and choose **Save** or **Remove base**.
+
+---
+
+## Setting Your Location
+
+Next to the system name in the system detail view is a **pin** icon. Click it to tell the Atlas **I am here**. The pin turns green, a **◉ You are here** label appears beside the system code, and the system gets a green **◉ Here** badge in the sidebar so you can always see where you are.
+
+Only one location can be set at a time — marking a different system replaces the old one. Click the pin again on your current system to clear it.
+
+Your location is what the Atlas uses to find the **nearest resources**. While a resource filter is active, systems are ordered by the fewest FTL jumps from your location, using the FTL connections listed for each system:
+
+- Each result shows its distance, e.g. **⇢ 2 jumps**.
+- Systems the same number of jumps away are listed alphabetically.
+- FTL links work in both directions, and unnamed systems along the way count as stepping stones on a route.
+- Systems with no known FTL route to you are listed last, marked **No FTL route**.
+
+Like your bases, your location is saved in this browser only and is never written to the map file.
 
 ---
 

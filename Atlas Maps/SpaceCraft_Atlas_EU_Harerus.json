@@ -123,6 +123,16 @@
     },
     "Cinnabar": {
       "Cinnabar": "1.0"
+    },
+    "Spacekorn Seed": {
+      "Spacekorn Root": "43.4"
+    },
+    "Water": {
+      "Water Geyser": "100L"
+    },
+    "Brine Water": {
+      "Brine Pool": "400.0/h",
+      "Brine Water Geyser": "100L"
     }
   },
   "sectors": [
@@ -1312,27 +1322,61 @@
           "planets": [
             {
               "name": "Phura I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Frozen",
+              "resources": [
+                "Cooperite",
+                "Sandstone Mound",
+                "Tenorite",
+                "Azurite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Unknown Resource",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Phura II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Ferrous Outcrop",
+                "Siderite",
+                "Chalcedony Shell",
+                "Coal Clump"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Phura III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
-              "bases": []
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Ferrous Outcrop",
+                "Coal Clump",
+                "Sulphuric Stone",
+                "Ferric Stone",
+                "Pyrite Formation",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
+              "bases": [
+                "The Company's Warehouse"
+              ]
             },
             {
               "name": "Phura IV",
@@ -1342,7 +1386,10 @@
                 "Brassy Outcrop",
                 "Cupric Stone",
                 "Sandstone Mound",
-                "Elmerite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
                 "Chalcedony Shell",
                 "Hollow Outcrop",
                 "Coal Clump",
@@ -1671,17 +1718,41 @@
           "planets": [
             {
               "name": "Xileda I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Ferrous Outcrop",
+                "Siderite",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                "Ferric Stone",
+                "Sulphuric Stone",
+                "Pyrite Formation"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Xileda II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Coal Clump",
+                "Sandstone Mound",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Chalcedony Shell",
+                "Hollow Outcrop",
+                "Brassy Outcrop",
+                "Cupric Stone",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
               "deposits": [],
               "bases": []
             },
@@ -1712,18 +1783,45 @@
             },
             {
               "name": "Xileda IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Cupric Stone",
+                "Ferrous Outcrop",
+                "Brassy Outcrop",
+                "Ferric Stone",
+                "Malachite",
+                "Coal Clump",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Azurite",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Tenorite"
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Xileda V",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Brassy Outcrop",
+                "Sandstone Mound",
+                "Cupric Stone",
+                "Chalcedony Shell",
+                "Coal Clump",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Sandstone Deposit"
+              ],
               "bases": []
             }
           ],
@@ -1778,10 +1876,26 @@
             },
             {
               "name": "Xephites II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Hot",
+              "resources": [
+                "Brassy Outcrop",
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                "Brine Water Geyser",
+                "Wolframite",
+                "Cupric Outcrop",
+                "Ferrous Outcrop",
+                "Coal Clump",
+                "Graphite"
+              ],
+              "deposits": [
+                "Coal Deposit",
+                "Iron Deposit"
+              ],
               "bases": []
             },
             {
@@ -2867,10 +2981,18 @@
           "planets": [
             {
               "name": "Silleia I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sulphuric Stone",
+                "Sandstone Mound",
+                "Chalcocite",
+                "Chalcopyrite",
+                "Chalcedony Shell"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
@@ -3521,34 +3643,71 @@
           "planets": [
             {
               "name": "Rulla I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Chalcedony Shell",
+                "Hollow Outcrop"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Rulla II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "White Feldspar Mound",
+                "Sandstone Mound",
+                "Brassy Outcrop",
+                "Chalcedony Shell",
+                "Clay Shell",
+                "Aquamarine"
+              ],
+              "deposits": [
+                "Aluminum Deposit",
+                "Copper Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Rulla III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Chalcedony Shell",
+                "Hollow Outcrop"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Rulla IV",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Elmerite",
+                "Chalcedony Shell",
+                "Hollow Outcrop"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             }
           ],
@@ -3689,25 +3848,57 @@
           "planets": [
             {
               "name": "Vura I",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
-              "deposits": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Sulphuric Stone",
+                "Chalcopyrite",
+                "Cupric Stone",
+                "Sandstone Mound",
+                "Chalcedony Shell"
+              ],
+              "deposits": [
+                "Sandstone Deposit"
+              ],
               "bases": []
             },
             {
               "name": "Vura II",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Chalcocite",
+                "Chalcopyrite",
+                {
+                  "name": "Elmerite",
+                  "dark_side": true
+                },
+                "Hollow Outcrop",
+                {
+                  "name": "Sulphuric Stone",
+                  "dark_side": true
+                },
+                {
+                  "name": "Unknown Resource",
+                  "dark_side": true
+                }
+              ],
               "deposits": [],
               "bases": []
             },
             {
               "name": "Vura III",
-              "type": "Unknown",
-              "conditions": "Unknown",
-              "resources": [],
+              "type": "Terrestrial",
+              "conditions": "Temperate",
+              "resources": [
+                "Sandstone Mound",
+                "Chalcocite",
+                "Chalcedony Shell",
+                "Chalcopyrite",
+                "Sulphuric Stone",
+                "Cupric Stone"
+              ],
               "deposits": [],
               "bases": []
             }
